@@ -8,7 +8,7 @@ const links = [
   { href: '/forgot-password', label: '비밀번호 찾기' },
 ];
 
-export default function ForgotPassword() {
+export default function ForgotID() {
   const pathname = usePathname();
 
   return (
