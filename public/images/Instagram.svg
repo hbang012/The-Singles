@@ -1,0 +1,18 @@
+<svg id="Group_2009" data-name="Group 2009" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24.352" height="24.352" viewBox="0 0 24.352 24.352">
+  <defs>
+    <clipPath id="clip-path">
+      <path id="Path_1046" data-name="Path 1046" d="M0-4.227H24.352V-28.579H0Z" transform="translate(0 28.579)" fill="none"/>
+    </clipPath>
+  </defs>
+  <g id="Group_2008" data-name="Group 2008" transform="translate(0 0)" clip-path="url(#clip-path)">
+    <g id="Group_2005" data-name="Group 2005" transform="translate(17.196 4.348)">
+      <path id="Path_1043" data-name="Path 1043" d="M-.248,0A1.427,1.427,0,0,0-1.675,1.427,1.428,1.428,0,0,0-.248,2.855,1.428,1.428,0,0,0,1.18,1.427,1.427,1.427,0,0,0-.248,0" transform="translate(1.675)" fill="#fff"/>
+    </g>
+    <g id="Group_2006" data-name="Group 2006" transform="translate(6.279 6.179)">
+      <path id="Path_1044" data-name="Path 1044" d="M-1.041,0a6,6,0,0,0-6,6,6,6,0,0,0,6,6,6,6,0,0,0,6-6,6,6,0,0,0-6-6m0,9.838A3.845,3.845,0,0,1-4.882,6,3.845,3.845,0,0,1-1.041,2.156,3.845,3.845,0,0,1,2.8,6,3.845,3.845,0,0,1-1.041,9.838" transform="translate(7.038)" fill="#fff"/>
+    </g>
+    <g id="Group_2007" data-name="Group 2007" transform="translate(0 0)">
+      <path id="Path_1045" data-name="Path 1045" d="M-2.957-4.227H-12.68a7.323,7.323,0,0,1-7.315-7.314v-9.723a7.323,7.323,0,0,1,7.315-7.314h9.722a7.324,7.324,0,0,1,7.315,7.314v9.723A7.324,7.324,0,0,1-2.957-4.227M-12.68-26.288A5.029,5.029,0,0,0-17.7-21.265v9.723A5.03,5.03,0,0,0-12.68-6.518h9.722a5.03,5.03,0,0,0,5.024-5.024v-9.723a5.029,5.029,0,0,0-5.024-5.023Z" transform="translate(19.995 28.579)" fill="#fff"/>
+    </g>
+  </g>
+</svg>
