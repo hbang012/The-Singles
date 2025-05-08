@@ -14,8 +14,6 @@ function defaultFn() {
   console.log('컨텍스트 함수 실행');
 }
 
-// 컨텍스트 생성시 초기값 명시
-// null로 넣을시 타입스크립트 타입체킹을 해서 에러가 남
 const ThemeContext = createContext({
   defaultTheme: defaultTheme,
   defaultFn: defaultFn,

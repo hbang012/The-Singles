@@ -1,0 +1,53 @@
+import Image from 'next/image';
+import { useState } from 'react';
+import Menu from '@/app/componets/home/Header/Menu';
+
+export default function Search({ onClose }: { onClose: () => void }) {
+  const [isMenu, setMenu] = useState(false);
+
+  return (
+    <main className="fixed top-0 left-0 w-full h-full p-[32px] bg-white flex justify-between z-50 max-md:flex-col max-md:p-[20px] max-md:pb-[900px]">
+      <div className="flex-shrink-0 max-md:ml-[50%] max-md:flex-none  max-sm:ml-[10%]">
+        <button type="button" onClick={() => setMenu(true)}>
+          <Image
+            src="/images/hamburger.svg"
+            alt="탭"
+            width={20}
+            height={20}
+            className="ml-[60px] mt-[30px] max-md:hidden"
+          />
+        </button>
+        <Image
+          src="/images/singles-logo.png"
+          alt="싱글스"
+          width={180}
+          height={55}
+          className="ml-[20px] mt-[20px] max-md:w-[100px] max-md:mt-0 "
+        />
+      </div>
+      {isMenu && <Menu onClose={() => setMenu(false)} />}
+      <div className="bg-white p-4 w-3/4 relative max-md:ml-[20%] max-sm:ml-[5%]  max-sm:w-[100%]">
+        <input
+          type="text"
+          placeholder="검색"
+          className="w-full h-[54px] border-0 p-[15px_60px_15px_30px] bg-[#f3f3f3] rounded-[35px]"
+        />
+        <Image
+          src="/images/magnifying-glass.png"
+          alt="검색"
+          width={30}
+          height={30}
+          className="absolute top-[3%] right-[40px] max-md:top-[28%]"
+        />
+      </div>
+      <div>
+        <button
+          onClick={onClose}
+          className="absolute top-[6.5%] right-[2.5%] max-md:top-[2%]"
+        >
+          <Image src="/images/close.svg" alt="닫기" width={30} height={30} />
+        </button>
+      </div>
+    </main>
+  );
+}

@@ -8,20 +8,16 @@ type User = {
   country: string;
   lang: string;
 };
-// Partial<User> 일부만 사용해도 ㄱㅊ다
-// type User2 = Partial<User>;
 
 export default function Child() {
   const QueryClient = useQueryClient();
 
-  // 리액트 훅 사용시 동적으로 나중에 생성되는/추가되는 데이터에 대한 타입을 제네릭으로 알려줌
   const { isPending, data, isError, error } = useQuery<User[]>({
     queryKey: ['user'],
     queryFn: () => {
       return fetch('http://localhost:9090/user').then((res) => res.json());
     },
   });
-  // console.log(data);
 
   // 추가한 내용 : useMutation
   const { mutate } = useMutation({
@@ -40,10 +36,9 @@ export default function Child() {
   });
 
   function handleAddUser(e: React.FormEvent<HTMLFormElement>) {
-    console.log('제출이벤트실행');
+    // console.log('제출이벤트실행');
     e.preventDefault();
 
-    // e.target의 타입을 알려줌
     const target = e.target as HTMLFormElement;
     const formData = new FormData(target);
     const user = Object.fromEntries(formData.entries());
@@ -90,7 +85,7 @@ export default function Child() {
       </form>
 
       {isPending && <p>로딩중...</p>}
-      {isError && <p>데이터를 가져오는 중 에러가 발생했씁니다</p>}
+      {isError && <p>데이터를 가져오는 중 에러가 발생했습니다</p>}
       {data && data?.length > 0 && (
         <ul className="space-y-[5px] mt-[15px]">
           {data.map((user) => (

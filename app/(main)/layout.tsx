@@ -1,4 +1,4 @@
-import Header from '@/app/componets/home/Header';
+import Header from '@/app/componets/home/Header/Header';
 import Footer from '@/app/componets/home/Footer';
 
 export default function MainLayout({
