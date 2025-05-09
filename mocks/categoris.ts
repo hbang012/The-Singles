@@ -1,0 +1,48 @@
+export const categories = [
+  {
+    id: 'style',
+    name: 'Style',
+    subcategories: ['All', 'Look', 'Shopping', 'Styling', 'Trend'],
+  },
+  {
+    id: 'beauty',
+    name: 'Beauty',
+    subcategories: [
+      'All',
+      'Hair&Body',
+      'Make Up',
+      'Shopping',
+      'Skin Care',
+      'Wellness',
+    ],
+  },
+  {
+    id: 'lifestyle',
+    name: 'Lifestyle',
+    subcategories: [
+      'All',
+      'Trend',
+      'Enjoy',
+      'Shopping',
+      'Relationship',
+      'Business',
+      'Viewpoint',
+      'Culture',
+    ],
+  },
+  {
+    id: 'celeb',
+    name: 'Celeb',
+    subcategories: [],
+  },
+  {
+    id: 'video',
+    name: 'Video',
+    subcategories: ['Celeb', 'Life+Style', 'Brand'],
+  },
+  {
+    id: 'love&sex',
+    name: 'LOVE&SEX',
+    subcategories: [],
+  },
+];
