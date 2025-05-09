@@ -1,6 +1,6 @@
 'use client';
 
-import { useTheme } from '@/app/ui/ThemeProvider';
+import { useTheme } from '@/app/componets/ThemeProvider';
 
 export default function ClientRoute() {
   const { defaultTheme, defaultFn } = useTheme();

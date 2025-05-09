@@ -1,4 +1,4 @@
-import Author from '@/app/ui/post-sequential/Author';
+import Author from '@/app/componets/post-sequential/Author';
 import { Suspense } from 'react';
 
 type Post = {

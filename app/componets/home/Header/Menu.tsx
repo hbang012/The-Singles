@@ -4,13 +4,11 @@ import Image from 'next/image';
 import Search from '@/app/componets/home/Header/Search';
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import Popup from '@/app/componets/common/Popup';
+import SubPopup from '@/app/componets/common/SubPopup';
 
 export default function Menu({ onClose }: { onClose: () => void }) {
   const router = useRouter();
   const [isSearch, setIsSearch] = useState(false);
-  const [input, setInput] = useState('');
-  const [showPopup, setShowPopup] = useState(false);
   const [openMenus, setOpenMenus] = useState<{ [key: string]: boolean }>({
     adProposal: false,
     adInquiry: false,
@@ -18,6 +16,22 @@ export default function Menu({ onClose }: { onClose: () => void }) {
 
   const toggleMenu = (menu: string) => {
     setOpenMenus((prev) => ({ ...prev, [menu]: !prev[menu] }));
+  };
+
+  const [email, setEmail] = useState('');
+  const [popupMessage, setPopupMessage] = useState('');
+  const [showPopup, setShowPopup] = useState(false);
+
+  const emailRegex = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-zA-Z]+$/;
+
+  const handleSubmit = () => {
+    if (!emailRegex.test(email)) {
+      setPopupMessage('이메일 형식을 정확히 입력해 주세요.');
+    } else {
+      setPopupMessage('구독레터 신청이 완료되었습니다.');
+    }
+
+    setShowPopup(true); // 팝업 활성화
   };
 
   return (
@@ -495,25 +509,30 @@ export default function Menu({ onClose }: { onClose: () => void }) {
           <p className="max-sm:text-white max-sm:text-[14px] max-sm:mb-[20px]">
             당신에게 필요한 소식들을 메일로 받아보세요
           </p>
-          <div className="max-sm:flex ">
-            <input
-              type="email"
-              value={input}
-              onChange={(e) => setInput(e.target.value)}
-              placeholder="이메일 주소를 입력해주세요"
-              className="max-sm:bg-[#F4F4F4] max-sm:border-0 max-sm:rounded-[6px] max-sm:mb-[10px] max-sm:w-[100%] max-sm:h-[45px] max-sm:text-[14px] max-sm:mr-[10px] max-sm:[text-indent:15px]"
-            />
-            <button
-              type="button"
-              onClick={() => setShowPopup(true)}
-              className="max-sm:btn max-sm:border-0 max-sm:h-[45px] max-sm:bg-[#333] max-sm:rounded-[6px] max-sm:w-[70px] max-sm:text-[15px]"
-            >
-              <p className="text-white">구독</p>
-            </button>
+          <div className="">
+            <form onSubmit={handleSubmit} className="max-sm:flex">
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="이메일 주소를 입력해주세요"
+                className="max-sm:bg-[#F4F4F4] max-sm:border-0 max-sm:rounded-[6px] max-sm:mb-[10px] max-sm:w-[80%] max-sm:h-[45px] max-sm:text-[14px] max-sm:mr-[10px] max-sm:[text-indent:15px]"
+              />
+              <button
+                type="button"
+                onClick={handleSubmit}
+                className="max-sm:btn max-sm:border-0 max-sm:h-[45px] max-sm:bg-[#333] max-sm:rounded-[6px] max-sm:w-[70px] max-sm:text-[15px]"
+              >
+                <p className="text-white">구독</p>
+              </button>
+            </form>
           </div>
 
           {showPopup && (
-            <Popup message="" onClose={() => setShowPopup(false)} />
+            <SubPopup
+              message={popupMessage}
+              onClose={() => setShowPopup(false)}
+            />
           )}
         </div>
       </div>

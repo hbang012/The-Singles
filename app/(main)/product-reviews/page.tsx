@@ -1,5 +1,5 @@
-import Product from '@/app/ui/product-reviews/Product';
-import Reviews from '@/app/ui/product-reviews/Reviews';
+import Product from '@/app/componets/product-reviews/Product';
+import Reviews from '@/app/componets/product-reviews/Reviews';
 import { Suspense } from 'react';
 
 // 순차적으로 로딩 Suspense

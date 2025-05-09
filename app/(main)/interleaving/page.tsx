@@ -1,5 +1,5 @@
-import ClientOne from '@/app/ui/interleaving/ClientOne';
-import ServerOne from '@/app/ui/interleaving/ServerOne';
+import ClientOne from '@/app/componets/interleaving/ClientOne';
+import ServerOne from '@/app/componets/interleaving/ServerOne';
 
 export default function Interleaving() {
   return (
