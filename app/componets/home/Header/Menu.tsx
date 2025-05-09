@@ -4,10 +4,13 @@ import Image from 'next/image';
 import Search from '@/app/componets/home/Header/Search';
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import Popup from '@/app/componets/common/Popup';
 
 export default function Menu({ onClose }: { onClose: () => void }) {
-  const [isSearch, setIsSearch] = useState(false);
   const router = useRouter();
+  const [isSearch, setIsSearch] = useState(false);
+  const [input, setInput] = useState('');
+  const [showPopup, setShowPopup] = useState(false);
   const [openMenus, setOpenMenus] = useState<{ [key: string]: boolean }>({
     adProposal: false,
     adInquiry: false,
@@ -240,7 +243,7 @@ export default function Menu({ onClose }: { onClose: () => void }) {
 
         <div className="max-sm:flex max-sm:flex-col max-sm:px-[15px] max-sm:py-[20px]">
           <ul className="text-black max-sm:text-[18px] max-sm:font-bold max-sm:flex max-sm:flex-col max-sm:border-b-1 max-sm:border-[#ccc]">
-            <li className="max-sm:mb-[10px] hover:text-[#d7000f] max-sm:flex max-sm:justify-between max-sm:items-center">
+            <li className="max-sm:mb-[30px] max-sm:mt-[10px] hover:text-[#d7000f] max-sm:flex max-sm:justify-between max-sm:items-center">
               <span>
                 STYLE
                 <span className="max-sm:text-[#a5a5a5] max-sm:text-[12px] max-sm:font-normal max-sm:ml-[10px]">
@@ -254,7 +257,7 @@ export default function Menu({ onClose }: { onClose: () => void }) {
                 height={18}
               />
             </li>
-            <li className="max-sm:mb-[10px] hover:text-[#d7000f] max-sm:flex max-sm:justify-between max-sm:items-center">
+            <li className="max-sm:mb-[30px] hover:text-[#d7000f] max-sm:flex max-sm:justify-between max-sm:items-center">
               <span>
                 BEAUTY
                 <span className="max-sm:text-[#a5a5a5] max-sm:text-[12px] max-sm:font-normal max-sm:ml-[10px]">
@@ -268,7 +271,7 @@ export default function Menu({ onClose }: { onClose: () => void }) {
                 height={18}
               />
             </li>
-            <li className="max-sm:mb-[10px] hover:text-[#d7000f] max-sm:flex max-sm:justify-between max-sm:items-center">
+            <li className="max-sm:mb-[30px] hover:text-[#d7000f] max-sm:flex max-sm:justify-between max-sm:items-center">
               <span>
                 CELEB
                 <span className="max-sm:text-[#a5a5a5] max-sm:text-[12px] max-sm:font-normal max-sm:ml-[10px]">
@@ -282,7 +285,7 @@ export default function Menu({ onClose }: { onClose: () => void }) {
                 height={18}
               />
             </li>
-            <li className="max-sm:mb-[10px] hover:text-[#d7000f] max-sm:flex max-sm:justify-between max-sm:items-center">
+            <li className="max-sm:mb-[30px] hover:text-[#d7000f] max-sm:flex max-sm:justify-between max-sm:items-center">
               <span>
                 LIFESTYLE
                 <span className="max-sm:text-[#a5a5a5] max-sm:text-[12px] max-sm:font-normal max-sm:ml-[10px]">
@@ -296,7 +299,7 @@ export default function Menu({ onClose }: { onClose: () => void }) {
                 height={18}
               />
             </li>
-            <li className="max-sm:mb-[10px] hover:text-[#d7000f] max-sm:flex max-sm:justify-between max-sm:items-center">
+            <li className="max-sm:mb-[30px] hover:text-[#d7000f] max-sm:flex max-sm:justify-between max-sm:items-center">
               <span>
                 LOVE&SEX
                 <span className="max-sm:text-[#a5a5a5] max-sm:text-[12px] max-sm:font-normal max-sm:ml-[10px]">
@@ -310,10 +313,10 @@ export default function Menu({ onClose }: { onClose: () => void }) {
                 height={18}
               />
             </li>
-            <li className="max-sm:mb-[10px] hover:text-[#d7000f] max-sm:flex max-sm:justify-between max-sm:items-center">
+            <li className="max-sm:mb-[30px] hover:text-[#d7000f] max-sm:flex max-sm:justify-between max-sm:items-center">
               <span>
                 VIDEO
-                <span className="max-sm:text-[#a5a5a5] max-sm:text-[12px] max-sm:font-normal max-sm:ml-[10px] max-sm:mb-[10px]">
+                <span className="max-sm:text-[#a5a5a5] max-sm:text-[12px] max-sm:font-normal max-sm:ml-[10px] max-sm:mb-[30px]">
                   비디오
                 </span>
               </span>
@@ -329,10 +332,10 @@ export default function Menu({ onClose }: { onClose: () => void }) {
 
         <div className="max-sm:px-[15px] max-sm:py-[20px]">
           <ul className="text-black max-sm:text-[18px] max-sm:font-bold max-sm:flex max-sm:flex-col max-sm:border-b-1 max-sm:border-[#ccc]">
-            <li className="max-sm:mb-[10px] hover:text-[#d7000f] max-sm:flex max-sm:justify-between max-sm:items-center">
+            <li className="max-sm:mb-[30px] hover:text-[#d7000f] max-sm:flex max-sm:justify-between max-sm:items-center">
               <span>
                 RESEARCH
-                <span className="max-sm:text-[#a5a5a5] max-sm:text-[12px] max-sm:font-normal max-sm:ml-[10px] max-sm:mb-[10px]">
+                <span className="max-sm:text-[#a5a5a5] max-sm:text-[12px] max-sm:font-normal max-sm:ml-[10px] max-sm:mb-[30px]">
                   리서치
                 </span>
               </span>
@@ -343,10 +346,10 @@ export default function Menu({ onClose }: { onClose: () => void }) {
                 height={18}
               />
             </li>
-            <li className="max-sm:mb-[10px] hover:text-[#d7000f] max-sm:flex max-sm:justify-between max-sm:items-center">
+            <li className="max-sm:mb-[30px] hover:text-[#d7000f] max-sm:flex max-sm:justify-between max-sm:items-center">
               <span>
                 COMMUNITY
-                <span className="max-sm:text-[#a5a5a5] max-sm:text-[12px] max-sm:font-normal max-sm:ml-[10px] max-sm:mb-[10px]">
+                <span className="max-sm:text-[#a5a5a5] max-sm:text-[12px] max-sm:font-normal max-sm:ml-[10px] max-sm:mb-[30px]">
                   커뮤니티
                 </span>
               </span>
@@ -357,10 +360,10 @@ export default function Menu({ onClose }: { onClose: () => void }) {
                 height={18}
               />
             </li>
-            <li className="max-sm:mb-[10px] hover:text-[#d7000f] max-sm:flex max-sm:justify-between max-sm:items-center">
+            <li className=" max-sm:mb-[40px] hover:text-[#d7000f] max-sm:flex max-sm:justify-between max-sm:items-center">
               <span>
                 HOROSCOPE
-                <span className="max-sm:text-[#a5a5a5] max-sm:text-[12px] max-sm:font-normal max-sm:ml-[10px] max-sm:mb-[10px]">
+                <span className="max-sm:text-[#a5a5a5] max-sm:text-[12px] max-sm:font-normal max-sm:ml-[10px] max-sm:mb-[30px]">
                   오늘의 운세
                 </span>
               </span>
@@ -375,10 +378,10 @@ export default function Menu({ onClose }: { onClose: () => void }) {
         </div>
 
         <div className="max-sm:px-[15px] max-sm:py-[8px]">
-          <div className="max-sm:mb-[10px] max-sm:text-[18px] max-sm:font-bold max-sm:text-black hover:text-[#d7000f] max-sm:flex max-sm:justify-between max-sm:items-center">
+          <div className="max-sm:mt-[10px] max-sm:mb-[30px] max-sm:text-[18px] max-sm:font-bold max-sm:text-black hover:text-[#d7000f] max-sm:flex max-sm:justify-between max-sm:items-center">
             <span>
               EVENT
-              <span className="max-sm:text-[#a5a5a5] max-sm:text-[12px] max-sm:font-normal max-sm:ml-[10px] max-sm:mb-[10px]">
+              <span className="max-sm:text-[#a5a5a5] max-sm:text-[12px] max-sm:font-normal max-sm:ml-[10px] max-sm:mb-[30px]">
                 이벤트
               </span>
             </span>
@@ -393,15 +396,15 @@ export default function Menu({ onClose }: { onClose: () => void }) {
               <Image
                 src="/images/Instagram2.svg"
                 alt="인스타"
-                width={43}
-                height={43}
+                width={40}
+                height={40}
               />
             </li>
             <li>
               <Image
                 src="/images/Youtube2.svg"
                 alt="유튜브"
-                width={43}
+                width={46}
                 height={43}
               />
             </li>
@@ -413,19 +416,19 @@ export default function Menu({ onClose }: { onClose: () => void }) {
                 height={35}
               />
             </li>
-            <li className=" max-sm:ml-[8px]  max-sm:mt-[10px] ">
+            <li className=" max-sm:ml-[8px]  max-sm:mt-[5px] ">
               <Image
                 src="/images/naverBlog2.png"
                 alt="네이버 블로그"
-                width={28}
-                height={28}
+                width={25}
+                height={25}
               />
             </li>
             <li className="max-sm:ml-[20px]">
               <Image
                 src="/images/naverTV2.png"
                 alt="네이버 티비"
-                width={22}
+                width={20}
                 height={22}
               />
             </li>
@@ -444,20 +447,19 @@ export default function Menu({ onClose }: { onClose: () => void }) {
                 src="/images/left-arrow.png"
                 alt=" "
                 width={12}
-                height={20}
+                height={15}
                 className={`max-sm:ml-[10px] max-sm:mt-[7px] max-sm:transition-transform duration-300 ${
                   openMenus.adProposal ? '-rotate-90' : ''
                 }`}
               />
-              {/* 열었을때 레이아웃 이슈 해결 */}
-              {openMenus.adProposal && (
-                <ul className="max-sm:flex">
-                  <li className="max-sm:items-start max-sm:font-normal max-sm:mt-[22px]">
-                    싱글즈 미디어킷
-                  </li>
-                </ul>
-              )}
             </li>
+            {openMenus.adProposal && (
+              <ul className="max-sm:flex">
+                <li className="max-sm:items-start max-sm:text-[16px] max-sm:font-medium max-sm:mt-[13px] max-sm:text-[#707070]">
+                  싱글즈 미디어킷
+                </li>
+              </ul>
+            )}
             <li
               onClick={() => toggleMenu('adInquiry')}
               className="cursor-pointer max-sm:flex max-sm:justify-between  max-sm:mt-[30px] hover:text-[#d7000f]"
@@ -467,19 +469,19 @@ export default function Menu({ onClose }: { onClose: () => void }) {
                 src="/images/left-arrow.png"
                 alt=" "
                 width={12}
-                height={20}
+                height={15}
                 className={`max-sm:ml-[28px] max-sm:mt-[7px] transition-transform duration-300 ${
                   openMenus.adInquiry ? '-rotate-90' : ''
                 }`}
               />
-              {openMenus.adInquiry && (
-                <ul>
-                  <li className="max-sm:font-normal max-sm:mt-[30px] ">
-                    싱글즈 문의하기
-                  </li>
-                </ul>
-              )}
             </li>
+            {openMenus.adInquiry && (
+              <ul>
+                <li className="max-sm:text-[16px] max-sm:font-medium max-sm:mt-[13px] max-sm:text-[#707070]">
+                  싱글즈 문의하기
+                </li>
+              </ul>
+            )}
             <li className=" max-sm:mt-[30px] max-sm:hover:text-[#d7000f]">
               정기 구독
             </li>
@@ -487,7 +489,32 @@ export default function Menu({ onClose }: { onClose: () => void }) {
               1:1 문의하기
             </li>
           </ul>
-          <div></div>
+        </div>
+
+        <div className=" max-sm:h-[144px] max-sm:w-full max-sm:p-[21px_20px_25px] max-sm:bg-[#d7000f]">
+          <p className="max-sm:text-white max-sm:text-[14px] max-sm:mb-[20px]">
+            당신에게 필요한 소식들을 메일로 받아보세요
+          </p>
+          <div className="max-sm:flex ">
+            <input
+              type="email"
+              value={input}
+              onChange={(e) => setInput(e.target.value)}
+              placeholder="이메일 주소를 입력해주세요"
+              className="max-sm:bg-[#F4F4F4] max-sm:border-0 max-sm:rounded-[6px] max-sm:mb-[10px] max-sm:w-[100%] max-sm:h-[45px] max-sm:text-[14px] max-sm:mr-[10px] max-sm:[text-indent:15px]"
+            />
+            <button
+              type="button"
+              onClick={() => setShowPopup(true)}
+              className="max-sm:btn max-sm:border-0 max-sm:h-[45px] max-sm:bg-[#333] max-sm:rounded-[6px] max-sm:w-[70px] max-sm:text-[15px]"
+            >
+              <p className="text-white">구독</p>
+            </button>
+          </div>
+
+          {showPopup && (
+            <Popup message="" onClose={() => setShowPopup(false)} />
+          )}
         </div>
       </div>
     </main>
