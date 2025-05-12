@@ -5,8 +5,6 @@ import cors from 'cors';
 import { handlers } from '@/mocks/handlers';
 import { postsHandlers } from '@/mocks/posts-handlers';
 import { articlesHandlers } from '@/mocks/articles-handlers';
-import { blogPostsHandlers } from '@/mocks/blog-posts-handlers';
-import { blogUsersHandlers } from '@/mocks/blog-users-handlers';
 
 const app = express();
 const port = 9090;
@@ -19,15 +17,7 @@ app.use(
   })
 );
 app.use(express.json());
-app.use(
-  createMiddleware(
-    ...handlers,
-    ...postsHandlers,
-    ...articlesHandlers,
-    ...blogPostsHandlers,
-    ...blogUsersHandlers
-  )
-);
+app.use(createMiddleware(...handlers, ...postsHandlers, ...articlesHandlers));
 // NSW핸들러연결
 
 app.listen(port, () => console.log(`Mock server is running on port: ${port}`));

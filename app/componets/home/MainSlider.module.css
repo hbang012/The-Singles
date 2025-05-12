@@ -1,0 +1,15 @@
+.slider [class*='swiper-button'] {
+  color: white;
+  width: 40px;
+}
+.slider [class*='swiper-button-next'] {
+  color: white;
+}
+.slider [class*='swiper-button-next']::after {
+  color: white;
+}
+.slider [class*='swiper-button-disabled'] {
+  opacity: 1;
+  pointer-events: all;
+  cursor: pointer;
+}
