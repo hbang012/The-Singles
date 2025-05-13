@@ -13,3 +13,13 @@
   pointer-events: all;
   cursor: pointer;
 }
+.slider .swiper-scrollbar {
+  background-color: red;
+  height: 5px;
+  border-radius: 5px;
+}
+
+.slider .swiper-scrollbar .swiper-scrollbar-drag {
+  background-color: white;
+  border-radius: 5px;
+}

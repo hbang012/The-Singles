@@ -32,7 +32,7 @@ export const articlesHandlers = [
     ) {
       const totalPages = Math.ceil(data.length / limit);
 
-      // 페이지번호가 잘못들어갔을때 대비
+      // 페이지번호가 잘못들어갔을때
       if (page < 1 || page > totalPages) {
         return [];
       }
@@ -46,7 +46,6 @@ export const articlesHandlers = [
         total: data.length,
       };
     }
-    // console.log(getDataByPage(articles, 1, 10));
 
     // 검색어에 대한 데이터 필터링 search값이 있을때만
     if (search !== 'undefined' && search) {
@@ -71,15 +70,17 @@ export const articlesHandlers = [
 
     return HttpResponse.json(articlesSlice);
   }),
-
-  http.get('http://localhost:9090/articles', async () => {
+  // 최근 아티클 8개 -Today
+  http.get('http://localhost:9090/articles/latest', async () => {
     await sleep(200);
 
-    const articlesSlice = articles
-      .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
-      .slice(0, 8);
+    const getLatestArticles = () => {
+      return articles
+        .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+        .slice(0, 8);
+    };
 
-    return HttpResponse.json(articlesSlice);
+    return HttpResponse.json(getLatestArticles());
   }),
 
   // 아티클 상세 페이지

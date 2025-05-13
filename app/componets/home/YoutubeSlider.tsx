@@ -22,9 +22,10 @@ export default function VideoSlider() {
         <div className="">
           <Swiper
             className="swiper-wrapper"
-            modules={[Navigation, Pagination]}
+            modules={[Navigation, Pagination, Scrollbar]}
             navigation
             pagination={{ clickable: true }}
+            scrollbar={{ draggable: true }}
             spaceBetween={30}
             slidesPerView={1}
             loop={true}
@@ -52,6 +53,7 @@ export default function VideoSlider() {
               </SwiperSlide>
             ))}
           </Swiper>
+          <div className="swiper-scrollbar"></div>
         </div>
       </div>
     </div>
