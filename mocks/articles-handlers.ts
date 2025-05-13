@@ -72,6 +72,16 @@ export const articlesHandlers = [
     return HttpResponse.json(articlesSlice);
   }),
 
+  http.get('http://localhost:9090/articles', async () => {
+    await sleep(200);
+
+    const articlesSlice = articles
+      .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+      .slice(0, 8);
+
+    return HttpResponse.json(articlesSlice);
+  }),
+
   // 아티클 상세 페이지
   http.get('http://localhost:9090/articles/:id', async ({ params }) => {
     await sleep(200);

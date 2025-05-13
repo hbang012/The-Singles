@@ -6,16 +6,12 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import Image from 'next/image';
 import styles from './MainSlider.module.css';
+import { use } from 'react';
+import type { Article } from '@/app/_lib/types';
 
-export type Article = {
-  id: number;
-  title: string;
-  subtitle: string;
-  image: string;
-};
+export default function MainSlider({ data }: { data: Promise<Article[]> }) {
+  const articles = use(data);
 
-export default function MainSlider({ articles }: { articles: Article[] }) {
-  // console.log(articles, '슬라이더 컴포넌트로 들어오나?');
   return (
     <div className={styles.slider}>
       <Swiper
