@@ -35,7 +35,7 @@ export default function Today({ data }: { data: Promise<Article[]> }) {
                 <strong className="w-[290px] text-[16px] text-[#d7000f] font-bold max-md:w-[220px]">
                   {article.subcategory}
                 </strong>
-                <h2 className="w-[290px] text-black text-[24px] font-medium max-md:text-[20px] max-md:w-[220px]">
+                <h2 className="w-[290px] leading-[30px] text-black text-[24px] font-medium max-md:text-[20px] max-md:w-[220px]">
                   {article.title}
                 </h2>
               </div>

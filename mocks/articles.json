@@ -138,9 +138,9 @@
     "image": "/images/style/look04.png",
     "photoCredit": "맥",
     "likes": 0,
-    "category": "style",
-    "subcategory": "Look",
-    "tags": ["style", "Look", "네포베이비"]
+    "category": "beauty",
+    "subcategory": "Make Up",
+    "tags": ["beauty", "Make Up", "네포베이비"]
   },
   {
     "id": 12,
@@ -310,5 +310,70 @@
     "category": "lifestyle",
     "subcategory": "Viewpoint",
     "tags": ["lifestyle", "Viewpoint", "예술"]
+  },
+  {
+    "id": 24,
+    "title": "연애하지 않는 사람들",
+    "subtitle": "프렌즈위드베네핏 관계의 결말에 대하여",
+    "editor": "김희성",
+    "date": "2024.02.12",
+    "image": "/images/love/love01.jpg",
+    "photoCredit": "영화 <Friends with Benefits>",
+    "likes": 20,
+    "category": "love&sex",
+    "subcategory": " ",
+    "tags": ["LOVE", "자만추", "친구", "연애"]
+  },
+  {
+    "id": 25,
+    "title": "사내 연애의 함정",
+    "subtitle": "N년 차 직장인들이 들려주는 사내 연애 의 이유 있는 함정에 대하여.",
+    "editor": "김정현",
+    "date": "2024.01.29",
+    "image": "/images/love/love02.jpg",
+    "photoCredit": "드라마 <별똥별>",
+    "likes": 13,
+    "category": "love&sex",
+    "subcategory": " ",
+    "tags": ["LOVE", "사내연애", "연애", "사랑"]
+  },
+  {
+    "id": 26,
+    "title": "이별이 뭐라고!",
+    "subtitle": "이별 후 대내외적인 이미지를 위해 이별 후 챙겨야 할 이유 있는 허세",
+    "editor": "김정현",
+    "date": "2024.01.15",
+    "image": "/images/love/love03.jpg",
+    "photoCredit": "드라마 <오늘도 사랑스럽개>",
+    "likes": 45,
+    "category": "love&sex",
+    "subcategory": " ",
+    "tags": ["LOVE", "이별", "연애", "사랑"]
+  },
+  {
+    "id": 27,
+    "title": "비혼주의자의 연애",
+    "subtitle": "비혼주의자에 대한 인식이 예전보다는 많이 긍정적으로 변했지만 아직도 ‘결혼은 언제 하니?’라는 질문을 매번 웃는 낯으로 감내 해야 하는 세상에서 비혼의 연애에는 이기적이라는 꼬리표와 유별나다, 나중에 후회한다는 잔소리가 따라오는 것이 현실이다.",
+    "editor": "김정현",
+    "date": "2024.02.25",
+    "image": "/images/love/love04.jpg",
+    "photoCredit": "SBS <집사부일체>",
+    "likes": 5,
+    "category": "love&sex",
+    "subcategory": " ",
+    "tags": ["LOVE", "비혼", "결혼", "사랑"]
+  },
+  {
+    "id": 28,
+    "title": "연애, 글로 배워도 될까?",
+    "subtitle": "연애 서적을 효율적으로 사용하는 법",
+    "editor": "장은지",
+    "date": "2024.02.26",
+    "image": "/images/love/love05.jpg",
+    "photoCredit": "드라마 <보라! 데보라>",
+    "likes": 30,
+    "category": "love&sex",
+    "subcategory": " ",
+    "tags": ["LOVE", "연애", "커플", "사랑"]
   }
 ]

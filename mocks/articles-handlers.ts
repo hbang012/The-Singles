@@ -70,17 +70,48 @@ export const articlesHandlers = [
 
     return HttpResponse.json(articlesSlice);
   }),
-  // 최근 아티클 8개 -Today
+  // 최근 아티클 4개 -Today
   http.get('http://localhost:9090/articles/latest', async () => {
     await sleep(200);
 
     const getLatestArticles = () => {
       return articles
         .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
-        .slice(0, 8);
+        .slice(0, 4);
     };
 
     return HttpResponse.json(getLatestArticles());
+  }),
+
+  // style 아티클만 필터
+  http.get('http://localhost:9090/articles/style', async () => {
+    await sleep(200);
+
+    const styleArticles = articles.filter((item) => item.category === 'style');
+
+    return HttpResponse.json(styleArticles);
+  }),
+
+  // beauty 아티클만 필터
+  http.get('http://localhost:9090/articles/beauty', async () => {
+    await sleep(200);
+
+    const beautyArticles = articles.filter(
+      (item) => item.category === 'beauty'
+    );
+
+    return HttpResponse.json(beautyArticles);
+  }),
+
+  // lifestyle 아티클만 필터
+  http.get('http://localhost:9090/articles/lifestyle', async () => {
+    await sleep(200);
+
+    const lifestyleArticles = articles.filter(
+      (item) => item.category === 'lifestyle'
+    );
+
+    return HttpResponse.json(lifestyleArticles);
   }),
 
   // 아티클 상세 페이지

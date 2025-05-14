@@ -32,7 +32,7 @@ export default function VideoSlider() {
           >
             {youtubeData.map((youtube) => (
               <SwiperSlide key={youtube.id}>
-                <div className="video-container flex flex-col justify-center items-center h-[723px] max-md:w-[100%] max-sm:h-[400px] max-sm:mb-[50px]">
+                <div className="video-container flex flex-col justify-center items-center h-[723px] max-md:w-[100%]  max-sm:h-[400px] max-sm:mb-[50px]">
                   <iframe
                     width={100}
                     height={100}
