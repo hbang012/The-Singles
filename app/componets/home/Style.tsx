@@ -11,7 +11,7 @@ export default function Style({ data }: { data: Promise<Article[]> }) {
     <div className="p-[0_20px_0_20px]">
       <div className="flex justify-center flex-col mt-[35px] w-full">
         {''}
-        <div className="flex justify-center items-center  max-sm:mb-[10px]">
+        <div className="flex justify-center items-center max-sm:mb-[10px]">
           <div className="w-full flex items-center">
             <span className="bg-black w-[28px] h-[56px] mr-[15px] max-md:w-[25px] max-md:h-[45px] max-sm:w-[15px] max-sm:h-[30px] max-sm:mr-[10px]"></span>
             <h2 className="text-black text-[60px] font-bold max-md:text-[45px] max-sm:text-[28px]">
@@ -51,7 +51,7 @@ export default function Style({ data }: { data: Promise<Article[]> }) {
         </div>
 
         {/* 스타일 하단 리스트 */}
-        <ul className="flex justify-between flex-wrap gap-[10px] mt-[30px]">
+        <ul className="flex justify-between flex-wrap gap-[10px] mt-[30px] max-md:mt-[0px]">
           {articles.map((article, i) => {
             if (i === 1 || i === 2 || i === 3) {
               return (

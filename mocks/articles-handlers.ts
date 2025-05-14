@@ -114,6 +114,37 @@ export const articlesHandlers = [
     return HttpResponse.json(lifestyleArticles);
   }),
 
+  // love 아티클만 필터
+  http.get('http://localhost:9090/articles/love', async () => {
+    await sleep(200);
+
+    const loveArticles = articles.filter(
+      (item) => item.category === 'love&sex'
+    );
+
+    return HttpResponse.json(loveArticles);
+  }),
+
+  // 리서치 카테고리 필터링
+  http.get('http://localhost:9090/articles/research', async ({ request }) => {
+    await sleep(200);
+
+    const url = new URL(request.url);
+    const activeKey = url.searchParams.get('activeKey'); // subcategory 확인
+
+    let researchArticles = articles.filter(
+      (item) => item.category === 'research'
+    );
+
+    if (activeKey) {
+      researchArticles = researchArticles.filter(
+        (item) => item.subcategory === activeKey
+      );
+    }
+
+    return HttpResponse.json(researchArticles);
+  }),
+
   // 아티클 상세 페이지
   http.get('http://localhost:9090/articles/:id', async ({ params }) => {
     await sleep(200);

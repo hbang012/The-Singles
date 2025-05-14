@@ -44,5 +44,10 @@
     "id": "love&sex",
     "name": "LOVE&SEX",
     "subcategories": []
+  },
+  {
+    "id": "research",
+    "name": "Research",
+    "subcategories": ["Life Survey", "Do&Don’t"]
   }
 ]

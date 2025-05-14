@@ -10,6 +10,7 @@ import Lifestyle from '@/app/componets/home/Lifestyle';
 import Horoscope from '@/app/componets/home/Horoscope';
 import Research from '@/app/componets/home/Research';
 import Love from '@/app/componets/home/Love';
+import Submail from '@/app/componets/home/Submail';
 
 // 투데이 최신
 export async function getArticles(): Promise<Article[]> {
@@ -59,6 +60,19 @@ export async function getLifestyleArticles(): Promise<Article[]> {
 }
 
 const lifestyleData = getLifestyleArticles();
+
+// 러브
+export async function getLoveArticles(): Promise<Article[]> {
+  const res = await fetch('http://localhost:9090/articles/love');
+
+  if (!res.ok) {
+    throw new Error('love 아티클 데이터를 가져오는 데 실패했습니다.');
+  }
+
+  return res.json();
+}
+
+const loveData = getLoveArticles();
 
 export default function Home() {
   const latestdata = getArticles();
@@ -139,7 +153,15 @@ export default function Home() {
       <div className="bg-[#333] mt-[153px] max-sm:mt-[20px]">
         <Suspense fallback={<p>로딩중...</p>}>
           <div className="max-w-[1320px] m-auto">
-            <Love />
+            <Love data={loveData} />
+          </div>
+        </Suspense>
+      </div>
+
+      <div className="bg-[#d7000f]">
+        <Suspense fallback={<p>로딩중...</p>}>
+          <div className="max-w-[1320px] m-auto">
+            <Submail />
           </div>
         </Suspense>
       </div>

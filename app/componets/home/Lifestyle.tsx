@@ -47,7 +47,7 @@ export default function Lifestyle({ data }: { data: Promise<Article[]> }) {
       </div>
 
       {/* 라이프 스타일 리스트 */}
-      <ul className="flex justify-between flex-wrap gap-[10px] mt-[30px] mb-[30px]">
+      <ul className="flex justify-between flex-wrap gap-[10px] mt-[30px] mb-[30px] max-md:mt-[0px]">
         {articles.map((article, i) => {
           if (i === 1 || i === 2 || i === 3) {
             return (

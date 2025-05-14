@@ -533,6 +533,7 @@ export default function Menu({ onClose }: { onClose: () => void }) {
           </ul>
         </div>
 
+        {/* 메일 수신 */}
         <div className=" max-sm:h-[144px] max-sm:w-full max-sm:p-[21px_20px_25px] max-sm:bg-[#d7000f]">
           <p className="max-sm:text-white max-sm:text-[14px] max-sm:mb-[20px]">
             당신에게 필요한 소식들을 메일로 받아보세요
