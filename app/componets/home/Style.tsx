@@ -3,8 +3,8 @@
 import Image from 'next/image';
 import { Article } from '@/app/_lib/types';
 import { use } from 'react';
-import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+import categories from '@/mocks/categoris.json';
 
 export default function Style({ data }: { data: Promise<Article[]> }) {
   const articles = use(data);
@@ -21,18 +21,26 @@ export default function Style({ data }: { data: Promise<Article[]> }) {
               Style
             </h2>
           </div>
-          <Link
-            href={'/categoris'}
+          <button
+            type="button"
+            onClick={() =>
+              router.push(
+                `/categoris/${
+                  categories.find((c) => c.name === 'Style')?.id || 1
+                }`
+              )
+            }
             className="w-[100px] font-bold text-[20px] text-[#333] underline underline-[#333] underline-offset-4 max-sm:text-[15px] max-sm:text-[#ccc] max-sm:w-[70px]"
           >
             + MORE
-          </Link>
+          </button>
         </div>
 
         {/* 스타일 상단 */}
         <div
           className="flex justify-center max-sm:flex-col-reverse "
-          onClick={() => router.push('/articles/articleId')}
+          key={articles[0]?.id}
+          onClick={() => router.push(`/articles/${articles[0].id}`)}
         >
           <div className="bg-[#333] flex items-start justify-center flex-col w-[440px] h-[580px] pl-[20px] pr-[20px] overflow-hidden max-sm:h-[210px] max-sm:w-[100%]">
             <span className="text-[25px] text-[#d7000f] font-bold max-sm:text-[15px]">
@@ -65,11 +73,11 @@ export default function Style({ data }: { data: Promise<Article[]> }) {
             if (i === 1 || i === 2 || i === 3) {
               return (
                 <li
-                  key={article.id}
+                  key={`${article.categoryId}-${article.id}`}
                   className={`flex flex-col gap-[10px] w-[32%] max-[555px]:w-full cursor-pointer ${
                     i !== 1 ? 'max-[555px]:hidden' : ''
                   }`}
-                  onClick={() => router.push('/articles/articleId')}
+                  onClick={() => router.push(`/articles/${article.id}`)}
                 >
                   <Image
                     src={article.image}

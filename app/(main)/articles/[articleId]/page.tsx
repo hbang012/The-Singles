@@ -15,7 +15,6 @@ export default function Article({
   const { articleId } = use(params);
   const { lang = 'ko' } = use(searchParams);
   const router = useRouter();
-  // console.log(articleId, lang);
 
   const { isPending, data, isError, error } = useQuery({
     queryKey: ['articles', articleId],
@@ -46,26 +45,6 @@ export default function Article({
           <p className="mt-[20px]">{data.content}</p>
         </>
       )}
-      <div className="space-x-[10px] mt-[30px]">
-        <Link
-          href={`/articles/${articleId}`}
-          className={lang === 'ko' ? 'text-point1' : ' '}
-        >
-          korean
-        </Link>
-        <Link
-          href={`/articles/${articleId}?lang=en`}
-          className={lang === 'en' ? 'text-point1' : ' '}
-        >
-          english
-        </Link>
-        <Link
-          href={`/articles/${articleId}?lang=fr`}
-          className={lang === 'fr' ? 'text-point1' : ' '}
-        >
-          franch
-        </Link>
-      </div>
     </main>
   );
 }
