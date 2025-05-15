@@ -31,6 +31,7 @@ export default function Header() {
             height={83}
             priority
             className="mr-[20px] w-[180px] max-md:my-auto max-sm:h-[30px] max-sm:w-[100px] max-sm:ml-[80%] max-sm:pl-[10%] max-sm:mr-[0px]"
+            onClick={() => router.push('/')}
           />
           {isMenu && <Menu onClose={() => setMenu(false)} />}
           <ul className="text-[18px] font-bold text-black flex items-center gap-[40px] max-md:text-[12px] max-md:items-start max-md:flex-col max-md:gap-[1px] max-sm:hidden ">
