@@ -7,7 +7,11 @@ export type Article = {
   image: string;
   photoCredit: string;
   likes: number;
-  category: string;
+  categoryId: number;
   subcategory: string;
   tags: string[];
+  openDate: string;
+  closeDate: string;
+  do: number;
+  dont: number;
 };

@@ -1,11 +1,11 @@
 [
   {
-    "id": "style",
+    "id": 1,
     "name": "Style",
     "subcategories": ["All", "Look", "Shopping", "Styling", "Trend"]
   },
   {
-    "id": "beauty",
+    "id": 2,
     "name": "Beauty",
     "subcategories": [
       "All",
@@ -17,7 +17,7 @@
     ]
   },
   {
-    "id": "lifestyle",
+    "id": 3,
     "name": "Lifestyle",
     "subcategories": [
       "All",
@@ -31,22 +31,22 @@
     ]
   },
   {
-    "id": "celeb",
+    "id": 4,
     "name": "Celeb",
     "subcategories": []
   },
   {
-    "id": "video",
+    "id": 5,
     "name": "Video",
     "subcategories": ["Celeb", "Life+Style", "Brand"]
   },
   {
-    "id": "love&sex",
+    "id": 6,
     "name": "LOVE&SEX",
     "subcategories": []
   },
   {
-    "id": "research",
+    "id": 7,
     "name": "Research",
     "subcategories": ["Life Survey", "Do&Don’t"]
   }

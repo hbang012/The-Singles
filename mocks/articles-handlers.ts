@@ -23,7 +23,7 @@ export const articlesHandlers = [
         image: string;
         photoCredit: string;
         likes: number;
-        category: string;
+        categoryId: number;
         subcategory: string;
         tags: string[];
       }[],
@@ -87,7 +87,7 @@ export const articlesHandlers = [
   http.get('http://localhost:9090/articles/style', async () => {
     await sleep(200);
 
-    const styleArticles = articles.filter((item) => item.category === 'style');
+    const styleArticles = articles.filter((item) => item.categoryId === 1);
 
     return HttpResponse.json(styleArticles);
   }),
@@ -96,9 +96,7 @@ export const articlesHandlers = [
   http.get('http://localhost:9090/articles/beauty', async () => {
     await sleep(200);
 
-    const beautyArticles = articles.filter(
-      (item) => item.category === 'beauty'
-    );
+    const beautyArticles = articles.filter((item) => item.categoryId === 2);
 
     return HttpResponse.json(beautyArticles);
   }),
@@ -107,9 +105,7 @@ export const articlesHandlers = [
   http.get('http://localhost:9090/articles/lifestyle', async () => {
     await sleep(200);
 
-    const lifestyleArticles = articles.filter(
-      (item) => item.category === 'lifestyle'
-    );
+    const lifestyleArticles = articles.filter((item) => item.categoryId === 3);
 
     return HttpResponse.json(lifestyleArticles);
   }),
@@ -118,9 +114,7 @@ export const articlesHandlers = [
   http.get('http://localhost:9090/articles/love', async () => {
     await sleep(200);
 
-    const loveArticles = articles.filter(
-      (item) => item.category === 'love&sex'
-    );
+    const loveArticles = articles.filter((item) => item.categoryId === 6);
 
     return HttpResponse.json(loveArticles);
   }),
@@ -130,11 +124,9 @@ export const articlesHandlers = [
     await sleep(200);
 
     const url = new URL(request.url);
-    const activeKey = url.searchParams.get('activeKey'); // subcategory 확인
+    const activeKey = url.searchParams.get('activeKey');
 
-    let researchArticles = articles.filter(
-      (item) => item.category === 'research'
-    );
+    let researchArticles = articles.filter((item) => item.categoryId === 7);
 
     if (activeKey) {
       researchArticles = researchArticles.filter(

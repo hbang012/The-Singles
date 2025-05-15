@@ -42,8 +42,8 @@ export default function Style({ data }: { data: Promise<Article[]> }) {
             <Image
               src={articles[0].image}
               alt={articles[0].title}
-              width={200}
-              height={267}
+              width={3000}
+              height={1943}
               priority
               className="h-[100%] w-[100%] object-cover mb-[20px] max-sm:mb-[0px]"
             />

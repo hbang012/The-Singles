@@ -1,7 +1,7 @@
 // 아티클 리스트 페이지
 'use client';
 
-import Pagination from '@/app/ui/Pagination';
+// import Pagination from '@/app/ui/Pagination';
 import { useQuery } from '@tanstack/react-query';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
@@ -132,9 +132,9 @@ export default function Articles({
         </p>
       )}
       {/* 페이지네이션 추가 */}
-      {data && data?.result?.length > 0 && (
+      {/* {data && data?.result?.length > 0 && (
         <Pagination page={page} setPage={setPage} totalPage={totalPage} />
-      )}
+      )} */}
     </main>
   );
 }

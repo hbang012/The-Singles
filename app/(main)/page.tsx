@@ -61,6 +61,19 @@ export async function getLifestyleArticles(): Promise<Article[]> {
 
 const lifestyleData = getLifestyleArticles();
 
+// 리서치
+export async function getResearchArticles(): Promise<Article[]> {
+  const res = await fetch('http://localhost:9090/articles/research');
+
+  if (!res.ok) {
+    throw new Error('research 아티클 데이터를 가져오는 데 실패했습니다.');
+  }
+
+  return res.json();
+}
+
+const researchData = getResearchArticles();
+
 // 러브
 export async function getLoveArticles(): Promise<Article[]> {
   const res = await fetch('http://localhost:9090/articles/love');
@@ -145,12 +158,13 @@ export default function Home() {
       </div>
 
       {/* 리서치 작업 해야함 */}
-      <div className="mt-[153px] max-w-[1320px] m-auto max-sm:w-[100%] max-sm:mt-[20px]">
-        <p className="border">dddd</p>
-        <Research />
+      <div className="pl-[12%] pr-[12%] max-sm:p-0">
+        <div className="mt-[153px] w-[100%]  max-sm:w-[100%] max-sm:mt-[20px]">
+          <Research data={researchData} />
+        </div>
       </div>
 
-      <div className="bg-[#333] mt-[153px] max-sm:mt-[20px]">
+      <div className="bg-[#333] mt-[153px] max-sm:mt-[0px]">
         <Suspense fallback={<p>로딩중...</p>}>
           <div className="max-w-[1320px] m-auto">
             <Love data={loveData} />

@@ -38,8 +38,8 @@ export default function Lifestyle({ data }: { data: Promise<Article[]> }) {
           <Image
             src={articles[0].image}
             alt={articles[0].title}
-            width={200}
-            height={267}
+            width={840}
+            height={470}
             priority
             className="h-[100%] w-[100%] object-cover mb-[20px] max-sm:mb-[0px]"
           />
