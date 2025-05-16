@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { Article } from '@/app/_lib/types';
 import { use } from 'react';
 import { useRouter } from 'next/navigation';
-import categories from '@/mocks/categoris.json';
+import Link from 'next/link';
 
 export default function Style({ data }: { data: Promise<Article[]> }) {
   const articles = use(data);
@@ -21,24 +21,17 @@ export default function Style({ data }: { data: Promise<Article[]> }) {
               Style
             </h2>
           </div>
-          <button
-            type="button"
-            onClick={() =>
-              router.push(
-                `/categoris/${
-                  categories.find((c) => c.name === 'Style')?.id || 1
-                }`
-              )
-            }
+          <Link
+            href={'/category/1'}
             className="w-[100px] font-bold text-[20px] text-[#333] underline underline-[#333] underline-offset-4 max-sm:text-[15px] max-sm:text-[#ccc] max-sm:w-[70px]"
           >
             + MORE
-          </button>
+          </Link>
         </div>
 
         {/* 스타일 상단 */}
         <div
-          className="flex justify-center max-sm:flex-col-reverse "
+          className="flex justify-center max-sm:flex-col-reverse cursor-pointer"
           key={articles[0]?.id}
           onClick={() => router.push(`/articles/${articles[0].id}`)}
         >
@@ -74,7 +67,7 @@ export default function Style({ data }: { data: Promise<Article[]> }) {
               return (
                 <li
                   key={`${article.categoryId}-${article.id}`}
-                  className={`flex flex-col gap-[10px] w-[32%] max-[555px]:w-full cursor-pointer ${
+                  className={`flex flex-col gap-[10px] w-[32%] max-[555px]:w-full cursor-pointer max-sm:mt-[10px] max-sm:mb-[20px] ${
                     i !== 1 ? 'max-[555px]:hidden' : ''
                   }`}
                   onClick={() => router.push(`/articles/${article.id}`)}
@@ -87,10 +80,10 @@ export default function Style({ data }: { data: Promise<Article[]> }) {
                     priority
                     className="h-[470px] w-[100%] object-cover cursor-pointer mb-[10px] max-sm:h-[200px] max-sm:mb-[0px]"
                   />
-                  <strong className="w-[290px] text-[22px] text-[#d7000f] font-bold max-sm:text-[18px]">
+                  <strong className="w-[100%] text-[22px] text-[#d7000f] font-bold max-sm:text-[18px]">
                     {article.subcategory}
                   </strong>
-                  <h2 className="w-[290px] leading-[30px] text-black text-[24px] font-medium max-md:text-[20px] max-md:w-[240px] max-sm:w-[100%] max-sm:text-[18px] max-sm:truncate">
+                  <h2 className="w-[100%] leading-[30px] text-black text-[24px] font-medium max-md:text-[20px] max-md:w-[240px] max-sm:w-[100%] max-sm:text-[18px] max-sm:truncate">
                     {article.title}
                   </h2>
                 </li>

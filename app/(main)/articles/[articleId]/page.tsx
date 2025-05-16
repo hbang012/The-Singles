@@ -7,13 +7,10 @@ import { use } from 'react';
 
 export default function Article({
   params,
-  searchParams,
 }: {
   params: Promise<{ articleId: string }>;
-  searchParams: Promise<{ lang?: 'ko' | 'en' | 'fr' }>;
 }) {
   const { articleId } = use(params);
-  const { lang = 'ko' } = use(searchParams);
   const router = useRouter();
 
   const { isPending, data, isError, error } = useQuery({
@@ -25,7 +22,7 @@ export default function Article({
   });
 
   return (
-    <main className="p-[30px]">
+    <main className="p-[30px] h-[600px]">
       <button
         type="button"
         className="btn px-[10px] leading-[28px] mb-[10px]"
@@ -33,8 +30,8 @@ export default function Article({
       >
         뒤로가기
       </button>
-      <h2 className="text-[26px] font-bold">뉴스기사 {articleId}</h2>
-      <p className="my-[20px]">{lang}로 읽기</p>
+      <h2 className="text-[26px] font-bold">{articleId}</h2>
+
       {isPending && <p>Loading...</p>}
       {isError && <p>{error.message}</p>}
       {data && (

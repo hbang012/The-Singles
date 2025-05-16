@@ -35,8 +35,8 @@ export default function Menu({ onClose }: { onClose: () => void }) {
   };
 
   return (
-    <main className="fixed top-0 left-0 w-full h-full bg-white z-50 ">
-      <div className="max-sm:hidden flex flex-col items-start p-[25px_95px_200px_90px] max-md:overflow-auto">
+    <main className="fixed top-0 left-0 w-[100%] h-[100%] bg-white z-50 ">
+      <div className="max-sm:hidden flex flex-col items-start p-[25px_95px_200px_90px] max-md:overflow-auto max-md:h-full">
         <div className="flex justify-between items-center w-full">
           <Image
             src="/images/singles-logo.png"
@@ -68,8 +68,8 @@ export default function Menu({ onClose }: { onClose: () => void }) {
           </div>
         </div>
 
-        <div className="max-w-[950px] m-auto flex justify-between w-full  pt-[125px]">
-          <button onClick={onClose} className="absolute top-[3%] left-[8%]">
+        <div className="relative  max-w-[950px] mx-auto flex justify-between w-[100%] pt-[125px]">
+          <button onClick={onClose} className="absolute top-[-50px] left-0">
             <Image src="/images/close.svg" alt="닫기" width={40} height={40} />
           </button>
 
@@ -524,10 +524,10 @@ export default function Menu({ onClose }: { onClose: () => void }) {
                 </li>
               </ul>
             )}
-            <li className=" max-sm:mt-[30px] max-sm:hover:text-[#d7000f]">
+            <li className=" max-sm:mt-[30px] max-sm:hover:text-[#d7000f] cursor-pointer">
               정기 구독
             </li>
-            <li className=" max-sm:mt-[30px] max-sm:hover:text-[#d7000f]">
+            <li className=" max-sm:mt-[30px] max-sm:hover:text-[#d7000f] cursor-pointer">
               1:1 문의하기
             </li>
           </ul>

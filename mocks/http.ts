@@ -4,6 +4,7 @@ import express from 'express';
 import cors from 'cors';
 import { articlesHandlers } from '@/mocks/articles-handlers';
 import { youtubeHandlers } from '@/mocks/youtube-handlers';
+import { categoriesHandlers } from '@/mocks/category-handlers';
 
 const app = express();
 const port = 9090;
@@ -16,7 +17,13 @@ app.use(
   })
 );
 app.use(express.json());
-app.use(createMiddleware(...articlesHandlers, ...youtubeHandlers));
+app.use(
+  createMiddleware(
+    ...articlesHandlers,
+    ...youtubeHandlers,
+    ...categoriesHandlers
+  )
+);
 // NSW핸들러연결
 
 app.listen(port, () => console.log(`Mock server is running on port: ${port}`));

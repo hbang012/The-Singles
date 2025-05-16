@@ -104,7 +104,7 @@ export default function Home() {
   return (
     <main className="flex flex-col justify-center w-[100%]">
       <div className="bg-[#f2f2f2]">
-        <div className="max-w-[1420px] m-auto">
+        <div className="max-w-[1420px] mx-auto">
           <div className="h-full">
             <Suspense fallback={<p>로딩중...</p>}>
               <MainSlider data={data} />
@@ -119,45 +119,40 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="max-w-[80%] h-[753px] p-[0_20px] mt-[142px] m-auto max-md:h-[20%] max-sm:max-w-[100%] max-sm:mt-[30px]">
+      <div className="max-w-[1320px] w-[100%] h-[753px] p-[0_20px] mt-[142px] mx-auto max-md:h-[20%] max-sm:mt-[30px]">
         <Suspense fallback={<p>로딩중...</p>}>
           <YoutubeSlider />
         </Suspense>
       </div>
 
-      <div className="mt-[153px] max-w-[1320px] m-auto max-sm:w-[100%] max-sm:mt-[20px]">
+      <div className="mt-[153px] max-w-[1320px] mx-auto max-sm:w-[100%] max-sm:mt-[20px]">
         <Suspense fallback={<p>로딩중...</p>}>
           <Style data={styleData} />
         </Suspense>
       </div>
 
-      <div className="bg-[#333] mt-[153px] max-sm:mt-[20px]">
+      <div className="bg-[#333] mt-[153px] max-w-[1320px] mx-auto max-sm:mt-[20px]">
         <Suspense fallback={<p>로딩중...</p>}>
-          <div className="max-w-[1320px] m-auto">
-            <Beauty data={beautyData} />
-          </div>
+          <Beauty data={beautyData} />
         </Suspense>
       </div>
 
-      <div className="w-[1320px] m-auto max-md:w-[100%] sm:hidden max-sm:block">
-        <div className="bg-[#f2f2f2] p-[50px] mt-[153px] max-md:p-[40px] max-sm:p-[30px] max-sm:mt-[0px]">
+      <div className="hidden max-sm:block">
+        <div className="max-w-[1320px] mx-auto bg-[#f2f2f2] p-[50px] mt-[153px] max-md:p-[40px] max-sm:p-[30px] max-sm:mt-[0px]">
           <Horoscope />
         </div>
       </div>
 
-      <div className="w-[1320px] m-auto max-md:w-[100%]">
-        <div className="bg-[#f2f2f2] p-[50px] mt-[153px] max-md:p-[40px] max-sm:p-[30px] max-sm:mt-[0px]">
-          <Sns />
-        </div>
+      <div className="max-w-[1320px] w-[100%] mx-auto bg-[#f2f2f2] p-[50px] mt-[153px] max-md:p-[40px] max-sm:p-[30px] max-sm:mt-[0px]">
+        <Sns />
       </div>
 
-      <div className="mt-[153px] max-w-[1320px] m-auto max-sm:w-[100%] max-sm:mt-[20px]">
+      <div className="mt-[153px] max-w-[1320px] mx-auto max-sm:w-[100%] max-sm:mt-[20px]">
         <Suspense fallback={<p>로딩중...</p>}>
           <Lifestyle data={lifestyleData} />
         </Suspense>
       </div>
 
-      {/* 리서치 작업 해야함 */}
       <div className="pl-[12%] pr-[12%] max-sm:p-0">
         <div className="mt-[153px] w-[100%]  max-sm:w-[100%] max-sm:mt-[20px]">
           <Research data={researchData} />

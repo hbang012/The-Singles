@@ -1,14 +1,17 @@
 import { http, HttpResponse } from 'msw';
-import categories from './categoris.json';
+import categorys from './category.json';
+import articles from './articles.json';
 
 export const categoriesHandlers = [
-  http.get('http://localhost:9090/categories/:id', async ({ params }) => {
+  http.get('http://localhost:9090/category/:id', async ({ params }) => {
     await sleep(200);
 
     const id = Number(params.id);
 
     // 해당 id를 가진 카테고리 찾기
-    const category = categories.find((item) => item.id === id);
+    const category = articles.filter((item) => item.categoryId === id);
+    const title = categorys.find((item) => item.id === id)?.name;
+    const sub = categorys.find((item) => item.id === id)?.subcategorys;
 
     if (!category) {
       return HttpResponse.json(
@@ -17,7 +20,7 @@ export const categoriesHandlers = [
       );
     }
 
-    return HttpResponse.json({ subcategories: category.subcategories });
+    return HttpResponse.json({ title, sub, category });
   }),
 ];
 

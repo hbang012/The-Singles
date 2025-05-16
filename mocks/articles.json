@@ -695,5 +695,22 @@
     "categoryId": 7,
     "subcategory": "Do&Don’t",
     "tags": ["2025", "지브리", "ai"]
+  },
+  {
+    "id": 42,
+    "title": "마라탕후루가 좋은 서이브의 꿈",
+    "subtitle": "내 맘이 단짠단짠. 하루에도 수십 번씩 기분이 오르락내리락. 마라탕과 탕후루가 좋은 사춘기 소녀, 가수 겸 크리에이터 서이브가 꿈꾸는 것.",
+    "editor": "이유진",
+    "date": "2025-03-27",
+    "openDate": " ",
+    "closeDate": " ",
+    "do": 0,
+    "dont": 0,
+    "image": "/images/celeb/celeb01.jpg",
+    "photoCredit": "김문독",
+    "likes": 90,
+    "categoryId": 4,
+    "subcategory": " ",
+    "tags": ["2025", "마라탕", "탕후루", "서이브"]
   }
 ]

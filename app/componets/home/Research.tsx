@@ -31,7 +31,7 @@ export default function Research({ data }: { data: Promise<Article[]> }) {
   return (
     <div className="">
       <div className="flex justify-center items-center max-sm:mb-[10px]">
-        <div className="w-full flex items-center">
+        <div className="w-full flex items-center max-sm:ml-[20px]">
           <span className="bg-black w-[28px] h-[56px] mr-[15px] max-md:w-[25px] max-md:h-[45px] max-sm:w-[15px] max-sm:h-[30px] max-sm:mr-[10px]"></span>
           <h2 className="text-black text-[60px] font-bold max-md:text-[45px] max-sm:text-[28px]">
             Research
@@ -56,38 +56,40 @@ export default function Research({ data }: { data: Promise<Article[]> }) {
           </div>
 
           {/* 투표 데이터 */}
-          <div className="bg-[#333] w-[50%] h-[580px] p-[0_40px_0_40px] flex flex-col gap-[20px] pt-[40px] max-sm:w-[100%] max-sm:items-center max-sm:justify-center max-sm:h-[332px] max-sm:gap-0 max-sm:p-[0_30px_0_30px] max-sm:pt-[0px]">
+          <div className="bg-[#333] w-[50%] h-[580px] p-[0_40px_0_40px] flex flex-col gap-[20px] pt-[20px] max-sm:w-[100%] max-sm:items-center max-sm:justify-center max-sm:h-[332px] max-sm:gap-0 max-sm:p-[0_30px_0_30px] max-sm:pt-[0px]">
             <span className="text-[#d7000f] text-[16px] mt-[10px] max-sm:text-[10px]">
-              투표 종료
+              {new Date() > new Date(latestArticle.closeDate)
+                ? ' 투표 종료'
+                : '진행중'}
             </span>
             <p className="text-[14px] text-[#999] font-bold max-sm:text-[14px]">
               {latestArticle.openDate} <span>~</span> {latestArticle.closeDate}
             </p>
-            <h2 className="text-[30px] text-white font-bold mt-[20px] mb-[35px] max-sm:text-[16px] ">
+            <h2 className="text-[30px] text-white font-bold mb-[20px] max-md:line-clamp-6 max-sm:text-[16px] leading-[1.2] max-sm:pl-[20px] max-sm:pr-[20px] max-sm:mt-[10px]">
               {latestArticle.title}
             </h2>
 
-            <div className="flex flex-col items-center">
+            <div className="text-center">
               {/* 투표 그래프 */}
-              <div className="flex justify-between mb-[26%] max-sm:mb-[50px]">
+              <div className="relative flex justify-between mb-[60px] max-sm:mb-[50px]">
                 <div
-                  className="bg-[#b3935c] text-[16px] text-[#fff] rounded-tl-[5px] rounded-bl-[5px] h-[35px] max-sm:h-[24px]"
+                  className=" bg-[#b3935c] text-[16px] text-[#fff] rounded-tl-[5px] rounded-bl-[5px] h-[35px] max-sm:h-[24px]"
                   style={{ width: doWidth }}
                 >
-                  <p
-                    className="mt-[5px] ml-[10px] max-sm:text-[12px] max-sm:mt-[3px]"
-                    style={{ width: dontWidth }}
-                  >
+                  <p className="absolute top-[5px] left-[10px] max-sm:top-[1px] max-sm:text-[12px] max-sm:mt-[3px] ">
                     {latestArticle.do} %
                   </p>
-                  <p className="text-[#b3935c] text-[16px] mt-[20px]">DO</p>
+                  <p className="text-[#b3935c] text-[16px] mt-[40px]">DO</p>
                 </div>
 
-                <div className="bg-[#999] text-[16px] text-[#fff] rounded-tr-[5px] rounded-br-[5px] h-[35px] max-sm:h-[24px]">
-                  <p className="mt-[5px] mr-[10px] ml-[10px] max-sm:text-[12px] max-sm:mt-[3px]">
+                <div
+                  className="bg-[#999] text-[16px] text-[#fff] rounded-tr-[5px] rounded-br-[5px] h-[35px] max-sm:h-[24px]"
+                  style={{ width: dontWidth }}
+                >
+                  <p className="absolute top-[5px] right-[10px] max-sm:top-[1px]  max-sm:text-[12px] max-sm:mt-[3px]">
                     {latestArticle.dont} %
                   </p>
-                  <p className="text-[#999] text-[16px] mt-[20px] ml-[60%]">
+                  <p className="text-[#999] text-[16px] mt-[40px] ml-[60%]">
                     DON'T
                   </p>
                 </div>

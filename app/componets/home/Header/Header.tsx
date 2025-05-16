@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Search from '@/app/componets/home/Header/Search';
 import Menu from '@/app/componets/home/Header/Menu';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 export default function Header() {
   const [isSearch, setSearch] = useState(false);
@@ -30,28 +31,40 @@ export default function Header() {
             width={275}
             height={83}
             priority
-            className="mr-[20px] w-[180px] max-md:my-auto max-sm:h-[30px] max-sm:w-[100px] max-sm:ml-[80%] max-sm:pl-[10%] max-sm:mr-[0px]"
+            className="mr-[20px] w-[180px] cursor-pointer max-md:my-auto max-sm:h-[30px] max-sm:w-[100px] max-sm:ml-[80%] max-sm:pl-[10%] max-sm:mr-[0px] "
             onClick={() => router.push('/')}
           />
           {isMenu && <Menu onClose={() => setMenu(false)} />}
           <ul className="text-[18px] font-bold text-black flex items-center gap-[40px] max-md:text-[12px] max-md:items-start max-md:flex-col max-md:gap-[1px] max-sm:hidden ">
             <li>
-              <p>STYLE</p>
+              <Link href={`/category/1`} className="text-black">
+                STYLE
+              </Link>
             </li>
             <li>
-              <p>BEAUTY</p>
+              <Link href={`/category/2`} className="text-black">
+                BEAUTY
+              </Link>
             </li>
             <li>
-              <p>LIFESTYLE</p>
+              <Link href={`/category/3`} className="text-black">
+                LIFESTYLE
+              </Link>
             </li>
             <li>
-              <p>CELEB</p>
+              <Link href={`/category/4`} className="text-black">
+                CELEB
+              </Link>
             </li>
             <li>
-              <p>VIDEO</p>
+              <Link href={`/category/5`} className="text-black">
+                VIDEO
+              </Link>
             </li>
             <li>
-              <p>LOVE&SEX</p>
+              <Link href={`/category/6`} className="text-black">
+                LOVE&SEX
+              </Link>
             </li>
           </ul>
         </div>
@@ -71,7 +84,10 @@ export default function Header() {
             <p>Join</p>
           </li>
           <span className="text-[18px] max-sm:hidden">|</span>
-          <li className="bg-black p-[5px_10px] w-[105px] h-[30px] max-sm:ml-[10%] max-sm:w-[110px] max-sm:p-[5px_5px]">
+          <li
+            className="bg-black p-[5px_10px] w-[105px] h-[30px] max-sm:ml-[10%] max-sm:w-[110px] max-sm:p-[5px_5px] cursor-pointer"
+            onClick={() => router.push(`/`)}
+          >
             <p className="text-white text-[13px] max-sm:text-[11px] max-sm:leading-[20px] max-sm:ml-[8px] ">
               광고ㆍ편집 문의
             </p>

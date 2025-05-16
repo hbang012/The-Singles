@@ -2,12 +2,12 @@
   {
     "id": 1,
     "name": "Style",
-    "subcategories": ["All", "Look", "Shopping", "Styling", "Trend"]
+    "subcategorys": ["All", "Look", "Shopping", "Styling", "Trend"]
   },
   {
     "id": 2,
     "name": "Beauty",
-    "subcategories": [
+    "subcategorys": [
       "All",
       "Hair&Body",
       "Make Up",
@@ -19,7 +19,7 @@
   {
     "id": 3,
     "name": "Lifestyle",
-    "subcategories": [
+    "subcategorys": [
       "All",
       "Trend",
       "Enjoy",
@@ -33,21 +33,21 @@
   {
     "id": 4,
     "name": "Celeb",
-    "subcategories": []
+    "subcategorys": []
   },
   {
     "id": 5,
     "name": "Video",
-    "subcategories": ["Celeb", "Life+Style", "Brand"]
+    "subcategorys": ["Celeb", "Life+Style", "Brand"]
   },
   {
     "id": 6,
     "name": "LOVE&SEX",
-    "subcategories": []
+    "subcategorys": []
   },
   {
     "id": 7,
     "name": "Research",
-    "subcategories": ["Life Survey", "Do&Don’t"]
+    "subcategorys": ["Life Survey", "Do&Don’t"]
   }
 ]
