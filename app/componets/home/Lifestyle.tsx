@@ -1,7 +1,6 @@
 'use client';
 
 import { Article } from '@/app/_lib/types';
-import categorys from '@/mocks/category.json';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
@@ -10,8 +9,6 @@ import { use } from 'react';
 export default function Lifestyle({ data }: { data: Promise<Article[]> }) {
   const articles = use(data);
   const router = useRouter();
-
-  const category = categorys.find((c) => c.name === 'Lifestyle');
 
   return (
     <div className="p-[0_20px_0_20px]">
@@ -23,7 +20,7 @@ export default function Lifestyle({ data }: { data: Promise<Article[]> }) {
           </h2>
         </div>
         <Link
-          href={`/categorys?categoryId=${category?.id}`}
+          href={'/category/3'}
           className="w-[100px] font-bold text-[20px] text-[#333] underline underline-[#333] underline-offset-4 max-sm:text-[15px] max-sm:text-[#ccc] max-sm:w-[70px]"
         >
           + MORE

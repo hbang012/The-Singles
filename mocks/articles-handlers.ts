@@ -83,6 +83,34 @@ export const articlesHandlers = [
     return HttpResponse.json(getLatestArticles());
   }),
 
+  // 최신순
+  http.get('http://localhost:9090/articles/newest', async () => {
+    await sleep(200);
+
+    const getNewstArticles = () => {
+      return articles.sort(
+        (a, b) =>
+          new Date(
+            b.date ? b.date.replace(/\./g, '-') : '2020-01-01'
+          ).getTime() -
+          new Date(a.date ? a.date.replace(/\./g, '-') : '2020-01-01').getTime()
+      );
+    };
+
+    return HttpResponse.json(getNewstArticles());
+  }),
+
+  //좋아요 많은순
+  http.get('http://localhost:9090/articles/popular', async () => {
+    await sleep(200);
+
+    const getPopularArticles = () => {
+      return articles.sort((a, b) => b.likes - a.likes);
+    };
+
+    return HttpResponse.json(getPopularArticles());
+  }),
+
   // style 아티클만 필터
   http.get('http://localhost:9090/articles/style', async () => {
     await sleep(200);
