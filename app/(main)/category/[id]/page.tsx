@@ -1,7 +1,7 @@
 'use client';
 
 import { useQuery } from '@tanstack/react-query';
-import { use, useState } from 'react';
+import { use, useEffect, useState } from 'react';
 import type { Article } from '@/app/_lib/types';
 import Image from 'next/image';
 
@@ -11,7 +11,7 @@ export default function Category({
   params: Promise<{ id: string }>;
 }) {
   const paramsObj = use(params);
-  // console.log(paramsObj.id);
+  const [sorted, setSorted] = useState<Article[] | undefined>([]);
 
   const { isPending, data, isError, error } = useQuery<{
     title: string;
@@ -24,13 +24,28 @@ export default function Category({
         res.json()
       ),
   });
-  // console.log(data);
+
+  useEffect(() => {
+    setSorted(data?.category);
+  }, [data]);
 
   const [visibleCount, setVisibleCount] = useState(10);
   const items = data?.category ?? [];
 
   function handleLike() {
-    data?.category.sort((a, b) => b.likes - a.likes);
+    if (data?.category) {
+      const sort = [...data?.category].sort((a, b) => b.likes - a.likes);
+      setSorted(sort);
+    }
+  }
+
+  function handleLatest() {
+    if (data?.category) {
+      const sort = [...data?.category].sort(
+        (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+      );
+      setSorted(sort);
+    }
   }
 
   return (
@@ -54,7 +69,9 @@ export default function Category({
 
       <div className="mt-[70px] ">
         <div className="flex items-center justify-end gap-[10px] mb-[20px] mr-[20px]">
-          <button type="button">최신순</button>
+          <button type="button" onClick={handleLatest}>
+            최신순
+          </button>
           <span className="h-[20px] w-[1px] bg-[#ccc]"></span>
           <button type="button" onClick={handleLike}>
             인기순
@@ -62,7 +79,7 @@ export default function Category({
         </div>
 
         <ul className="flex flex-wrap justify-around max-sm:justify-center">
-          {data?.category.slice(0, visibleCount).map((item, index) => (
+          {sorted?.slice(0, visibleCount).map((item, index) => (
             <li
               key={`${item.id}-${index}`}
               className={`nth-child mx-[20px] mb-[35px] max-sm:w-[100%] max-sm:text-center ${
@@ -84,9 +101,7 @@ export default function Category({
               </h2>
               <p className="text-black text-[24px] max-sm:text-[18px] ">
                 {item.title}
-                {item.date}
               </p>
-              <p>{item.likes}</p>
             </li>
           ))}
         </ul>

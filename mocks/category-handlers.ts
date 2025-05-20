@@ -10,6 +10,9 @@ export const categoriesHandlers = [
 
     // 해당 id를 가진 카테고리 찾기
     const category = articles.filter((item) => item.categoryId === id);
+    category.sort(
+      (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+    );
     const title = categorys.find((item) => item.id === id)?.name;
     const sub = categorys.find((item) => item.id === id)?.subcategorys;
 
