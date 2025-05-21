@@ -1,6 +1,5 @@
 import { http, HttpResponse } from 'msw';
 import articles from './articles.json';
-
 let maxId = Math.max(...articles.map((item) => item.id));
 
 export const articlesHandlers = [

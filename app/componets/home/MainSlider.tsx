@@ -13,7 +13,7 @@ export default function MainSlider({ data }: { data: Promise<Article[]> }) {
   const articles = use(data);
 
   return (
-    <div className={styles.slider}>
+    <div className={`mt-[100px] ${styles.slider}`}>
       <Swiper
         className="swiper-wrapper"
         modules={[Navigation, Pagination, Autoplay]}

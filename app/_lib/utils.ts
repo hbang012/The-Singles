@@ -33,3 +33,19 @@ export function generatePagination(currentPage: number, totalPages: number) {
     totalPages,
   ];
 }
+
+// export function getDataByPage<T>(data: T[], page: number, limit: number) {
+//   const totalPages = Math.ceil(data.length / limit);
+
+//   if (page < 1 || page > totalPages) {
+//     return { result: [], total: data.length };
+//   }
+
+//   const start = (page - 1) * limit;
+//   const end = start + limit;
+
+//   return {
+//     result: data.slice(start, end),
+//     total: data.length,
+//   };
+// }

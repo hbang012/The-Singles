@@ -4,25 +4,31 @@ import { useQuery } from '@tanstack/react-query';
 import { use, useEffect, useState } from 'react';
 import type { Article } from '@/app/_lib/types';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 
 export default function Category({
   params,
+  searchParams,
 }: {
   params: Promise<{ id: string }>;
+  searchParams: Promise<{ subcategory: string }>;
 }) {
   const paramsObj = use(params);
   const [sorted, setSorted] = useState<Article[] | undefined>([]);
+  const searchParamObj = use(searchParams);
+  const urlSearch = new URLSearchParams(searchParamObj);
+  const router = useRouter();
 
   const { isPending, data, isError, error } = useQuery<{
     title: string;
     sub: string[];
     category: Article[];
   }>({
-    queryKey: ['category', paramsObj.id],
+    queryKey: ['category', paramsObj.id, searchParamObj.subcategory],
     queryFn: () =>
-      fetch(`http://localhost:9090/category/${paramsObj.id}`).then((res) =>
-        res.json()
-      ),
+      fetch(
+        `http://localhost:9090/category/${paramsObj.id}?subcategory=${searchParamObj.subcategory}`
+      ).then((res) => res.json()),
   });
 
   useEffect(() => {
@@ -48,6 +54,16 @@ export default function Category({
     }
   }
 
+  function handleSub(sub: string) {
+    if (sub !== 'All') {
+      urlSearch.set('subcategory', sub);
+      router.push(`?${urlSearch.toString()}`);
+    } else {
+      urlSearch.delete('subcategory');
+      router.push(`?${urlSearch.toString()}`);
+    }
+  }
+
   return (
     <main className="h-[100%] w-[100%] max-w-[1320px] p-[0_20px_0_20px] mx-auto mt-[200px] mb-[145px] max-sm:mt-[120px]">
       <div className="flex justify-start items-center">
@@ -56,16 +72,18 @@ export default function Category({
           {data?.title}
         </h2>
       </div>
-      <ul className="flex mt-[16px]">
+      <div className="flex mt-[16px]">
         {data?.sub.map((item) => (
-          <li
+          <button
             key={item}
+            type="button"
+            onClick={() => handleSub(item)}
             className="text-[22px] text-[#333] mr-[60px] font-bold max-sm:text-[16px] max-sm:mr-[30px]"
           >
             {item}
-          </li>
+          </button>
         ))}
-      </ul>
+      </div>
 
       <div className="mt-[70px] ">
         <div className="flex items-center justify-end gap-[10px] mb-[20px] mr-[20px]">
@@ -96,7 +114,7 @@ export default function Category({
                 priority
                 className="w-[100%] h-[470px] object-cover max-sm:h-[335px]"
               />
-              <h2 className="text-black text-[16px] font-bold mt-[10px] max-sm:text-[10px]">
+              <h2 className="text-black text-[16px] font-bold mt-[10px] max-sm:text-[10px] ">
                 {item.subcategory}
               </h2>
               <p className="text-black text-[24px] max-sm:text-[18px] ">
