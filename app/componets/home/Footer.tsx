@@ -13,41 +13,43 @@ export default function Footer() {
             className="max-md:mb-[50px] max-md:w-[100px] max-md:h-[30px]"
           />
 
-          <div className="flex gap-[20px] justify-center mt-[30px] max-md:hidden ">
+          <div className="flex gap-[20px] justify-center mt-[30px] max-md:hidden cursor-pointer">
             <Image
               src="/images/Instagram.svg"
               alt="인스타"
-              width={25}
-              height={25}
-              style={{ width: 'auto', height: 'auto' }}
+              width={62}
+              height={62}
+              className="w-[25px] h-[25px]"
             />
             <Image
               src="/images/Youtube.svg"
               alt="유튜브"
-              width={25}
-              height={25}
-              style={{ width: 'auto', height: 'auto' }}
+              width={62}
+              height={62}
+              className="w-[25px] h-[25px]"
             />
             <Image
-              src="/images/x-circle25.png"
+              src="/images/x-circle.png"
               alt="트위터 X"
-              width={25}
-              height={25}
-              style={{ width: 'auto', height: 'auto' }}
+              width={50}
+              height={50}
+              className="w-[25px] h-[25px]"
             />
             <Image
               src="/images/naverBlog.png"
               alt="네이버 블로그"
-              width={25}
-              height={25}
-              style={{ width: 'auto', height: 'auto' }}
+              width={222}
+              height={206}
+              priority
+              className="w-[25px] h-[25px]"
             />
             <Image
               src="/images/naverTV.png"
               alt="네이버 티비"
-              width={20}
-              height={20}
-              style={{ width: 'auto', height: 'auto' }}
+              width={222}
+              height={206}
+              priority
+              className="w-[20px] h-[22px]"
             />
           </div>
         </div>

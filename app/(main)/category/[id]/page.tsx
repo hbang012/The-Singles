@@ -5,6 +5,7 @@ import { use, useEffect, useState } from 'react';
 import type { Article } from '@/app/_lib/types';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 export default function Category({
   params,
@@ -106,20 +107,22 @@ export default function Category({
                   : ' w-[calc(33.33%-40px)]'
               }`}
             >
-              <Image
-                src={item.image}
-                alt={item.title}
-                width={1000}
-                height={1000}
-                priority
-                className="w-[100%] h-[470px] object-cover max-sm:h-[335px]"
-              />
-              <h2 className="text-black text-[16px] font-bold mt-[10px] max-sm:text-[10px] ">
-                {item.subcategory}
-              </h2>
-              <p className="text-black text-[24px] max-sm:text-[18px] ">
-                {item.title}
-              </p>
+              <Link href={`/articles/${item.id}`} className="block">
+                <Image
+                  src={item.image}
+                  alt={item.title}
+                  width={1000}
+                  height={1000}
+                  priority
+                  className="w-[100%] h-[470px] object-cover max-sm:h-[335px]"
+                />
+                <h2 className="text-black text-[16px] font-bold mt-[10px] max-sm:text-[10px] ">
+                  {item.subcategory}
+                </h2>
+                <p className="text-black text-[24px] max-sm:text-[18px] ">
+                  {item.title}
+                </p>
+              </Link>
             </li>
           ))}
         </ul>

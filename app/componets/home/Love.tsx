@@ -21,6 +21,7 @@ export default function Love({ data }: { data: Promise<Article[]> }) {
         </div>
         <Link
           href={'/category/6'}
+          onClick={() => window.scrollTo(0, 0)}
           className="w-[100px] font-bold text-[20px] text-[#ccc] underline underline-[#333] underline-offset-4 max-sm:text-[15px] max-sm:text-[#ccc] max-sm:w-[70px]"
         >
           + MORE
