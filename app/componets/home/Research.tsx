@@ -2,6 +2,7 @@
 
 import { Article } from '@/app/_lib/types';
 import Image from 'next/image';
+import Link from 'next/link';
 import { use, useEffect, useState } from 'react';
 
 export default function Research({ data }: { data: Promise<Article[]> }) {
@@ -37,9 +38,13 @@ export default function Research({ data }: { data: Promise<Article[]> }) {
             Research
           </h2>
         </div>
-        <p className="w-[100px] font-bold text-[20px] text-[#333] underline underline-[#333] underline-offset-4 max-sm:text-[15px] max-sm:text-[#ccc] max-sm:w-[70px]">
+        <Link
+          href={`/research?subcategory=canDo`}
+          onClick={() => window.scrollTo(0, 0)}
+          className="w-[100px] font-bold text-[20px] text-[#333] underline underline-[#333] underline-offset-4 max-sm:text-[15px] max-sm:text-[#ccc] max-sm:w-[70px]"
+        >
           + MORE
-        </p>
+        </Link>
       </div>
 
       {latestArticle && (

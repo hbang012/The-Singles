@@ -20,9 +20,10 @@ export default function Search({ onClose }: { onClose: () => void }) {
         <Image
           src="/images/singles-logo.png"
           alt="싱글스"
-          width={180}
-          height={55}
-          className="ml-[20px] mt-[20px] max-md:w-[100px] max-md:mt-0 "
+          width={550}
+          height={166}
+          priority
+          className="w-[180px] h-[55px] ml-[20px] mt-[20px] max-md:w-[100px] max-md:mt-0 max-md:h-[30px]"
         />
       </div>
       {isMenu && <Menu onClose={() => setMenu(false)} />}

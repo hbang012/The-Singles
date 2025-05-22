@@ -16,7 +16,7 @@ export default function Love({ data }: { data: Promise<Article[]> }) {
         <div className="w-full flex items-center">
           <span className="bg-[#fff] w-[28px] h-[56px] mr-[15px] max-md:w-[25px] max-md:h-[45px] max-sm:w-[15px] max-sm:h-[30px] max-sm:mr-[10px]"></span>
           <h2 className="text-[#fff] text-[60px] font-bold max-md:text-[45px] max-sm:text-[28px]">
-            Love&Sex
+            LOVE
           </h2>
         </div>
         <Link
@@ -46,7 +46,7 @@ export default function Love({ data }: { data: Promise<Article[]> }) {
                   className="h-[470px] w-[100%] object-cover cursor-pointer mb-[10px] max-sm:h-[200px] max-sm:mb-[0px] max-sm:mt-[28px]"
                 />
                 <strong className="w-[100%] text-[20px] text-[#d7000f] font-bold max-sm:text-[15px] max-sm:mt-[5px]">
-                  Love&Sex
+                  LOVE
                 </strong>
                 <h2 className="w-[100%] leading-[30px] text-[#ddd] text-[24px] font-medium max-md:text-[20px] max-md:w-[240px] max-sm:w-[100%] max-sm:text-[18px] max-sm:truncate">
                   {article.title}

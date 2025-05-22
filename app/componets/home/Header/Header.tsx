@@ -63,7 +63,7 @@ export default function Header() {
             </li>
             <li>
               <Link href={`/category/6`} className="text-black">
-                LOVE&SEX
+                LOVE
               </Link>
             </li>
           </ul>
@@ -112,22 +112,34 @@ export default function Header() {
       <div className=" max-sm:border-[#a7a7a7] max-sm:border-t-[1px] max-sm:border-b-[1px] max-sm:p-[10px] max-sm:mt-[5px]">
         <ul className="sm:hidden text-[13px] font-bold text-black max-sm:flex max-sm:flex-row max-sm:justify-center max-sm:text-[15px] max-sm:max-text-[13px] max-sm:gap-[10px] max-xs:text-[10px]">
           <li>
-            <p>STYLE</p>
+            <Link href={`/category/1`} className="text-black">
+              STYLE
+            </Link>
           </li>
           <li>
-            <p>BEAUTY</p>
+            <Link href={`/category/2`} className="text-black">
+              BEAUTY
+            </Link>
           </li>
           <li>
-            <p>LIFESTYLE</p>
+            <Link href={`/category/3`} className="text-black">
+              LIFESTYLE
+            </Link>
           </li>
           <li>
-            <p>CELEB</p>
+            <Link href={`/category/4`} className="text-black">
+              CELEB
+            </Link>
           </li>
           <li>
-            <p>VIDEO</p>
+            <Link href={`/category/5`} className="text-black">
+              VIDEO
+            </Link>
           </li>
           <li>
-            <p>LOVE&SEX</p>
+            <Link href={`/category/6`} className="text-black">
+              LOVE
+            </Link>
           </li>
         </ul>
       </div>

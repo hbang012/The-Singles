@@ -28,7 +28,6 @@ export default function VideoSlider() {
             scrollbar={{ draggable: true }}
             spaceBetween={30}
             slidesPerView={1}
-            loop={true}
           >
             {youtubeData.map((youtube) => (
               <SwiperSlide key={youtube.id}>
@@ -46,7 +45,7 @@ export default function VideoSlider() {
                   <span className="text-[16px] text-[#d7000f] font-bold max-sm:text-[14px]">
                     VIDEO
                   </span>
-                  <h2 className="text-white text-[24px] font-medium mb-[20px] max-md:truncate max-md:w-[90%] max-sm:text-[18px] max-sm:mb-[0px] max-sm:h-[50px] ">
+                  <h2 className="text-center text-white text-[24px] font-medium mb-[20px] max-md:truncate max-md:w-[90%] max-sm:text-[18px] max-sm:mb-[0px] max-sm:h-[50px] ">
                     {youtube.title}
                   </h2>
                 </div>

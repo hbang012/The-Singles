@@ -5,6 +5,7 @@ import Search from '@/app/componets/home/Header/Search';
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import SubPopup from '@/app/componets/common/SubPopup';
+import Link from 'next/link';
 
 export default function Menu({ onClose }: { onClose: () => void }) {
   const router = useRouter();
@@ -36,26 +37,38 @@ export default function Menu({ onClose }: { onClose: () => void }) {
 
   return (
     <main className="fixed top-0 left-0 w-[100%] h-[100%] bg-white z-50 ">
-      <div className="max-sm:hidden flex flex-col items-start p-[25px_95px_200px_90px] max-md:overflow-auto max-md:h-full">
-        <div className="flex justify-between items-center w-full">
-          <Image
-            src="/images/singles-logo.png"
-            alt="싱글스"
-            width={275}
-            height={83}
-            priority
-            className="w-[180] ml-[120px]"
-          />
-          <div className="flex gap-[20px] items-center">
+      <div className=" max-sm:hidden flex flex-col items-start p-[25px_95px_200px_90px] max-md:overflow-auto max-md:h-full">
+        <div className="mx-auto max-w-[950px] flex justify-between items-center w-full">
+          <Link href="/">
+            <Image
+              src="/images/singles-logo.png"
+              alt="싱글스"
+              width={275}
+              height={83}
+              priority
+              className="w-[180]"
+            />
+          </Link>
+          <div className="flex items-center">
             <div className="flex gap-6">
-              <p>Login</p>
+              <p
+                className="cursor-pointer"
+                onClick={() => router.push('/login')}
+              >
+                Login
+              </p>
               <span>|</span>
-              <p>Join</p>
+              <p
+                className="cursor-pointer"
+                onClick={() => router.push('/login')}
+              >
+                Join
+              </p>
             </div>
             <button
               type="button"
               onClick={() => setIsSearch(true)}
-              className=""
+              className="ml-[10px]"
             >
               <Image
                 src="/images/magnifying-glass.png"
@@ -67,31 +80,91 @@ export default function Menu({ onClose }: { onClose: () => void }) {
             {isSearch && <Search onClose={() => setIsSearch(false)} />}
           </div>
         </div>
-
         <div className="relative  max-w-[950px] mx-auto flex justify-between w-[100%] pt-[125px]">
-          <button onClick={onClose} className="absolute top-[-50px] left-0">
+          <button onClick={onClose} className="absolute top-0 left-0">
             <Image src="/images/close.svg" alt="닫기" width={40} height={40} />
           </button>
 
           <ul className="grid grid-cols-2 grid-rows-6 gap-[20px] text-black text-[30px] font-bold  max-md:flex max-md:flex-col ">
-            <li className="w-[270px] mb-[35px] hover:text-[#d7000f]">STYLE</li>
-            <li className="w-[270px] mb-[35px] hover:text-[#d7000f]">BEAUTY</li>
-            <li className="w-[270px] mb-[35px] hover:text-[#d7000f]">CELEB</li>
             <li className="w-[270px] mb-[35px] hover:text-[#d7000f]">
-              LIFESTYLE
+              <Link
+                href={`/category/1`}
+                className="text-black"
+                onClick={onClose}
+              >
+                STYLE
+              </Link>
             </li>
             <li className="w-[270px] mb-[35px] hover:text-[#d7000f]">
-              LOVE&SEX
+              <Link
+                href={`/category/2`}
+                className="text-black "
+                onClick={onClose}
+              >
+                BEAUTY
+              </Link>
             </li>
-            <li className="w-[270px] mb-[35px] hover:text-[#d7000f]">VIDEO</li>
             <li className="w-[270px] mb-[35px] hover:text-[#d7000f]">
-              RESEARCH
+              <Link
+                href={`/category/4`}
+                className="text-black"
+                onClick={onClose}
+              >
+                CELEB
+              </Link>
             </li>
             <li className="w-[270px] mb-[35px] hover:text-[#d7000f]">
+              <Link
+                href={`/category/3`}
+                className="text-black"
+                onClick={onClose}
+              >
+                LIFESTYLE
+              </Link>
+            </li>
+            <li className="w-[270px] mb-[35px] hover:text-[#d7000f]">
+              <Link
+                href={`/category/6`}
+                className="text-black"
+                onClick={onClose}
+              >
+                LOVE
+              </Link>
+            </li>
+            <li className="w-[270px] mb-[35px] hover:text-[#d7000f]">
+              <Link
+                href={`/category/5`}
+                className="text-black"
+                onClick={onClose}
+              >
+                VIDEO
+              </Link>
+            </li>
+            <li className="w-[270px] mb-[35px] hover:text-[#d7000f]">
+              <Link
+                href={`/category/7`}
+                className="text-black"
+                onClick={onClose}
+              >
+                RESEARCH
+              </Link>
+            </li>
+            <li
+              className="w-[270px] mb-[35px] hover:text-[#d7000f] cursor-pointer"
+              onClick={onClose}
+            >
               COMMUNITY
             </li>
-            <li className="w-[270px] mb-[35px] hover:text-[#d7000f]">EVENT</li>
-            <li className="w-[270px] mb-[35px] hover:text-[#d7000f]">
+            <li
+              className="w-[270px] mb-[35px] hover:text-[#d7000f] cursor-pointer"
+              onClick={onClose}
+            >
+              EVENT
+            </li>
+            <li
+              className="w-[270px] mb-[35px] hover:text-[#d7000f] cursor-pointer"
+              onClick={onClose}
+            >
               HOROSCOPE
             </li>
 
@@ -147,7 +220,7 @@ export default function Menu({ onClose }: { onClose: () => void }) {
           </ul>
 
           <div>
-            <div>
+            <div className="cursor-pointer">
               <Image
                 src="/images/lee-post.jpg"
                 alt="싱글즈 잡지"
@@ -174,7 +247,9 @@ export default function Menu({ onClose }: { onClose: () => void }) {
                 />
                 {openMenus.adProposal && (
                   <ul>
-                    <li className="font-normal mt-[22px]">싱글즈 미디어킷</li>
+                    <li className="font-normal mt-[22px] cursor-pointer">
+                      싱글즈 미디어킷
+                    </li>
                   </ul>
                 )}
               </li>
@@ -194,12 +269,18 @@ export default function Menu({ onClose }: { onClose: () => void }) {
                 />
                 {openMenus.adInquiry && (
                   <ul>
-                    <li className="font-normal  mt-[30px] ">싱글즈 문의하기</li>
+                    <li className="font-normal  mt-[30px] cursor-pointer">
+                      싱글즈 문의하기
+                    </li>
                   </ul>
                 )}
               </li>
-              <li className=" mt-[30px] hover:text-[#d7000f]">정기 구독</li>
-              <li className=" mt-[30px] hover:text-[#d7000f]">1:1 문의하기</li>
+              <li className=" mt-[30px] hover:text-[#d7000f] cursor-pointer">
+                정기 구독
+              </li>
+              <li className=" mt-[30px] hover:text-[#d7000f] cursor-pointer">
+                1:1 문의하기
+              </li>
             </ul>
           </div>
         </div>
@@ -269,7 +350,10 @@ export default function Menu({ onClose }: { onClose: () => void }) {
 
         <div className="max-sm:flex max-sm:flex-col max-sm:px-[15px] max-sm:py-[20px]">
           <ul className="text-black max-sm:text-[18px] max-sm:font-bold max-sm:flex max-sm:flex-col max-sm:border-b-1 max-sm:border-[#ccc]">
-            <li className="max-sm:mb-[30px] max-sm:mt-[10px] hover:text-[#d7000f] max-sm:flex max-sm:justify-between max-sm:items-center">
+            <li
+              className="max-sm:mb-[30px] max-sm:mt-[10px] hover:text-[#d7000f] max-sm:flex max-sm:justify-between max-sm:items-center"
+              onClick={onClose}
+            >
               <span>
                 STYLE
                 <span className="max-sm:text-[#a5a5a5] max-sm:text-[12px] max-sm:font-normal max-sm:ml-[10px]">
@@ -284,105 +368,138 @@ export default function Menu({ onClose }: { onClose: () => void }) {
                 className="w-[10px] h-[18px]"
               />
             </li>
-            <li className="max-sm:mb-[30px] hover:text-[#d7000f] max-sm:flex max-sm:justify-between max-sm:items-center">
-              <span>
-                BEAUTY
-                <span className="max-sm:text-[#a5a5a5] max-sm:text-[12px] max-sm:font-normal max-sm:ml-[10px]">
-                  뷰티·메이크업
+            <li
+              className="max-sm:mb-[30px] hover:text-[#d7000f] max-sm:flex max-sm:justify-between max-sm:items-center"
+              onClick={onClose}
+            >
+              <Link href={`/category/2`} className="text-black">
+                <span>
+                  BEAUTY
+                  <span className="max-sm:text-[#a5a5a5] max-sm:text-[12px] max-sm:font-normal max-sm:ml-[10px]">
+                    뷰티·메이크업
+                  </span>
                 </span>
-              </span>
-              <Image
-                src="/images/left-arrow.png"
-                alt=""
-                width={12}
-                height={20}
-                className="w-[10px] h-[18px]"
-              />
+                <Image
+                  src="/images/left-arrow.png"
+                  alt=""
+                  width={12}
+                  height={20}
+                  className="w-[10px] h-[18px]"
+                />
+              </Link>
             </li>
-            <li className="max-sm:mb-[30px] hover:text-[#d7000f] max-sm:flex max-sm:justify-between max-sm:items-center">
-              <span>
-                CELEB
-                <span className="max-sm:text-[#a5a5a5] max-sm:text-[12px] max-sm:font-normal max-sm:ml-[10px]">
-                  샐럽
+            <li
+              className="max-sm:mb-[30px] hover:text-[#d7000f] max-sm:flex max-sm:justify-between max-sm:items-center "
+              onClick={onClose}
+            >
+              <Link href={`/category/4`} className="text-black">
+                <span>
+                  CELEB
+                  <span className="max-sm:text-[#a5a5a5] max-sm:text-[12px] max-sm:font-normal max-sm:ml-[10px]">
+                    샐럽
+                  </span>
                 </span>
-              </span>
-              <Image
-                src="/images/left-arrow.png"
-                alt=""
-                width={12}
-                height={20}
-                className="w-[10px] h-[18px]"
-              />
+                <Image
+                  src="/images/left-arrow.png"
+                  alt=""
+                  width={12}
+                  height={20}
+                  className="w-[10px] h-[18px]"
+                />
+              </Link>
             </li>
-            <li className="max-sm:mb-[30px] hover:text-[#d7000f] max-sm:flex max-sm:justify-between max-sm:items-center">
-              <span>
-                LIFESTYLE
-                <span className="max-sm:text-[#a5a5a5] max-sm:text-[12px] max-sm:font-normal max-sm:ml-[10px]">
-                  라이프스타일
+            <li
+              className="max-sm:mb-[30px] hover:text-[#d7000f] max-sm:flex max-sm:justify-between max-sm:items-center"
+              onClick={onClose}
+            >
+              <Link href={`/category/3`} className="text-black">
+                <span>
+                  LIFESTYLE
+                  <span className="max-sm:text-[#a5a5a5] max-sm:text-[12px] max-sm:font-normal max-sm:ml-[10px]">
+                    라이프스타일
+                  </span>
                 </span>
-              </span>
-              <Image
-                src="/images/left-arrow.png"
-                alt=""
-                width={12}
-                height={20}
-                className="w-[10px] h-[18px]"
-              />
+                <Image
+                  src="/images/left-arrow.png"
+                  alt=""
+                  width={12}
+                  height={20}
+                  className="w-[10px] h-[18px]"
+                />
+              </Link>
             </li>
-            <li className="max-sm:mb-[30px] hover:text-[#d7000f] max-sm:flex max-sm:justify-between max-sm:items-center">
-              <span>
-                LOVE&SEX
-                <span className="max-sm:text-[#a5a5a5] max-sm:text-[12px] max-sm:font-normal max-sm:ml-[10px]">
-                  러브&amp;섹스
+            <li
+              className="max-sm:mb-[30px] hover:text-[#d7000f] max-sm:flex max-sm:justify-between max-sm:items-center"
+              onClick={onClose}
+            >
+              <Link href={`/category/6`} className="text-black">
+                <span>
+                  LOVE
+                  <span className="max-sm:text-[#a5a5a5] max-sm:text-[12px] max-sm:font-normal max-sm:ml-[10px]">
+                    러브
+                  </span>
                 </span>
-              </span>
-              <Image
-                src="/images/left-arrow.png"
-                alt=""
-                width={12}
-                height={20}
-                className="w-[10px] h-[18px]"
-              />
+                <Image
+                  src="/images/left-arrow.png"
+                  alt=""
+                  width={12}
+                  height={20}
+                  className="w-[10px] h-[18px]"
+                />
+              </Link>
             </li>
-            <li className="max-sm:mb-[30px] hover:text-[#d7000f] max-sm:flex max-sm:justify-between max-sm:items-center">
-              <span>
-                VIDEO
-                <span className="max-sm:text-[#a5a5a5] max-sm:text-[12px] max-sm:font-normal max-sm:ml-[10px] max-sm:mb-[30px]">
-                  비디오
+            <li
+              className="max-sm:mb-[30px] hover:text-[#d7000f] max-sm:flex max-sm:justify-between max-sm:items-center"
+              onClick={onClose}
+            >
+              <Link href={`/category/5`} className="text-black">
+                <span>
+                  VIDEO
+                  <span className="max-sm:text-[#a5a5a5] max-sm:text-[12px] max-sm:font-normal max-sm:ml-[10px] max-sm:mb-[30px]">
+                    비디오
+                  </span>
                 </span>
-              </span>
-              <Image
-                src="/images/left-arrow.png"
-                alt=""
-                width={12}
-                height={20}
-                className="w-[10px] h-[18px]"
-              />
+                <Image
+                  src="/images/left-arrow.png"
+                  alt=""
+                  width={12}
+                  height={20}
+                  className="w-[10px] h-[18px]"
+                />
+              </Link>
             </li>
           </ul>
         </div>
 
         <div className="max-sm:px-[15px] max-sm:py-[20px]">
           <ul className="text-black max-sm:text-[18px] max-sm:font-bold max-sm:flex max-sm:flex-col max-sm:border-b-1 max-sm:border-[#ccc]">
-            <li className="max-sm:mb-[30px] hover:text-[#d7000f] max-sm:flex max-sm:justify-between max-sm:items-center">
-              <span>
-                RESEARCH
-                <span className="max-sm:text-[#a5a5a5] max-sm:text-[12px] max-sm:font-normal max-sm:ml-[10px] max-sm:mb-[30px]">
-                  리서치
+            <li
+              className="max-sm:mb-[30px] hover:text-[#d7000f] max-sm:flex max-sm:justify-between max-sm:items-center"
+              onClick={onClose}
+            >
+              <Link href={`/category/7`}>
+                <span>
+                  RESEARCH
+                  <span className="max-sm:text-[#a5a5a5] max-sm:text-[12px] max-sm:font-normal max-sm:ml-[10px] max-sm:mb-[30px] cursor-pointer">
+                    리서치
+                  </span>
                 </span>
-              </span>
-              <Image
-                src="/images/left-arrow.png"
-                alt=""
-                width={12}
-                height={20}
-                className="w-[10px] h-[18px]"
-              />
+                <Image
+                  src="/images/left-arrow.png"
+                  alt=""
+                  width={12}
+                  height={20}
+                  className="w-[10px] h-[18px]"
+                />
+              </Link>
             </li>
-            <li className="max-sm:mb-[30px] hover:text-[#d7000f] max-sm:flex max-sm:justify-between max-sm:items-center">
+            <li
+              className="max-sm:mb-[30px] hover:text-[#d7000f] max-sm:flex max-sm:justify-between max-sm:items-center"
+              onClick={onClose}
+            >
               <span>
                 COMMUNITY
-                <span className="max-sm:text-[#a5a5a5] max-sm:text-[12px] max-sm:font-normal max-sm:ml-[10px] max-sm:mb-[30px]">
+                <span className="max-sm:text-[#a5a5a5] max-sm:text-[12px] max-sm:font-normal max-sm:ml-[10px] max-sm:mb-[30px] cursor-pointer">
                   커뮤니티
                 </span>
               </span>
@@ -394,10 +511,13 @@ export default function Menu({ onClose }: { onClose: () => void }) {
                 className="w-[10px] h-[18px]"
               />
             </li>
-            <li className=" max-sm:mb-[40px] hover:text-[#d7000f] max-sm:flex max-sm:justify-between max-sm:items-center">
+            <li
+              className=" max-sm:mb-[40px] hover:text-[#d7000f] max-sm:flex max-sm:justify-between max-sm:items-center"
+              onClick={onClose}
+            >
               <span>
                 HOROSCOPE
-                <span className="max-sm:text-[#a5a5a5] max-sm:text-[12px] max-sm:font-normal max-sm:ml-[10px] max-sm:mb-[30px]">
+                <span className="max-sm:text-[#a5a5a5] max-sm:text-[12px] max-sm:font-normal max-sm:ml-[10px] max-sm:mb-[30px] cursor-pointer">
                   오늘의 운세
                 </span>
               </span>
@@ -413,20 +533,29 @@ export default function Menu({ onClose }: { onClose: () => void }) {
         </div>
 
         <div className="max-sm:px-[15px] max-sm:py-[8px]">
-          <div className="max-sm:mt-[10px] max-sm:mb-[30px] max-sm:text-[18px] max-sm:font-bold max-sm:text-black hover:text-[#d7000f] max-sm:flex max-sm:justify-between max-sm:items-center">
+          <div
+            className="max-sm:mt-[10px] max-sm:mb-[30px] max-sm:text-[18px] max-sm:font-bold max-sm:text-black hover:text-[#d7000f] max-sm:flex max-sm:justify-between max-sm:items-center"
+            onClick={onClose}
+          >
             <span>
               EVENT
-              <span className="max-sm:text-[#a5a5a5] max-sm:text-[12px] max-sm:font-normal max-sm:ml-[10px] max-sm:mb-[30px]">
+              <span className="max-sm:text-[#a5a5a5] max-sm:text-[12px] max-sm:font-normal max-sm:ml-[10px] max-sm:mb-[30px] cursor-pointer">
                 이벤트
               </span>
             </span>
-            <Image src="/images/left-arrow.png" alt="" width={10} height={18} />
+            <Image
+              src="/images/left-arrow.png"
+              alt=""
+              width={12}
+              height={20}
+              className="w-[10px] h-[18px]"
+            />
           </div>
         </div>
 
         {/* sns */}
         <div className="max-sm:flex max-sm:justify-center max-sm:items-center max-sm:m-auto max-sm:px-[15px] max-sm:py-[20px] max-sm:border-t-1  max-sm:border-b-1 max-sm:border-[#ccc]">
-          <ul className="max-sm:flex max-sm:items-center max-sm:gap-[20px]">
+          <ul className="max-sm:flex max-sm:items-center max-sm:gap-[20px] cursor-pointer">
             <li>
               <Image
                 src="/images/Instagram2.svg"
@@ -479,7 +608,7 @@ export default function Menu({ onClose }: { onClose: () => void }) {
 
         {/* 문의 */}
         <div className="max-sm:px-[15px] max-sm:py-[20px]">
-          <ul className="max-sm:mt-8 max-sm:text-[18px] max-sm:font-bold max-sm:text-black">
+          <ul className="max-sm:mt-8 max-sm:text-[18px] max-sm:font-bold max-sm:text-black cursor-pointer">
             <li
               onClick={() => toggleMenu('adProposal')}
               className="cursor-pointer max-sm:flex max-sm:justify-between max-sm:mt-[30px] max-sm:hover:text-[#d7000f]"
@@ -489,8 +618,8 @@ export default function Menu({ onClose }: { onClose: () => void }) {
                 src="/images/left-arrow.png"
                 alt=" "
                 width={12}
-                height={15}
-                className={`max-sm:ml-[10px] max-sm:mt-[7px] max-sm:transition-transform duration-300 ${
+                height={20}
+                className={`w-[12px] h-[20px] max-sm:ml-[10px] max-sm:mt-[7px] max-sm:transition-transform duration-300 ${
                   openMenus.adProposal ? '-rotate-90' : ''
                 }`}
               />
@@ -511,8 +640,8 @@ export default function Menu({ onClose }: { onClose: () => void }) {
                 src="/images/left-arrow.png"
                 alt=" "
                 width={12}
-                height={15}
-                className={`max-sm:ml-[28px] max-sm:mt-[7px] transition-transform duration-300 ${
+                height={20}
+                className={`w-[12px] h-[20px] max-sm:ml-[28px] max-sm:mt-[7px] transition-transform duration-300 ${
                   openMenus.adInquiry ? '-rotate-90' : ''
                 }`}
               />

@@ -32,8 +32,10 @@ export default function Today({ data }: { data: Promise<Article[]> }) {
                   priority
                   className="h-[290px] w-[290px] object-cover mb-[20px] max-md:h-[220px] max-md:w-[220px]"
                 />
-                <strong className="w-[290px] text-[16px] text-[#d7000f] font-bold max-md:w-[220px]">
-                  {article.subcategory}
+                <strong
+                  className={`w-[290px] text-[16px] font-bold max-md:w-[220px] text-[#d7000f]`}
+                >
+                  {article.subcategory || 'today'}
                 </strong>
                 <h2 className="w-[290px] leading-[30px] text-black text-[24px] font-medium max-md:text-[20px] max-md:w-[220px]">
                   {article.title}
