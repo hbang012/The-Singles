@@ -31,31 +31,68 @@ export default function ArticleDetail({
     }
   }, [data]);
 
-  // useEffect(() => {
-  //   console.log('Fetched data:', data);
-  // }, [data]);
+  // 카테고리 데이타 불러오기
+  const {
+    data: categoryData,
+    isPending: isCategoryPending,
+    isError: isCategoryError,
+  } = useQuery({
+    queryKey: ['categoryMeta', data?.categoryId],
+    queryFn: async () => {
+      if (!data?.categoryId) return null;
+      const response = await fetch(
+        `http://localhost:9090/category/${data.categoryId}`
+      );
+      return response.json();
+    },
+    enabled: !!data?.categoryId,
+  });
+
+  const categoryName = categoryData?.title ?? '카테고리 없음';
 
   return (
-    <main className="mt-[200px] h-[100%] max-w-[1280px] mx-auto ">
-      <ul className="flex gap-[20px] border-b-1 border-[#bfbfbf]">
-        <li className="mb-[20px] font-bold text-[16px] text-[#bfbfbf]">HOME</li>
-        <li className="font-bold text-[16px] text-[#bfbfbf]">
-          {data && data?.categoryId}
+    <main className="mt-[200px] h-[100%] max-w-[1280px] mx-auto p-[0_20px]">
+      <ul className="flex items-center gap-[5px] border-b-1 border-[#bfbfbf] ">
+        <li className="mb-[20px] font-bold text-[16px] text-[#bfbfbf] hover:text-[#fcd200] cursor-pointer">
+          HOME
         </li>
-        <li className="font-bold text-[16px] text-[#bfbfbf]">
+        <li className="mb-[20px]">
+          <Image
+            src="/arrow-lite.png"
+            alt=""
+            width={24}
+            height={24}
+            className="w-[20px] h-[20px]"
+          />
+        </li>
+        <li className="mb-[20px] font-bold text-[16px] text-[#bfbfbf] hover:text-[#fcd200] cursor-pointer">
+          {categoryName}
+        </li>
+        <li className="mb-[20px]">
+          <Image
+            src="/arrow-lite.png"
+            alt=""
+            width={24}
+            height={24}
+            className="w-[20px] h-[20px]"
+          />
+        </li>
+        <li className="mb-[20px] font-bold text-[16px] text-[#bfbfbf] hover:text-[#fcd200] cursor-pointer">
           {data && data?.subcategory}
         </li>
       </ul>
 
       {/* 상단제목 */}
       <div className="max-w-[840px] mx-auto mt-[50px]">
-        <h2 className="mb-[20px]  mt-[10px] text-black text-[32px] font-bold">
+        <h2 className="mb-[20px]  mt-[10px] text-black text-[32px] font-bold max-sm:text-[26px] ">
           {data?.title}
         </h2>
-        <p className="mb-[35px] text-black text-[18px]">{data?.subtitle}</p>
+        <p className="mb-[35px] text-black text-[18px] max-sm:text-[14px]">
+          {data?.subtitle}
+        </p>
         <div className="flex items-center gap-[10px]">
           <p className="text-[#9f9f9f] text-[14px]">
-            <span className="mr-[5px]">BY 에디터</span>
+            <span className="mr-[5px] max-sm:text-[12px]">BY 에디터</span>
             {data?.editor}
           </p>
           <span className="w-[1px] h-[15px] bg-[#9f9f9f]"></span>
@@ -78,7 +115,7 @@ export default function ArticleDetail({
               이미지를 불러올 수 없습니다.
             </p>
           )}
-          <p className="h-[300px] mt-[50px] text-[18px] text-black leading-[24px]">
+          <p className="h-[300px] mt-[50px] text-[18px] text-black leading-[24px] max-sm:text-[15px]">
             당신의 감각을 깨우는 단 하나의 콘텐츠, 싱글즈. 일상 속 작은 순간부터
             전 세계 트렌드까지, 지금 가장 빛나는 이야기들을 모아 한 편의
             아티클로 전합니다. 새로운 시선을 제안하고, 익숙한 것들에 깊이를
@@ -89,61 +126,80 @@ export default function ArticleDetail({
             <span className="font-bold">에디터 {data?.editor}</span>
           </p>
         </div>
+        <p className="text-start font-bold text-[14px] text-[#9f9f9f] mb-[30px] cursor-default">
+          사진제공
+          <span className="ml-[30px] font-normal">{data?.photoCredit}</span>
+        </p>
+
         {/* 태그 */}
-        <div className="flex flex-col ">
-          <ul className="flex gap-[30px]">
-            <li>
-              <button
-                type="button"
-                className="btn border-2 border-[#bfbfbf] rounded-[30px] text-[12px] text-[#bfbfbf]"
-              >
-                {data?.tags}
-              </button>
+        <div className="flex flex-col text-center">
+          <ul className="flex items-center ">
+            <li className="">
+              {data?.tags.map((tag: string) => (
+                <button
+                  type="button"
+                  key={tag}
+                  className="btn mr-[15px] border-0 bg-[#bfbfbf] rounded-[30px] text-[12px] text-white"
+                >
+                  {tag}
+                </button>
+              ))}
             </li>
           </ul>
 
           <div className="flex justify-between gap-[50%] border-b-1 border-[#9f9f9f] mt-[50px]">
-            <div className="flex items-center ">
+            <div className="flex items-center mb-[10px]">
               <Image
                 src="/favorite.png"
                 alt="좋아요"
                 width={60}
                 height={60}
-                className="w-[40px] h-[40px]"
+                className="w-[40px] h-[40px] cursor-pointer"
               />
-              <span className="text-[15px] ml-[10px]">{data?.likes}</span>
+              <span className="text-[15px] ml-[10px] cursor-default">
+                {data?.likes}
+              </span>
             </div>
 
-            <div>
+            <div className="flex gap-[20px] ">
               <Image
                 src="/Share.svg"
                 alt="공유"
                 width={20}
                 height={22}
-                className="w-[40px] h-[40px]"
+                className="w-[26px] h-[26px] cursor-pointer"
               />
               <Image
                 src="/iTwitter.svg"
                 alt="트위터"
                 width={22}
                 height={18}
-                className="w-[40px] h-[40px]"
+                className="w-[26px] h-[26px] cursor-pointer"
               />
               <Image
                 src="/iChatDark.svg"
                 alt="카카오"
                 width={21}
                 height={20}
-                className="w-[40px] h-[40px]"
+                className="w-[26px] h-[26px] cursor-pointer"
               />
               <Image
                 src="/iFacebookDark.svg"
                 alt="페이스북"
                 width={11}
                 height={18}
-                className="w-[40px] h-[40px]"
+                className="w-[26px] h-[26px] cursor-pointer"
               />
             </div>
+          </div>
+          <div className="m-[50px_0_95px_0]">
+            <button
+              type="button"
+              onClick={() => router.back()}
+              className="btn h-[56px] w-[148px] rounded-[5px] bg-[#333] text-white text-[15px] m-[14px_58px]"
+            >
+              목록보기
+            </button>
           </div>
         </div>
       </div>

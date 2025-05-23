@@ -69,7 +69,7 @@ export default function Category({
     <main className="h-[100%] w-[100%] max-w-[1320px] p-[0_20px_0_20px] mx-auto mt-[200px] mb-[145px] max-sm:mt-[120px]">
       <div className="flex justify-start items-center">
         <span className="w-[20px] h-[40px] bg-black max-sm:w-[15px] max-sm:h-[30px]"></span>
-        <h2 className="text-[44px] text-black font-bold ml-[10px] max-sm:text-[30px]">
+        <h2 className="text-[44px] text-black font-bold ml-[10px] max-sm:text-[30px] cursor-default">
           {data?.title}
         </h2>
       </div>
