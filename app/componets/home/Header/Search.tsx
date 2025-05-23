@@ -1,9 +1,12 @@
 import Image from 'next/image';
 import { useState } from 'react';
 import Menu from '@/app/componets/home/Header/Menu';
+import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 export default function Search({ onClose }: { onClose: () => void }) {
   const [isMenu, setMenu] = useState(false);
+  const router = useRouter();
 
   return (
     <main className="fixed top-0 left-0 w-full h-full p-[32px] bg-white flex justify-between z-50 max-md:flex-col max-md:p-[20px] max-md:pb-[900px]">
@@ -17,14 +20,17 @@ export default function Search({ onClose }: { onClose: () => void }) {
             className="ml-[60px] mt-[30px] max-md:hidden"
           />
         </button>
-        <Image
-          src="/images/singles-logo.png"
-          alt="싱글스"
-          width={550}
-          height={166}
-          priority
-          className="w-[180px] h-[55px] ml-[20px] mt-[20px] max-md:w-[100px] max-md:mt-0 max-md:h-[30px]"
-        />
+        <Link href="/">
+          <Image
+            src="/images/singles-logo.png"
+            alt="싱글스"
+            width={550}
+            height={166}
+            priority
+            onClick={onClose}
+            className="w-[180px] h-[55px] ml-[20px] mt-[20px] max-md:w-[100px] max-md:mt-0 max-md:h-[30px] cursor-pointer"
+          />
+        </Link>
       </div>
       {isMenu && <Menu onClose={() => setMenu(false)} />}
       <div className="bg-white p-4 w-3/4 relative max-md:ml-[20%] max-sm:ml-[5%]  max-sm:w-[100%]">

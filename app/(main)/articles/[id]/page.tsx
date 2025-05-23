@@ -49,11 +49,15 @@ export default function ArticleDetail({
   });
 
   const categoryName = categoryData?.title ?? '카테고리 없음';
+  const categoryId = data?.categoryId;
 
   return (
     <main className="mt-[200px] h-[100%] max-w-[1280px] mx-auto p-[0_20px]">
       <ul className="flex items-center gap-[5px] border-b-1 border-[#bfbfbf] ">
-        <li className="mb-[20px] font-bold text-[16px] text-[#bfbfbf] hover:text-[#fcd200] cursor-pointer">
+        <li
+          className="mb-[20px] font-bold text-[16px] text-[#bfbfbf] hover:text-[#fcd200] cursor-pointer"
+          onClick={() => router.push('/')}
+        >
           HOME
         </li>
         <li className="mb-[20px]">
@@ -65,7 +69,10 @@ export default function ArticleDetail({
             className="w-[20px] h-[20px]"
           />
         </li>
-        <li className="mb-[20px] font-bold text-[16px] text-[#bfbfbf] hover:text-[#fcd200] cursor-pointer">
+        <li
+          className="mb-[20px] font-bold text-[16px] text-[#bfbfbf] hover:text-[#fcd200] cursor-pointer"
+          onClick={() => router.push(`/category/${categoryId}`)}
+        >
           {categoryName}
         </li>
         <li className="mb-[20px]">
@@ -77,7 +84,18 @@ export default function ArticleDetail({
             className="w-[20px] h-[20px]"
           />
         </li>
-        <li className="mb-[20px] font-bold text-[16px] text-[#bfbfbf] hover:text-[#fcd200] cursor-pointer">
+        <li
+          className="mb-[20px] font-bold text-[16px] text-[#bfbfbf] hover:text-[#fcd200] cursor-pointer"
+          onClick={() => {
+            if (data?.subcategory) {
+              router.push(
+                `/category/${data?.categoryId}?subcategory=${data.subcategory}`
+              );
+            } else {
+              console.warn('서브 카테고리 값이 없습니다.');
+            }
+          }}
+        >
           {data && data?.subcategory}
         </li>
       </ul>

@@ -17,7 +17,7 @@ export default function Style({ data }: { data: Promise<Article[]> }) {
         <div className="flex justify-center items-center max-sm:mb-[10px]">
           <div className="w-full flex items-center">
             <span className="bg-black w-[28px] h-[56px] mr-[15px] max-md:w-[25px] max-md:h-[45px] max-sm:w-[15px] max-sm:h-[30px] max-sm:mr-[10px]"></span>
-            <h2 className="text-black text-[60px] font-bold max-md:text-[45px] max-sm:text-[28px]">
+            <h2 className="text-black text-[60px] font-bold max-md:text-[45px] max-sm:text-[28px] cursor-default">
               Style
             </h2>
           </div>

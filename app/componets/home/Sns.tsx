@@ -3,7 +3,7 @@ import Image from 'next/image';
 export default function Sns() {
   return (
     <div className=" flex justify-between gap-[50%] max-md:gap-[10%] max-sm:flex-col max-sm:justify-center">
-      <h2 className="text-black text-[20px] font-bold max-md:text-[16px]">
+      <h2 className="text-black text-[20px] font-bold max-md:text-[16px] cursor-default">
         내 삶을 풍요롭게 해주는 <br />
         싱글즈 소셜 네트워크에서 소통해요.
       </h2>

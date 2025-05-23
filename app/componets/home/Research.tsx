@@ -3,10 +3,12 @@
 import { Article } from '@/app/_lib/types';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { use, useEffect, useState } from 'react';
 
 export default function Research({ data }: { data: Promise<Article[]> }) {
   const article = use(data) ?? [];
+  const router = useRouter();
 
   // 최신 'Do&Don’t' 아티클
   const latestArticle = article
@@ -34,7 +36,7 @@ export default function Research({ data }: { data: Promise<Article[]> }) {
       <div className="flex justify-center items-center max-sm:mb-[10px]">
         <div className="w-full flex items-center max-sm:ml-[20px]">
           <span className="bg-black w-[28px] h-[56px] mr-[15px] max-md:w-[25px] max-md:h-[45px] max-sm:w-[15px] max-sm:h-[30px] max-sm:mr-[10px]"></span>
-          <h2 className="text-black text-[60px] font-bold max-md:text-[45px] max-sm:text-[28px]">
+          <h2 className="text-black text-[60px] font-bold max-md:text-[45px] max-sm:text-[28px] cursor-default">
             Research
           </h2>
         </div>
@@ -48,8 +50,11 @@ export default function Research({ data }: { data: Promise<Article[]> }) {
       </div>
 
       {latestArticle && (
-        <div className="flex flex-row max-sm:flex-col">
-          <div className="w-[100%] h-[580px] max-sm:mb-[0px] max-sm:w-full">
+        <div className="flex flex-row max-sm:flex-col cursor-pointer">
+          <div
+            className="w-[100%] h-[580px] max-sm:mb-[0px] max-sm:w-full"
+            onClick={() => window.scrollTo(0, 0)}
+          >
             <Image
               src={latestArticle.image}
               alt={latestArticle.title}
@@ -57,6 +62,7 @@ export default function Research({ data }: { data: Promise<Article[]> }) {
               height={400}
               priority
               className="h-[100%] w-[100%] object-cover mb-[20px] max-sm:mb-[0px] bg-amber-300"
+              onClick={() => router.push(`/research?subcategory=canDo`)}
             />
           </div>
 

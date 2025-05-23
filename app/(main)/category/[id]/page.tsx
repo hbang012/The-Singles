@@ -20,6 +20,11 @@ export default function Category({
   const urlSearch = new URLSearchParams(searchParamObj);
   const router = useRouter();
 
+  const defaultTab = 'All';
+  const searchParamTab = use(searchParams).subcategory ?? defaultTab;
+  const [activeIndex, setActiveIndex] = useState<string | null>(null);
+  const [activeSort, setActiveSort] = useState<string | null>('latest');
+
   const { isPending, data, isError, error } = useQuery<{
     title: string;
     sub: string[];
@@ -43,6 +48,7 @@ export default function Category({
     if (data?.category) {
       const sort = [...data?.category].sort((a, b) => b.likes - a.likes);
       setSorted(sort);
+      setActiveSort('popular');
     }
   }
 
@@ -52,9 +58,11 @@ export default function Category({
         (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
       );
       setSorted(sort);
+      setActiveSort('latest');
     }
   }
 
+  // 탭 핸들
   function handleSub(sub: string) {
     if (sub !== 'All') {
       urlSearch.set('subcategory', sub);
@@ -63,36 +71,57 @@ export default function Category({
       urlSearch.delete('subcategory');
       router.push(`?${urlSearch.toString()}`);
     }
+    setActiveIndex(sub);
   }
 
   return (
     <main className="h-[100%] w-[100%] max-w-[1320px] p-[0_20px_0_20px] mx-auto mt-[200px] mb-[145px] max-sm:mt-[120px]">
-      <div className="flex justify-start items-center">
+      <div className="flex justify-start items-center px-[20px]">
         <span className="w-[20px] h-[40px] bg-black max-sm:w-[15px] max-sm:h-[30px]"></span>
         <h2 className="text-[44px] text-black font-bold ml-[10px] max-sm:text-[30px] cursor-default">
           {data?.title}
         </h2>
       </div>
-      <div className="flex mt-[16px]">
-        {data?.sub.map((item) => (
-          <button
-            key={item}
-            type="button"
-            onClick={() => handleSub(item)}
-            className="text-[22px] text-[#333] mr-[60px] font-bold max-sm:text-[16px] max-sm:mr-[30px]"
-          >
-            {item}
-          </button>
-        ))}
-      </div>
+      {Array.isArray(data?.sub) && data.sub.length > 0 && (
+        <div className="flex mt-[16px] px-[20px] max-md:flex-wrap ">
+          {data?.sub.map((item) => (
+            <button
+              key={item}
+              type="button"
+              onClick={() => handleSub(searchParamTab === item ? '' : item)}
+              className={`text-[22px] leading-[70px] mr-[60px] font-bold max-md:text-[25px] max-md:mr-[45px] max-sm:leading-[40px] max-sm:text-[18px] max-sm:mr-[20px] ${
+                searchParamTab === item ? 'text-[#333]' : 'text-[#9f9f9f]'
+              } `}
+            >
+              {item}
+            </button>
+          ))}
+        </div>
+      )}
 
       <div className="mt-[70px] ">
         <div className="flex items-center justify-end gap-[10px] mb-[20px] mr-[20px]">
-          <button type="button" onClick={handleLatest}>
+          <button
+            type="button"
+            onClick={handleLatest}
+            className={`text-[16px] ${
+              activeSort === 'latest'
+                ? 'font-bold text-[#333]'
+                : 'text-[#9f9f9f]'
+            }`}
+          >
             최신순
           </button>
           <span className="h-[20px] w-[1px] bg-[#ccc]"></span>
-          <button type="button" onClick={handleLike}>
+          <button
+            type="button"
+            onClick={handleLike}
+            className={`text-[16px] ${
+              activeSort === 'popular'
+                ? 'font-bold text-[#333]'
+                : 'text-[#9f9f9f]'
+            }`}
+          >
             인기순
           </button>
         </div>
@@ -113,7 +142,7 @@ export default function Category({
                   alt={item.title}
                   width={1000}
                   height={1000}
-                  priority
+                  priority={true}
                   className="w-[100%] h-[470px] object-cover max-sm:h-[335px]"
                 />
                 <h2 className="text-black text-[16px] font-bold mt-[10px] max-sm:text-[10px] ">

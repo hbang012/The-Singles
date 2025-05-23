@@ -131,7 +131,7 @@ export default function Home() {
         </Suspense>
       </div>
 
-      <div className="bg-[#333] mt-[153px] max-w-[1320px] mx-auto max-sm:mt-[20px]">
+      <div className="bg-[#333] mt-[153px] max-w-[1320px] mx-auto max-sm:mt-[20px] max-sm:mx-0">
         <Suspense fallback={<p>로딩중...</p>}>
           <Beauty data={beautyData} />
         </Suspense>
@@ -155,13 +155,15 @@ export default function Home() {
 
       <div className="pl-[12%] pr-[12%] max-sm:p-0">
         <div className="mt-[153px] w-[100%]  max-sm:w-[100%] max-sm:mt-[20px]">
-          <Research data={researchData} />
+          <Suspense fallback={<p>로딩중...</p>}>
+            <Research data={researchData} />
+          </Suspense>
         </div>
       </div>
 
       <div className="bg-[#333] mt-[153px] max-sm:mt-[0px]">
         <Suspense fallback={<p>로딩중...</p>}>
-          <div className="max-w-[1320px] m-auto">
+          <div className="max-w-[1320px] mx-auto">
             <Love data={loveData} />
           </div>
         </Suspense>

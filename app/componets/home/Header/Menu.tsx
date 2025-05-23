@@ -47,6 +47,7 @@ export default function Menu({ onClose }: { onClose: () => void }) {
               height={83}
               priority
               className="w-[180]"
+              onClick={onClose}
             />
           </Link>
           <div className="flex items-center">
@@ -142,7 +143,7 @@ export default function Menu({ onClose }: { onClose: () => void }) {
             </li>
             <li className="w-[270px] mb-[35px] hover:text-[#d7000f]">
               <Link
-                href={`/category/7`}
+                href={`/research?subcategory=canDo`}
                 className="text-black"
                 onClick={onClose}
               >
@@ -299,13 +300,16 @@ export default function Menu({ onClose }: { onClose: () => void }) {
                 className="w-[25px] h-[25px]"
               />
             </button>
-            <Image
-              src="/images/singles-logo.png"
-              alt="싱글스"
-              width={550}
-              height={166}
-              className="w-[95px] h-[30px]"
-            />
+            <Link href="/">
+              <Image
+                src="/images/singles-logo.png"
+                alt="싱글스"
+                width={550}
+                height={166}
+                className="w-[95px] h-[30px]"
+                onClick={onClose}
+              />
+            </Link>
             <button
               type="button"
               onClick={() => setIsSearch(true)}
@@ -351,15 +355,17 @@ export default function Menu({ onClose }: { onClose: () => void }) {
         <div className="max-sm:flex max-sm:flex-col max-sm:px-[15px] max-sm:py-[20px]">
           <ul className="text-black max-sm:text-[18px] max-sm:font-bold max-sm:flex max-sm:flex-col max-sm:border-b-1 max-sm:border-[#ccc]">
             <li
-              className="max-sm:mb-[30px] max-sm:mt-[10px] hover:text-[#d7000f] max-sm:flex max-sm:justify-between max-sm:items-center"
+              className="max-sm:mb-[30px] max-sm:mt-[10px] hover:text-[#d7000f] max-sm:flex max-sm:justify-between max-sm:items-center cursor-pointer"
               onClick={onClose}
             >
-              <span>
-                STYLE
-                <span className="max-sm:text-[#a5a5a5] max-sm:text-[12px] max-sm:font-normal max-sm:ml-[10px]">
-                  스타일
+              <Link href={`/category/1`} className="text-black">
+                <span>
+                  STYLE
+                  <span className="max-sm:text-[#a5a5a5] max-sm:text-[12px] max-sm:font-normal max-sm:ml-[10px]">
+                    스타일
+                  </span>
                 </span>
-              </span>
+              </Link>
               <Image
                 src="/images/left-arrow.png"
                 alt=""
@@ -369,7 +375,7 @@ export default function Menu({ onClose }: { onClose: () => void }) {
               />
             </li>
             <li
-              className="max-sm:mb-[30px] hover:text-[#d7000f] max-sm:flex max-sm:justify-between max-sm:items-center"
+              className="max-sm:mb-[30px] hover:text-[#d7000f] max-sm:flex max-sm:justify-between max-sm:items-center cursor-pointer"
               onClick={onClose}
             >
               <Link href={`/category/2`} className="text-black">
@@ -379,17 +385,17 @@ export default function Menu({ onClose }: { onClose: () => void }) {
                     뷰티·메이크업
                   </span>
                 </span>
-                <Image
-                  src="/images/left-arrow.png"
-                  alt=""
-                  width={12}
-                  height={20}
-                  className="w-[10px] h-[18px]"
-                />
               </Link>
+              <Image
+                src="/images/left-arrow.png"
+                alt=""
+                width={12}
+                height={20}
+                className="w-[10px] h-[18px]"
+              />
             </li>
             <li
-              className="max-sm:mb-[30px] hover:text-[#d7000f] max-sm:flex max-sm:justify-between max-sm:items-center "
+              className="max-sm:mb-[30px] hover:text-[#d7000f] max-sm:flex max-sm:justify-between max-sm:items-center cursor-pointer"
               onClick={onClose}
             >
               <Link href={`/category/4`} className="text-black">
@@ -399,17 +405,17 @@ export default function Menu({ onClose }: { onClose: () => void }) {
                     샐럽
                   </span>
                 </span>
-                <Image
-                  src="/images/left-arrow.png"
-                  alt=""
-                  width={12}
-                  height={20}
-                  className="w-[10px] h-[18px]"
-                />
               </Link>
+              <Image
+                src="/images/left-arrow.png"
+                alt=""
+                width={12}
+                height={20}
+                className="w-[10px] h-[18px]"
+              />
             </li>
             <li
-              className="max-sm:mb-[30px] hover:text-[#d7000f] max-sm:flex max-sm:justify-between max-sm:items-center"
+              className="max-sm:mb-[30px] hover:text-[#d7000f] max-sm:flex max-sm:justify-between max-sm:items-center cursor-pointer"
               onClick={onClose}
             >
               <Link href={`/category/3`} className="text-black">
@@ -419,17 +425,17 @@ export default function Menu({ onClose }: { onClose: () => void }) {
                     라이프스타일
                   </span>
                 </span>
-                <Image
-                  src="/images/left-arrow.png"
-                  alt=""
-                  width={12}
-                  height={20}
-                  className="w-[10px] h-[18px]"
-                />
               </Link>
+              <Image
+                src="/images/left-arrow.png"
+                alt=""
+                width={12}
+                height={20}
+                className="w-[10px] h-[18px]"
+              />
             </li>
             <li
-              className="max-sm:mb-[30px] hover:text-[#d7000f] max-sm:flex max-sm:justify-between max-sm:items-center"
+              className="max-sm:mb-[30px] hover:text-[#d7000f] max-sm:flex max-sm:justify-between max-sm:items-center cursor-pointer"
               onClick={onClose}
             >
               <Link href={`/category/6`} className="text-black">
@@ -439,17 +445,17 @@ export default function Menu({ onClose }: { onClose: () => void }) {
                     러브
                   </span>
                 </span>
-                <Image
-                  src="/images/left-arrow.png"
-                  alt=""
-                  width={12}
-                  height={20}
-                  className="w-[10px] h-[18px]"
-                />
               </Link>
+              <Image
+                src="/images/left-arrow.png"
+                alt=""
+                width={12}
+                height={20}
+                className="w-[10px] h-[18px]"
+              />
             </li>
             <li
-              className="max-sm:mb-[30px] hover:text-[#d7000f] max-sm:flex max-sm:justify-between max-sm:items-center"
+              className="max-sm:mb-[30px] hover:text-[#d7000f] max-sm:flex max-sm:justify-between max-sm:items-center cursor-pointer"
               onClick={onClose}
             >
               <Link href={`/category/5`} className="text-black">
@@ -459,14 +465,14 @@ export default function Menu({ onClose }: { onClose: () => void }) {
                     비디오
                   </span>
                 </span>
-                <Image
-                  src="/images/left-arrow.png"
-                  alt=""
-                  width={12}
-                  height={20}
-                  className="w-[10px] h-[18px]"
-                />
               </Link>
+              <Image
+                src="/images/left-arrow.png"
+                alt=""
+                width={12}
+                height={20}
+                className="w-[10px] h-[18px]"
+              />
             </li>
           </ul>
         </div>
@@ -474,27 +480,27 @@ export default function Menu({ onClose }: { onClose: () => void }) {
         <div className="max-sm:px-[15px] max-sm:py-[20px]">
           <ul className="text-black max-sm:text-[18px] max-sm:font-bold max-sm:flex max-sm:flex-col max-sm:border-b-1 max-sm:border-[#ccc]">
             <li
-              className="max-sm:mb-[30px] hover:text-[#d7000f] max-sm:flex max-sm:justify-between max-sm:items-center"
+              className="max-sm:mb-[30px] hover:text-[#d7000f] max-sm:flex max-sm:justify-between max-sm:items-center cursor-pointer"
               onClick={onClose}
             >
-              <Link href={`/category/7`}>
-                <span>
+              <Link href={`/research?subcategory=canDo`}>
+                <span className="text-black">
                   RESEARCH
                   <span className="max-sm:text-[#a5a5a5] max-sm:text-[12px] max-sm:font-normal max-sm:ml-[10px] max-sm:mb-[30px] cursor-pointer">
                     리서치
                   </span>
                 </span>
-                <Image
-                  src="/images/left-arrow.png"
-                  alt=""
-                  width={12}
-                  height={20}
-                  className="w-[10px] h-[18px]"
-                />
               </Link>
+              <Image
+                src="/images/left-arrow.png"
+                alt=""
+                width={12}
+                height={20}
+                className="w-[10px] h-[18px]"
+              />
             </li>
             <li
-              className="max-sm:mb-[30px] hover:text-[#d7000f] max-sm:flex max-sm:justify-between max-sm:items-center"
+              className="max-sm:mb-[30px] hover:text-[#d7000f] max-sm:flex max-sm:justify-between max-sm:items-center cursor-pointer"
               onClick={onClose}
             >
               <span>
@@ -512,7 +518,7 @@ export default function Menu({ onClose }: { onClose: () => void }) {
               />
             </li>
             <li
-              className=" max-sm:mb-[40px] hover:text-[#d7000f] max-sm:flex max-sm:justify-between max-sm:items-center"
+              className=" max-sm:mb-[40px] hover:text-[#d7000f] max-sm:flex max-sm:justify-between max-sm:items-center cursor-pointer"
               onClick={onClose}
             >
               <span>
@@ -534,10 +540,10 @@ export default function Menu({ onClose }: { onClose: () => void }) {
 
         <div className="max-sm:px-[15px] max-sm:py-[8px]">
           <div
-            className="max-sm:mt-[10px] max-sm:mb-[30px] max-sm:text-[18px] max-sm:font-bold max-sm:text-black hover:text-[#d7000f] max-sm:flex max-sm:justify-between max-sm:items-center"
+            className="max-sm:mt-[10px] max-sm:mb-[30px] max-sm:text-[18px] max-sm:font-bold max-sm:text-black hover:text-[#d7000f] max-sm:flex max-sm:justify-between max-sm:items-center cursor-pointer"
             onClick={onClose}
           >
-            <span>
+            <span className="cursor-pointer">
               EVENT
               <span className="max-sm:text-[#a5a5a5] max-sm:text-[12px] max-sm:font-normal max-sm:ml-[10px] max-sm:mb-[30px] cursor-pointer">
                 이벤트

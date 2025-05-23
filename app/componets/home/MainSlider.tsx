@@ -8,12 +8,14 @@ import Image from 'next/image';
 import styles from './MainSlider.module.css';
 import { use } from 'react';
 import type { Article } from '@/app/_lib/types';
+import { useRouter } from 'next/navigation';
 
 export default function MainSlider({ data }: { data: Promise<Article[]> }) {
   const articles = use(data);
+  const router = useRouter();
 
   return (
-    <div className={`mt-[100px] ${styles.slider}`}>
+    <div className={`mt-[100px] cursor-pointer ${styles.slider}`}>
       <Swiper
         className="swiper-wrapper"
         modules={[Navigation, Pagination, Autoplay]}
@@ -36,10 +38,14 @@ export default function MainSlider({ data }: { data: Promise<Article[]> }) {
                     height={675}
                     priority
                     className="w-full h-full object-cover "
+                    onClick={() => router.push(`/articles/${article.id}`)}
                   />
                 </div>
 
-                <div className="bg-[#333] w-full max-w-[35%] max-md:h-[100%] max-md:w-full max-md:max-w-[100%]">
+                <div
+                  className="bg-[#333] w-full max-w-[35%] max-md:h-[100%] max-md:w-full max-md:max-w-[100%]"
+                  onClick={() => router.push(`/articles/${article.id}`)}
+                >
                   <div className="flex flex-col justify-center items-start h-[640px] pr-[40px] pl-[40px] text-white max-md:p-[30px] max-md:pb-[1px] max-md:h-[210px]">
                     <h2 className="font-bold text-[48px] w-[90%] truncate max-md:text-[30px]">
                       {article.title}
