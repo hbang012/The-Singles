@@ -31,6 +31,16 @@ export const researchHandlers = [
 
     return HttpResponse.json({ title, sub, category });
   }),
+
+  // 리서치 상세 페이지
+  http.get('http://localhost:9090/research/:id', async ({ params }) => {
+    await sleep(200);
+
+    const { id } = params;
+    const researchDetail = researchs.find((item) => item.id === Number(id));
+
+    return HttpResponse.json(researchDetail);
+  }),
 ];
 
 async function sleep(timeout: number) {

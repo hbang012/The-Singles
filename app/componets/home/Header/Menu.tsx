@@ -41,11 +41,11 @@ export default function Menu({ onClose }: { onClose: () => void }) {
         <div className="mx-auto max-w-[950px] flex justify-between items-center w-full">
           <Link href="/">
             <Image
-              src="/images/singles-logo.png"
+              src="/icons/singles-logo.png"
               alt="싱글스"
               width={275}
               height={83}
-              priority
+              priority={true}
               className="w-[180]"
               onClick={onClose}
             />
@@ -72,7 +72,7 @@ export default function Menu({ onClose }: { onClose: () => void }) {
               className="ml-[10px]"
             >
               <Image
-                src="/images/magnifying-glass.png"
+                src="/icons/magnifying-glass.png"
                 alt="검색"
                 width={40}
                 height={40}
@@ -83,7 +83,7 @@ export default function Menu({ onClose }: { onClose: () => void }) {
         </div>
         <div className="relative  max-w-[950px] mx-auto flex justify-between w-[100%] pt-[125px]">
           <button onClick={onClose} className="absolute top-0 left-0">
-            <Image src="/images/close.svg" alt="닫기" width={40} height={40} />
+            <Image src="/icons/close.svg" alt="닫기" width={40} height={40} />
           </button>
 
           <ul className="grid grid-cols-2 grid-rows-6 gap-[20px] text-black text-[30px] font-bold  max-md:flex max-md:flex-col ">
@@ -172,7 +172,7 @@ export default function Menu({ onClose }: { onClose: () => void }) {
             <ul className="flex gap-[15px] w-full items-center cursor-pointer">
               <li>
                 <Image
-                  src="/images/Instagram2.svg"
+                  src="/icons/Instagram2.svg"
                   alt="인스타"
                   width={62}
                   height={62}
@@ -181,7 +181,7 @@ export default function Menu({ onClose }: { onClose: () => void }) {
               </li>
               <li>
                 <Image
-                  src="/images/Youtube2.svg"
+                  src="/icons/Youtube2.svg"
                   alt="유튜브"
                   width={62}
                   height={62}
@@ -190,7 +190,7 @@ export default function Menu({ onClose }: { onClose: () => void }) {
               </li>
               <li>
                 <Image
-                  src="/images/x2.jpg"
+                  src="/icons/x2.jpg"
                   alt="트위터 X"
                   width={50}
                   height={50}
@@ -199,21 +199,21 @@ export default function Menu({ onClose }: { onClose: () => void }) {
               </li>
               <li className="mr-[10px] mt-[10px]">
                 <Image
-                  src="/images/naverBlog2.png"
+                  src="/icons/naverBlog2.png"
                   alt="네이버 블로그"
                   width={222}
                   height={206}
-                  priority
+                  priority={true}
                   className="w-[35px] h-[35px]"
                 />
               </li>
               <li>
                 <Image
-                  src="/images/naverTV2.png"
+                  src="/icons/naverTV2.png"
                   alt="네이버 티비"
                   width={222}
                   height={206}
-                  priority
+                  priority={true}
                   className="w-[30px] h-[35px] mt-[5px]"
                 />
               </li>
@@ -223,11 +223,11 @@ export default function Menu({ onClose }: { onClose: () => void }) {
           <div>
             <div className="cursor-pointer">
               <Image
-                src="/images/lee-post.jpg"
+                src="/icons/lee-post.jpg"
                 alt="싱글즈 잡지"
                 width={1352}
                 height={1754}
-                priority
+                priority={true}
                 className="w-[152px] h-[182px]"
               />
             </div>
@@ -238,7 +238,7 @@ export default function Menu({ onClose }: { onClose: () => void }) {
               >
                 광고 제휴 제안서
                 <Image
-                  src="/images/left-arrow.png"
+                  src="/icons/left-arrow.png"
                   alt=" "
                   width={12}
                   height={20}
@@ -260,7 +260,7 @@ export default function Menu({ onClose }: { onClose: () => void }) {
               >
                 광고 제휴 문의
                 <Image
-                  src="/images/left-arrow.png"
+                  src="/icons/left-arrow.png"
                   alt=" "
                   width={12}
                   height={20}
@@ -293,7 +293,7 @@ export default function Menu({ onClose }: { onClose: () => void }) {
           <div className="max-sm:mt-[5px] max-sm:flex max-sm:justify-between max-sm:w-full">
             <button onClick={onClose} className=" ">
               <Image
-                src="/images/close.svg"
+                src="/icons/close.svg"
                 alt="닫기"
                 width={14}
                 height={14}
@@ -302,7 +302,7 @@ export default function Menu({ onClose }: { onClose: () => void }) {
             </button>
             <Link href="/">
               <Image
-                src="/images/singles-logo.png"
+                src="/icons/singles-logo.png"
                 alt="싱글스"
                 width={550}
                 height={166}
@@ -316,7 +316,7 @@ export default function Menu({ onClose }: { onClose: () => void }) {
               className=""
             >
               <Image
-                src="/images/magnifying-glass.png"
+                src="/icons/magnifying-glass.png"
                 alt="검색"
                 width={512}
                 height={512}
@@ -367,7 +367,7 @@ export default function Menu({ onClose }: { onClose: () => void }) {
                 </span>
               </Link>
               <Image
-                src="/images/left-arrow.png"
+                src="/icons/left-arrow.png"
                 alt=""
                 width={12}
                 height={20}
@@ -387,7 +387,7 @@ export default function Menu({ onClose }: { onClose: () => void }) {
                 </span>
               </Link>
               <Image
-                src="/images/left-arrow.png"
+                src="/icons/left-arrow.png"
                 alt=""
                 width={12}
                 height={20}
@@ -407,7 +407,7 @@ export default function Menu({ onClose }: { onClose: () => void }) {
                 </span>
               </Link>
               <Image
-                src="/images/left-arrow.png"
+                src="/icons/left-arrow.png"
                 alt=""
                 width={12}
                 height={20}
@@ -427,7 +427,7 @@ export default function Menu({ onClose }: { onClose: () => void }) {
                 </span>
               </Link>
               <Image
-                src="/images/left-arrow.png"
+                src="/icons/left-arrow.png"
                 alt=""
                 width={12}
                 height={20}
@@ -447,7 +447,7 @@ export default function Menu({ onClose }: { onClose: () => void }) {
                 </span>
               </Link>
               <Image
-                src="/images/left-arrow.png"
+                src="/icons/left-arrow.png"
                 alt=""
                 width={12}
                 height={20}
@@ -467,7 +467,7 @@ export default function Menu({ onClose }: { onClose: () => void }) {
                 </span>
               </Link>
               <Image
-                src="/images/left-arrow.png"
+                src="/icons/left-arrow.png"
                 alt=""
                 width={12}
                 height={20}
@@ -492,7 +492,7 @@ export default function Menu({ onClose }: { onClose: () => void }) {
                 </span>
               </Link>
               <Image
-                src="/images/left-arrow.png"
+                src="/icons/left-arrow.png"
                 alt=""
                 width={12}
                 height={20}
@@ -510,7 +510,7 @@ export default function Menu({ onClose }: { onClose: () => void }) {
                 </span>
               </span>
               <Image
-                src="/images/left-arrow.png"
+                src="/icons/left-arrow.png"
                 alt=""
                 width={12}
                 height={20}
@@ -528,7 +528,7 @@ export default function Menu({ onClose }: { onClose: () => void }) {
                 </span>
               </span>
               <Image
-                src="/images/left-arrow.png"
+                src="/icons/left-arrow.png"
                 alt=""
                 width={12}
                 height={20}
@@ -550,7 +550,7 @@ export default function Menu({ onClose }: { onClose: () => void }) {
               </span>
             </span>
             <Image
-              src="/images/left-arrow.png"
+              src="/icons/left-arrow.png"
               alt=""
               width={12}
               height={20}
@@ -564,7 +564,7 @@ export default function Menu({ onClose }: { onClose: () => void }) {
           <ul className="max-sm:flex max-sm:items-center max-sm:gap-[20px] cursor-pointer">
             <li>
               <Image
-                src="/images/Instagram2.svg"
+                src="/icons/Instagram2.svg"
                 alt="인스타"
                 width={62}
                 height={62}
@@ -573,7 +573,7 @@ export default function Menu({ onClose }: { onClose: () => void }) {
             </li>
             <li>
               <Image
-                src="/images/Youtube2.svg"
+                src="/icons/Youtube2.svg"
                 alt="유튜브"
                 width={62}
                 height={62}
@@ -582,7 +582,7 @@ export default function Menu({ onClose }: { onClose: () => void }) {
             </li>
             <li>
               <Image
-                src="/images/x2.jpg"
+                src="/icons/x2.jpg"
                 alt="트위터 X"
                 width={50}
                 height={50}
@@ -591,21 +591,21 @@ export default function Menu({ onClose }: { onClose: () => void }) {
             </li>
             <li className=" max-sm:ml-[8px]  max-sm:mt-[5px] ">
               <Image
-                src="/images/naverBlog2.png"
+                src="/icons/naverBlog2.png"
                 alt="네이버 블로그"
                 width={222}
                 height={206}
-                priority
+                priority={true}
                 className="w-[25px] h-[25px]"
               />
             </li>
             <li className="max-sm:ml-[20px]">
               <Image
-                src="/images/naverTV2.png"
+                src="/icons/naverTV2.png"
                 alt="네이버 티비"
                 width={222}
                 height={206}
-                priority
+                priority={true}
                 className="w-[20px] h-[22px] mt-[5px]"
               />
             </li>
@@ -621,7 +621,7 @@ export default function Menu({ onClose }: { onClose: () => void }) {
             >
               광고 제휴 제안서
               <Image
-                src="/images/left-arrow.png"
+                src="/icons/left-arrow.png"
                 alt=" "
                 width={12}
                 height={20}
@@ -643,7 +643,7 @@ export default function Menu({ onClose }: { onClose: () => void }) {
             >
               광고 제휴 문의
               <Image
-                src="/images/left-arrow.png"
+                src="/icons/left-arrow.png"
                 alt=" "
                 width={12}
                 height={20}

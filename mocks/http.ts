@@ -6,6 +6,7 @@ import { articlesHandlers } from '@/mocks/articles-handlers';
 import { youtubeHandlers } from '@/mocks/youtube-handlers';
 import { categoriesHandlers } from '@/mocks/category-handlers';
 import { researchHandlers } from '@/mocks/research-handlers';
+import { searchHandlers } from '@/mocks/search-handlers';
 
 const app = express();
 const port = 9090;
@@ -23,7 +24,8 @@ app.use(
     ...articlesHandlers,
     ...youtubeHandlers,
     ...categoriesHandlers,
-    ...researchHandlers
+    ...researchHandlers,
+    ...searchHandlers
   )
 );
 // NSW핸들러연결

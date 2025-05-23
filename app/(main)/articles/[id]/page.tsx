@@ -62,10 +62,11 @@ export default function ArticleDetail({
         </li>
         <li className="mb-[20px]">
           <Image
-            src="/arrow-lite.png"
+            src="/icons/arrow-lite.png"
             alt=""
             width={24}
             height={24}
+            priority={true}
             className="w-[20px] h-[20px]"
           />
         </li>
@@ -77,10 +78,11 @@ export default function ArticleDetail({
         </li>
         <li className="mb-[20px]">
           <Image
-            src="/arrow-lite.png"
+            src="/icons/arrow-lite.png"
             alt=""
             width={24}
             height={24}
+            priority={true}
             className="w-[20px] h-[20px]"
           />
         </li>
@@ -168,10 +170,11 @@ export default function ArticleDetail({
           <div className="flex justify-between gap-[50%] border-b-1 border-[#9f9f9f] mt-[50px]">
             <div className="flex items-center mb-[10px]">
               <Image
-                src="/favorite.png"
+                src="/icons/favorite.png"
                 alt="좋아요"
                 width={60}
                 height={60}
+                priority={true}
                 className="w-[40px] h-[40px] cursor-pointer"
               />
               <span className="text-[15px] ml-[10px] cursor-default">
@@ -181,31 +184,35 @@ export default function ArticleDetail({
 
             <div className="flex gap-[20px] ">
               <Image
-                src="/Share.svg"
+                src="/icons/Share.svg"
                 alt="공유"
                 width={20}
                 height={22}
+                priority={true}
                 className="w-[26px] h-[26px] cursor-pointer"
               />
               <Image
-                src="/iTwitter.svg"
+                src="/icons/iTwitter.svg"
                 alt="트위터"
                 width={22}
                 height={18}
+                priority={true}
                 className="w-[26px] h-[26px] cursor-pointer"
               />
               <Image
-                src="/iChatDark.svg"
+                src="/icons/iChatDark.svg"
                 alt="카카오"
                 width={21}
                 height={20}
+                priority={true}
                 className="w-[26px] h-[26px] cursor-pointer"
               />
               <Image
-                src="/iFacebookDark.svg"
+                src="/icons/iFacebookDark.svg"
                 alt="페이스북"
                 width={11}
                 height={18}
+                priority={true}
                 className="w-[26px] h-[26px] cursor-pointer"
               />
             </div>

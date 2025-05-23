@@ -69,7 +69,10 @@ export default function Researchs({
     <main className="max-w-[1320px] mx-auto mt-[200px] mb-[145px] px-5 max-sm:mt-[120px]">
       <div className="flex items-center">
         <span className="w-[20px] h-[40px] bg-black max-sm:w-[15px] max-sm:h-[30px]"></span>
-        <h2 className="text-black text-[44px] font-bold ml-2 max-sm:text-[30px]">
+        <h2
+          className="text-black text-[44px] font-bold ml-2 max-sm:text-[30px] cursor-pointer"
+          onClick={() => router.push(`/research?subcategory=canDo`)}
+        >
           {data?.title}
         </h2>
       </div>
@@ -92,13 +95,14 @@ export default function Researchs({
             <li
               key={item.id}
               className=" w-[calc(50%-10px)] mb-[35px] max-sm:w-full  cursor-pointer"
+              onClick={() => router.push(`/research/${item.id}`)}
             >
               <Image
                 src={item.image}
                 alt={item.title}
                 width={1000}
                 height={1000}
-                priority
+                priority={true}
                 className="w-full h-[470px] object-cover max-sm:h-[335px] rounded-[10px]"
               />
               <div className="justify-center">

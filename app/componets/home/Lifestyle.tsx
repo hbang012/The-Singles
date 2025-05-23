@@ -52,7 +52,7 @@ export default function Lifestyle({ data }: { data: Promise<Article[]> }) {
             alt={articles[0].title}
             width={840}
             height={470}
-            priority
+            priority={true}
             className="h-[100%] w-[100%] object-cover mb-[20px] max-sm:mb-[0px]"
           />
         </div>
@@ -73,7 +73,7 @@ export default function Lifestyle({ data }: { data: Promise<Article[]> }) {
                   alt={article.title}
                   width={540}
                   height={675}
-                  priority
+                  priority={true}
                   className="h-[470px] w-[100%] object-cover cursor-pointer mb-[10px] max-sm:h-[200px] max-sm:mb-[0px] max-sm:mt-[28px]"
                 />
                 <strong className="w-[100%] text-[22px] text-[#d7000f] font-bold max-sm:text-[18px] max-sm:mt-[5px]">

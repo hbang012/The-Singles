@@ -11,7 +11,7 @@ export default function Sns() {
       <ul className="flex gap-[15px] items-center cursor-pointer ">
         <li>
           <Image
-            src="/images/Instagram2.svg"
+            src="/icons/Instagram2.svg"
             alt="인스타"
             width={62}
             height={62}
@@ -20,7 +20,7 @@ export default function Sns() {
         </li>
         <li>
           <Image
-            src="/images/Youtube2.svg"
+            src="/icons/Youtube2.svg"
             alt="유튜브"
             width={62}
             height={62}
@@ -29,7 +29,7 @@ export default function Sns() {
         </li>
         <li>
           <Image
-            src="/images/x-circle.png"
+            src="/icons/x-circle.png"
             alt="트위터 X"
             width={25}
             height={25}
@@ -38,7 +38,7 @@ export default function Sns() {
         </li>
         <li className="mr-[10px] mt-[10px]">
           <Image
-            src="/images/naverBlog-circle.png"
+            src="/icons/naverBlog-circle.png"
             alt="네이버 블로그"
             width={1546}
             height={1546}
@@ -48,7 +48,7 @@ export default function Sns() {
         </li>
         <li>
           <Image
-            src="/images/naverTV-circle.png"
+            src="/icons/naverTV-circle.png"
             alt="네이버 티비"
             width={1546}
             height={1546}

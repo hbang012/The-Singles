@@ -18,7 +18,7 @@ export default function Header() {
         <div className="flex flex-shrink-0 max-sm:items-center">
           <button onClick={() => setMenu(true)}>
             <Image
-              src="/images/hamburger.svg"
+              src="/icons/hamburger.svg"
               alt="탭"
               width={20}
               height={20}
@@ -26,11 +26,11 @@ export default function Header() {
             />
           </button>
           <Image
-            src="/images/singles-logo.png"
+            src="/icons/singles-logo.png"
             alt="싱글스"
             width={275}
             height={83}
-            priority
+            priority={true}
             className="mr-[20px] w-[180px] cursor-pointer max-md:my-auto max-sm:h-[30px] max-sm:w-[100px] max-sm:ml-[80%] max-sm:pl-[10%] max-sm:mr-[0px] "
             onClick={() => router.push('/')}
           />
@@ -95,7 +95,7 @@ export default function Header() {
           <li>
             <button type="button" onClick={() => setSearch(true)}>
               <Image
-                src="/images/magnifying-glass.png"
+                src="/icons/magnifying-glass.png"
                 alt="검색"
                 width={30}
                 height={30}

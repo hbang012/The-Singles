@@ -5,15 +5,22 @@ import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 
 export default function Search({ onClose }: { onClose: () => void }) {
+  const [searchQuery, setSearchQuery] = useState('');
   const [isMenu, setMenu] = useState(false);
   const router = useRouter();
+
+  const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter' && searchQuery.trim()) {
+      router.push(`/search?keyword=${encodeURIComponent(searchQuery)}`);
+    }
+  };
 
   return (
     <main className="fixed top-0 left-0 w-full h-full p-[32px] bg-white flex justify-between z-50 max-md:flex-col max-md:p-[20px] max-md:pb-[900px]">
       <div className="flex-shrink-0 max-md:ml-[50%] max-md:flex-none  max-sm:ml-[10%]">
         <button type="button" onClick={() => setMenu(true)}>
           <Image
-            src="/images/hamburger.svg"
+            src="/icons/hamburger.svg"
             alt="탭"
             width={20}
             height={20}
@@ -22,7 +29,7 @@ export default function Search({ onClose }: { onClose: () => void }) {
         </button>
         <Link href="/">
           <Image
-            src="/images/singles-logo.png"
+            src="/icons/singles-logo.png"
             alt="싱글스"
             width={550}
             height={166}
@@ -37,14 +44,21 @@ export default function Search({ onClose }: { onClose: () => void }) {
         <input
           type="text"
           placeholder="검색"
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
           className="w-full h-[54px] border-0 p-[15px_60px_15px_30px] bg-[#f3f3f3] rounded-[35px]"
         />
         <Image
-          src="/images/magnifying-glass.png"
+          src="/icons/magnifying-glass.png"
           alt="검색"
           width={30}
           height={30}
-          className="absolute top-[3%] right-[40px] max-md:top-[28%]"
+          className="absolute top-[3%] right-[40px] max-md:top-[28%] cursor-pointer"
+          onClick={() => {
+            if (searchQuery.trim()) {
+              router.push(`/search?keyword=${encodeURIComponent(searchQuery)}`);
+            }
+          }}
         />
       </div>
       <div>
@@ -52,7 +66,7 @@ export default function Search({ onClose }: { onClose: () => void }) {
           onClick={onClose}
           className="absolute top-[6.5%] right-[2.5%] max-md:top-[2%]"
         >
-          <Image src="/images/close.svg" alt="닫기" width={30} height={30} />
+          <Image src="/icons/close.svg" alt="닫기" width={30} height={30} />
         </button>
       </div>
     </main>

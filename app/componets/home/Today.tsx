@@ -31,7 +31,7 @@ export default function Today({ data }: { data: Promise<Article[]> }) {
                   alt={article.title}
                   width={540}
                   height={675}
-                  priority
+                  priority={true}
                   className="h-[290px] w-[290px] object-cover mb-[20px] max-md:h-[220px] max-md:w-[220px]"
                   onClick={() => router.push(`/articles/${article.id}`)}
                 />

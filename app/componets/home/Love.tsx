@@ -43,7 +43,7 @@ export default function Love({ data }: { data: Promise<Article[]> }) {
                   alt={article.title}
                   width={540}
                   height={675}
-                  priority
+                  priority={true}
                   className="h-[470px] w-[100%] object-cover cursor-pointer mb-[10px] max-sm:h-[200px] max-sm:mb-[0px] max-sm:mt-[28px]"
                 />
                 <strong className="w-[100%] text-[20px] text-[#d7000f] font-bold max-sm:text-[15px] max-sm:mt-[5px]">

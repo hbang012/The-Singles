@@ -40,7 +40,7 @@ export default function Footer() {
               alt="네이버 블로그"
               width={222}
               height={206}
-              priority
+              priority={true}
               className="w-[25px] h-[25px]"
             />
             <Image
@@ -48,7 +48,7 @@ export default function Footer() {
               alt="네이버 티비"
               width={222}
               height={206}
-              priority
+              priority={true}
               className="w-[20px] h-[22px]"
             />
           </div>

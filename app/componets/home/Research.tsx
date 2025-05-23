@@ -60,7 +60,7 @@ export default function Research({ data }: { data: Promise<Article[]> }) {
               alt={latestArticle.title}
               width={620}
               height={400}
-              priority
+              priority={true}
               className="h-[100%] w-[100%] object-cover mb-[20px] max-sm:mb-[0px] bg-amber-300"
               onClick={() => router.push(`/research?subcategory=canDo`)}
             />
