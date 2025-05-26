@@ -87,10 +87,7 @@ export default function Header() {
             <p>Join</p>
           </li>
           <span className="text-[18px] max-sm:hidden">|</span>
-          <li
-            className="bg-black rounded-[5px] p-[5px_10px] w-[105px] h-[30px] max-sm:ml-[10%] max-sm:w-[110px] max-sm:p-[5px_5px] cursor-pointer"
-            onClick={() => router.push(`/`)}
-          >
+          <li className="bg-black rounded-[5px] p-[5px_10px] w-[105px] h-[30px] max-sm:ml-[10%] max-sm:w-[110px] max-sm:p-[5px_5px] cursor-pointer">
             <p className="text-white text-[13px] max-sm:text-[11px] max-sm:leading-[20px] max-sm:ml-[8px] ">
               광고ㆍ편집 문의
             </p>

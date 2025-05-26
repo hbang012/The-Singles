@@ -63,7 +63,7 @@ export default function Login({
           className="btn border-0 w-[300px] h-[50px] rounded-[8px] bg-[#fee500] mt-[10px]"
         >
           <Image
-            src="/images/kakao.svg"
+            src="/icons/kakao.svg"
             alt="kakao"
             width={20}
             height={20}

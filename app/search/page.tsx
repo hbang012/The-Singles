@@ -28,15 +28,18 @@ export default function SearchResult() {
       ).then((res) => res.json()),
   });
 
+  const resultCount = data?.results.length ?? 0;
+
   return (
     <>
       <Header />
       <main className="max-w-[1320px] mx-auto mt-[200px] mb-[145px] px-5 max-md:mt-[250px] max-sm:mt-[130px]">
         <div className="max-sm:text-center max-sm:flex max-sm:flex-col max-sm:justify-center">
           <h2 className="text-black text-[44px] font-bold ml-2 border-b-[#ddd] border-b-1 mb-[30px] max-sm:text-[28px] max-sm:border-0">
-            "{keyword}"{' '}
-            <span className="text-[#999] text-[28px] max-sm:font-medium">
-              검색 결과
+            "{keyword}"
+            <span className="ml-[15px] text-[#999] text-[28px] max-sm:font-medium">
+              <br className="hidden max-sm:block" />
+              검색 결과 ({resultCount}개)
             </span>
           </h2>
         </div>
@@ -45,8 +48,16 @@ export default function SearchResult() {
           <p>검색 중...</p>
         ) : isError ? (
           <p>오류 발생!</p>
+        ) : resultCount === 0 ? (
+          <div className="h-[600px] flex justify-center items-center">
+            <h2 className="text-[30px] text-center text-[#999] max-sm:text-[20px]">
+              검색결과가 없습니다.
+              <br className="hidden max-sm:block" /> 다른 검색어로 검색해
+              보세요!
+            </h2>
+          </div>
         ) : (
-          <ul className="flex justify-center flex-wrap gap-[20px]">
+          <ul className="flex justify-baseline flex-wrap gap-[20px]">
             {data?.results.map((item) => {
               const pagePath =
                 item.type === 'article'

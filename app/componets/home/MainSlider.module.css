@@ -13,3 +13,21 @@
   pointer-events: all;
   cursor: pointer;
 }
+
+@media (max-width: 640px) {
+  .slider [class*='swiper-button'] {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .slider [class*='swiper-button-next'] {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .slider [class*='swiper-button-next']::after {
+    display: none;
+  }
+}
