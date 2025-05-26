@@ -15,6 +15,7 @@ export default function Sns() {
             alt="인스타"
             width={62}
             height={62}
+            priority={true}
             className="w-[45px] h-[45px] flex-shrink-0 object-cover max-sm:w-[35px] max-sm:h-[35px]"
           />
         </li>
@@ -24,6 +25,7 @@ export default function Sns() {
             alt="유튜브"
             width={62}
             height={62}
+            priority={true}
             className="w-[45px] h-[45px] flex-shrink-0 object-cover max-sm:w-[35px] max-sm:h-[35px]"
           />
         </li>
@@ -33,6 +35,7 @@ export default function Sns() {
             alt="트위터 X"
             width={25}
             height={25}
+            priority={true}
             className="w-[45px] h-[45px] flex-shrink-0 object-cover max-sm:w-[35px] max-sm:h-[35px]"
           />
         </li>
@@ -42,7 +45,7 @@ export default function Sns() {
             alt="네이버 블로그"
             width={1546}
             height={1546}
-            priority
+            priority={true}
             className="w-[45px] h-[45px] mb-[10px] flex-shrink-0 object-cover max-sm:w-[35px] max-sm:h-[35px]"
           />
         </li>
@@ -52,7 +55,7 @@ export default function Sns() {
             alt="네이버 티비"
             width={1546}
             height={1546}
-            priority
+            priority={true}
             className="w-[45px] h-[45px] flex-shrink-0 object-cover max-sm:w-[35px] max-sm:h-[35px]"
           />
         </li>

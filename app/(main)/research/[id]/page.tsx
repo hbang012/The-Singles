@@ -168,6 +168,7 @@ export default function ResearchDetail({
                 alt="좋아요"
                 width={60}
                 height={60}
+                priority={true}
                 className="w-[40px] h-[40px] cursor-pointer"
               />
               <span className="text-[15px] ml-[10px] cursor-default">
@@ -181,6 +182,7 @@ export default function ResearchDetail({
                 alt="공유"
                 width={20}
                 height={22}
+                priority={true}
                 className="w-[26px] h-[26px] cursor-pointer"
               />
               <Image
@@ -188,6 +190,7 @@ export default function ResearchDetail({
                 alt="트위터"
                 width={22}
                 height={18}
+                priority={true}
                 className="w-[26px] h-[26px] cursor-pointer"
               />
               <Image
@@ -195,6 +198,7 @@ export default function ResearchDetail({
                 alt="카카오"
                 width={21}
                 height={20}
+                priority={true}
                 className="w-[26px] h-[26px] cursor-pointer"
               />
               <Image
@@ -202,6 +206,7 @@ export default function ResearchDetail({
                 alt="페이스북"
                 width={11}
                 height={18}
+                priority={true}
                 className="w-[26px] h-[26px] cursor-pointer"
               />
             </div>

@@ -15,7 +15,7 @@ export default function MainSlider({ data }: { data: Promise<Article[]> }) {
   const router = useRouter();
 
   return (
-    <div className={`mt-[100px] cursor-pointer ${styles.slider}`}>
+    <div className={`cursor-pointer ${styles.slider}`}>
       <Swiper
         className="swiper-wrapper"
         modules={[Navigation, Pagination, Autoplay]}
@@ -23,6 +23,7 @@ export default function MainSlider({ data }: { data: Promise<Article[]> }) {
         pagination={{ clickable: true }}
         spaceBetween={30}
         slidesPerView={1}
+        resizeObserver={false}
         autoplay={{ delay: 2800, disableOnInteraction: false }}
         loop={true}
       >
@@ -30,13 +31,13 @@ export default function MainSlider({ data }: { data: Promise<Article[]> }) {
           articles?.map((article) => (
             <SwiperSlide key={article.id} className="swiper-slide">
               <div className="flex max-md:flex-col ">
-                <div className="h-[640px] w-full bg-[#ddd]">
+                <div className="h-[640px] w-full bg-[#ddd] max-sm:h-[375px]">
                   <Image
                     src={article.image}
                     alt={article.title}
                     width={540}
                     height={675}
-                    priority
+                    priority={true}
                     className="w-full h-full object-cover "
                     onClick={() => router.push(`/articles/${article.id}`)}
                   />
@@ -46,11 +47,11 @@ export default function MainSlider({ data }: { data: Promise<Article[]> }) {
                   className="bg-[#333] w-full max-w-[35%] max-md:h-[100%] max-md:w-full max-md:max-w-[100%]"
                   onClick={() => router.push(`/articles/${article.id}`)}
                 >
-                  <div className="flex flex-col justify-center items-start h-[640px] pr-[40px] pl-[40px] text-white max-md:p-[30px] max-md:pb-[1px] max-md:h-[210px]">
+                  <div className="flex flex-col justify-center items-start h-[640px] pr-[40px] pl-[40px] text-white max-md:p-[30px] max-md:pb-[1px] max-md:h-[210px] max-sm:pt-[0px]">
                     <h2 className="font-bold text-[48px] w-[90%] truncate max-md:text-[30px]">
                       {article.title}
                     </h2>
-                    <p className="font-medium text-[20px] truncate mt-[30px] whitespace-normal max-md:text-[16px] max-md:mt-[18px]">
+                    <p className="font-medium text-[20px] truncate mt-[30px] whitespace-normal max-md:text-[16px] max-md:mt-[18px] max-sm:mt-[5px]">
                       {article.subtitle}
                     </p>
 
@@ -64,6 +65,7 @@ export default function MainSlider({ data }: { data: Promise<Article[]> }) {
                           alt="더보기"
                           width={12}
                           height={20}
+                          priority={true}
                           className="flex-shrink-0 w-[10px] h-[17px]"
                         />
                       </span>

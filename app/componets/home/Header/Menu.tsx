@@ -9,6 +9,7 @@ import Link from 'next/link';
 
 export default function Menu({ onClose }: { onClose: () => void }) {
   const router = useRouter();
+  const [searchQuery, setSearchQuery] = useState('');
   const [isSearch, setIsSearch] = useState(false);
   const [openMenus, setOpenMenus] = useState<{ [key: string]: boolean }>({
     adProposal: false,
@@ -33,6 +34,12 @@ export default function Menu({ onClose }: { onClose: () => void }) {
     }
 
     setShowPopup(true); // 팝업 활성화
+  };
+
+  const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter' && searchQuery.trim()) {
+      router.push(`/search?keyword=${encodeURIComponent(searchQuery)}`);
+    }
   };
 
   return (
@@ -678,6 +685,7 @@ export default function Menu({ onClose }: { onClose: () => void }) {
               <input
                 type="email"
                 value={email}
+                onKeyDown={handleKeyPress}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="이메일 주소를 입력해주세요"
                 className="max-sm:bg-[#F4F4F4] max-sm:border-0 max-sm:rounded-[6px] max-sm:mb-[10px] max-sm:w-[80%] max-sm:h-[45px] max-sm:text-[14px] max-sm:mr-[10px] max-sm:[text-indent:15px]"

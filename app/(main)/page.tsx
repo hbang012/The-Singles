@@ -102,16 +102,14 @@ export default function Home() {
   const data = ArticleData();
 
   return (
-    <main className="flex flex-col justify-center w-[100%]">
+    <main className="pt-[100px] max-sm:pt-[90px]">
       <div className="bg-[#f2f2f2]">
         <div className="max-w-[1420px] mx-auto">
-          <div className="h-full">
-            <Suspense fallback={<p>로딩중...</p>}>
-              <MainSlider data={data} />
-            </Suspense>
-          </div>
+          <Suspense fallback={<p>로딩중...</p>}>
+            <MainSlider data={data} />
+          </Suspense>
 
-          <div className="h-[100%] mt-[84px] p-[0_20px_128px_20px]">
+          <div className="max-w-[1320px] mx-auto mt-[84px] p-[0_20px_128px_20px]">
             <Suspense fallback={<p>로딩중...</p>}>
               <Today data={latestdata} />
             </Suspense>
@@ -119,7 +117,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="max-w-[1320px] w-[100%] h-[753px] p-[0_20px] mt-[142px] mx-auto max-md:h-[20%] max-sm:mt-[30px]">
+      <div className="max-w-[1320px] w-[100%] h-[753px] p-[0_20px] mt-[142px] mx-auto max-md:h-[20%] max-sm:mt-[30px] max-sm:p-0 ">
         <Suspense fallback={<p>로딩중...</p>}>
           <YoutubeSlider />
         </Suspense>
@@ -131,7 +129,7 @@ export default function Home() {
         </Suspense>
       </div>
 
-      <div className="bg-[#333] mt-[153px] max-w-[1320px] mx-auto max-sm:mt-[20px] max-sm:mx-0">
+      <div className="bg-[#333] mt-[153px] max-w-[1320px] mx-auto max-sm:pt-[1px] max-sm:pb-[1px]">
         <Suspense fallback={<p>로딩중...</p>}>
           <Beauty data={beautyData} />
         </Suspense>
@@ -147,14 +145,14 @@ export default function Home() {
         <Sns />
       </div>
 
-      <div className="mt-[153px] max-w-[1320px] mx-auto max-sm:w-[100%] max-sm:mt-[20px]">
+      <div className="mt-[153px] max-w-[1320px] mx-auto max-sm:w-[100%] max-sm:mt-[100px]">
         <Suspense fallback={<p>로딩중...</p>}>
           <Lifestyle data={lifestyleData} />
         </Suspense>
       </div>
 
       <div className="pl-[12%] pr-[12%] max-sm:p-0">
-        <div className="mt-[153px] w-[100%]  max-sm:w-[100%] max-sm:mt-[20px]">
+        <div className="mt-[153px] w-[100%]  max-sm:w-[100%] max-sm:mt-[100px]">
           <Suspense fallback={<p>로딩중...</p>}>
             <Research data={researchData} />
           </Suspense>
@@ -171,7 +169,7 @@ export default function Home() {
 
       <div className="bg-[#d7000f]">
         <Suspense fallback={<p>로딩중...</p>}>
-          <div className="max-w-[1320px] m-auto">
+          <div className="max-w-[1320px] mx-auto max-sm:pb-[10px]">
             <Submail />
           </div>
         </Suspense>

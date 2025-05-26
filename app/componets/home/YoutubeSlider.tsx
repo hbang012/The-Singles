@@ -17,7 +17,7 @@ export default function VideoSlider() {
   }, []);
 
   return (
-    <div className="bg-[#333] w-full">
+    <div className="bg-[#333] w-full rounded-[5px] max-sm:rounded-0">
       <div className={styles.slider}>
         <div className="">
           <Swiper

@@ -21,18 +21,18 @@ export default function Submail() {
   };
 
   return (
-    <div className=" flex items-center justify-between gap-[20%] h-[144px] w-full p-[21px_20px_25px]  bg-[#d7000f] max-sm:flex-col">
+    <div className=" flex items-center justify-between gap-[20%] h-[144px] w-full p-[21px_20px_25px]  bg-[#d7000f] max-sm:flex-col ">
       <p className=" text-white text-[24px] font-bold mb-[10px] max-sm:text-[15px] max-sm:mb-[0px]">
         당신에게 필요한 소식들을 메일로 받아보세요
       </p>
-      <div className="w-full">
+      <div className="w-full ">
         <form onSubmit={handleSubmit} className="flex max-sm:justify-center">
           <input
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="이메일 주소를 입력해주세요"
-            className=" bg-[#F4F4F4] border-0 rounded-tl-[6px] rounded-bl-[6px] mb-[10px] w-[80%] h-[45px] text-[14px]  [text-indent:15px]"
+            className=" bg-[#F4F4F4] border-0 rounded-tl-[6px] rounded-bl-[6px] mb-[10px] w-[80%] h-[45px] text-[14px] [text-indent:15px] "
           />
           <button
             type="button"

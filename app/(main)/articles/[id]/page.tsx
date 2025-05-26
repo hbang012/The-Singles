@@ -127,7 +127,7 @@ export default function ArticleDetail({
               alt={data?.title}
               width={1000}
               height={1000}
-              priority
+              priority={true}
               className="rounded-[10px] w-[100%] h-[500px] object-cover"
             />
           ) : (

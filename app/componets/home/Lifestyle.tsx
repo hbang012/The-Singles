@@ -22,7 +22,7 @@ export default function Lifestyle({ data }: { data: Promise<Article[]> }) {
         <Link
           href={'/category/3'}
           onClick={() => window.scrollTo(0, 0)}
-          className="w-[100px] font-bold text-[20px] text-[#333] underline underline-[#333] underline-offset-4 max-sm:text-[15px] max-sm:text-[#ccc] max-sm:w-[70px]"
+          className="w-[100px] font-bold text-[20px] text-[#333] underline underline-[#333] underline-offset-4 max-sm:text-[15px] max-sm:text-[#ccc] max-sm:w-[70px] max-[340px]:text-[14px]"
         >
           + MORE
         </Link>
@@ -46,7 +46,7 @@ export default function Lifestyle({ data }: { data: Promise<Article[]> }) {
           </p>
         </div>
 
-        <div className="w-[100%] h-[580px] mb-[20px] max-sm:mb-[0px] max-sm:w-full">
+        <div className="w-[100%] h-[580px] mb-[20px] max-sm:mb-[0px] max-sm:w-full max-sm:h-[372px]">
           <Image
             src={articles[0].image}
             alt={articles[0].title}

@@ -126,7 +126,7 @@ export default function Category({
           </button>
         </div>
 
-        <ul className="flex flex-wrap justify-around max-sm:justify-center">
+        <ul className="flex flex-wrap justify-baseline max-sm:justify-center">
           {sorted?.slice(0, visibleCount).map((item, index) => (
             <li
               key={`${item.id}-${index}`}

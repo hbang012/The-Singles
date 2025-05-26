@@ -43,7 +43,7 @@ export default function Research({ data }: { data: Promise<Article[]> }) {
         <Link
           href={`/research?subcategory=canDo`}
           onClick={() => window.scrollTo(0, 0)}
-          className="w-[100px] font-bold text-[20px] text-[#333] underline underline-[#333] underline-offset-4 max-sm:text-[15px] max-sm:text-[#ccc] max-sm:w-[70px]"
+          className="w-[100px] font-bold text-[20px] text-[#333] underline underline-[#333] underline-offset-4 max-sm:text-[15px] max-sm:text-[#ccc] max-sm:w-[70px] max-[340px]:text-[14px]"
         >
           + MORE
         </Link>
@@ -52,7 +52,7 @@ export default function Research({ data }: { data: Promise<Article[]> }) {
       {latestArticle && (
         <div className="flex flex-row max-sm:flex-col cursor-pointer">
           <div
-            className="w-[100%] h-[580px] max-sm:mb-[0px] max-sm:w-full"
+            className="w-[100%] h-[580px] max-sm:mb-[0px] max-sm:w-full max-sm:h-[372px]"
             onClick={() => window.scrollTo(0, 0)}
           >
             <Image
@@ -67,7 +67,7 @@ export default function Research({ data }: { data: Promise<Article[]> }) {
           </div>
 
           {/* 투표 데이터 */}
-          <div className="bg-[#333] w-[50%] h-[580px] p-[0_40px_0_40px] flex flex-col gap-[20px] pt-[20px] max-sm:w-[100%] max-sm:items-center max-sm:justify-center max-sm:h-[332px] max-sm:gap-0 max-sm:p-[0_30px_0_30px] max-sm:pt-[0px]">
+          <div className="bg-[#333] w-[50%] h-[580px] p-[0_40px_0_40px] flex flex-col gap-[20px] pt-[20px] max-sm:w-[100%] max-sm:items-center max-sm:justify-center max-sm:h-[332px] max-sm:gap-0 max-sm:pt-[0px] max-sm:p-[0px]">
             <span className="text-[#d7000f] text-[16px] mt-[10px] max-sm:text-[10px]">
               {new Date() > new Date(latestArticle.closeDate)
                 ? ' 투표 종료'
