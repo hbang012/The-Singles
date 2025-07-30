@@ -101,7 +101,7 @@
     "image": "/images/do-dont/do-dont01.png",
     "likes": 0,
     "categoryId": 7,
-    "subcategory": "Do&Don’t",
+    "subcategory": "Do&DON-t",
     "tags": ["2025", "반려동물", "위생"]
   },
   {
@@ -116,7 +116,7 @@
     "image": "/images/do-dont/do-dont02.png",
     "likes": 0,
     "categoryId": 7,
-    "subcategory": "Do&Don’t",
+    "subcategory": "Do&DON-t",
     "tags": ["2025", "영화", "개봉"]
   },
   {
@@ -131,7 +131,7 @@
     "image": "/images/do-dont/do-dont03.png",
     "likes": 0,
     "categoryId": 7,
-    "subcategory": "Do&Don’t",
+    "subcategory": "Do&DON-t",
     "tags": ["2025", "드라마", "주말"]
   },
   {
@@ -146,7 +146,7 @@
     "image": "/images/do-dont/do-dont04.png",
     "likes": 0,
     "categoryId": 7,
-    "subcategory": "Do&Don’t",
+    "subcategory": "Do&DON-t",
     "tags": ["2025", "유명인", "공항", "논란"]
   },
   {
@@ -161,7 +161,7 @@
     "image": "/images/do-dont/do-dont05.png",
     "likes": 0,
     "categoryId": 7,
-    "subcategory": "Do&Don’t",
+    "subcategory": "Do&DON-t",
     "tags": ["2025", "요식업", "4월"]
   },
   {
@@ -176,7 +176,7 @@
     "image": "/images/do-dont/do-dont06.png",
     "likes": 0,
     "categoryId": 7,
-    "subcategory": "Do&Don’t",
+    "subcategory": "Do&DON-t",
     "tags": ["2025", "지브리", "ai"]
   }
 ]

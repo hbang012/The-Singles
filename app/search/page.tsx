@@ -36,7 +36,7 @@ export default function SearchResult() {
       <main className="max-w-[1320px] mx-auto mt-[200px] mb-[145px] px-5 max-md:mt-[250px] max-sm:mt-[130px]">
         <div className="max-sm:text-center max-sm:flex max-sm:flex-col max-sm:justify-center">
           <h2 className="text-black text-[44px] font-bold ml-2 border-b-[#ddd] border-b-1 mb-[30px] max-sm:text-[28px] max-sm:border-0">
-            "{keyword}"
+            &quot;{keyword}&quot;
             <span className="ml-[15px] text-[#999] text-[28px] max-sm:font-medium">
               <br className="hidden max-sm:block" />
               검색 결과 ({resultCount}개)

@@ -10,9 +10,9 @@ export default function Research({ data }: { data: Promise<Article[]> }) {
   const article = use(data) ?? [];
   const router = useRouter();
 
-  // 최신 'Do&Don’t' 아티클
+  // 최신 'Do&DON-t' 아티클
   const latestArticle = article
-    .filter((item) => item.subcategory === 'Do&Don’t')
+    .filter((item) => item.subcategory === 'Do&DON-t')
     .sort(
       (a, b) =>
         new Date(b.closeDate).getTime() - new Date(a.closeDate).getTime()

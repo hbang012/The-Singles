@@ -19,6 +19,7 @@ export default function Researchs({
   const [visibleCount, setVisibleCount] = useState(10);
   const [isExpired, setIsExpired] = useState(false);
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { isPending, isError, error, data } = useQuery<{
     title: string;
     sub: string[];
@@ -43,7 +44,7 @@ export default function Researchs({
   // 탭메뉴
   function handleSub(sub: string) {
     const labelToQueryMap: Record<string, string> = {
-      'Do&Don’t': 'canDo',
+      'Do&Don-t': 'canDo',
       'Life Survey': 'lifeSurvey',
     };
 

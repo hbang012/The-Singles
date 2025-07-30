@@ -15,8 +15,10 @@ export default function ArticleDetail({
 }) {
   const { id } = use(params);
   const router = useRouter();
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [articleData, setArticleData] = useState<Article[] | undefined>([]);
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { isPending, data, isError, error } = useQuery({
     queryKey: ['articles', id],
     queryFn: () =>
@@ -34,7 +36,9 @@ export default function ArticleDetail({
   // 카테고리 데이타 불러오기
   const {
     data: categoryData,
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     isPending: isCategoryPending,
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     isError: isCategoryError,
   } = useQuery({
     queryKey: ['categoryMeta', data?.categoryId],

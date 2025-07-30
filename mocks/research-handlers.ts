@@ -10,7 +10,7 @@ export const researchHandlers = [
 
     subcategory =
       subcategory === 'canDo'
-        ? 'Do&Don’t'
+        ? 'Do&DON-t'
         : subcategory === 'lifeSurvey'
         ? 'Life Survey'
         : subcategory;

@@ -8,6 +8,7 @@ import { use } from 'react';
 
 export default function Today({ data }: { data: Promise<Article[]> }) {
   const articles = use(data);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const router = useRouter();
 
   return (

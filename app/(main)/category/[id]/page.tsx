@@ -22,9 +22,11 @@ export default function Category({
 
   const defaultTab = 'All';
   const searchParamTab = use(searchParams).subcategory ?? defaultTab;
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [activeIndex, setActiveIndex] = useState<string | null>(null);
   const [activeSort, setActiveSort] = useState<string | null>('latest');
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { isPending, data, isError, error } = useQuery<{
     title: string;
     sub: string[];

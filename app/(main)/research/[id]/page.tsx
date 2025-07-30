@@ -15,8 +15,10 @@ export default function ResearchDetail({
 }) {
   const { id } = use(params);
   const router = useRouter();
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [articleData, setArticleData] = useState<Article[] | undefined>([]);
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { isPending, data, isError, error } = useQuery({
     queryKey: ['articles', id],
     queryFn: () =>
@@ -28,7 +30,9 @@ export default function ResearchDetail({
   // 카테고리 데이타 불러오기
   const {
     data: categoryData,
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     isPending: isCategoryPending,
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     isError: isCategoryError,
   } = useQuery({
     queryKey: ['categoryMeta', data?.categoryId],
@@ -43,13 +47,18 @@ export default function ResearchDetail({
   });
 
   const categoryName = categoryData?.title ?? '카테고리 없음';
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const categoryId = data?.categoryId;
 
   // 리서치 데이타 불러오기
   const {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     isPending: isResearchPending,
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     data: researchData,
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     isError: isResearchError,
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     error: researchError,
   } = useQuery({
     queryKey: ['researchDetail', id],

@@ -9,6 +9,7 @@ import Link from 'next/link';
 
 export default function Menu({ onClose }: { onClose: () => void }) {
   const router = useRouter();
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [searchQuery, setSearchQuery] = useState('');
   const [isSearch, setIsSearch] = useState(false);
   const [openMenus, setOpenMenus] = useState<{ [key: string]: boolean }>({
