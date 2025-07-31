@@ -1,4 +1,3 @@
-// app/(main)/page.tsx
 import { Suspense } from 'react';
 import { Article } from '@/app/_lib/types';
 import MainSlider from '@/app/componets/home/MainSlider';
@@ -13,50 +12,14 @@ import Research from '@/app/componets/home/Research';
 import Love from '@/app/componets/home/Love';
 import Submail from '@/app/componets/home/Submail';
 
-// ✨ 외부에서 비동기 fetch 함수들을 정의
-async function getArticles(): Promise<Article[]> {
-  const res = await fetch('http://localhost:9090/articles/latest');
-  if (!res.ok) throw new Error('데이터 가져오기 실패');
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
+
+async function fetchArticles(endpoint: string): Promise<Article[]> {
+  const res = await fetch(`${API_BASE_URL}/articles/${endpoint}`);
+  if (!res.ok) throw new Error(`${endpoint} 데이터 가져오기 실패`);
   return res.json();
 }
 
-async function getAllArticles(): Promise<Article[]> {
-  const res = await fetch('http://localhost:9090/articles');
-  if (!res.ok) throw new Error('전체 아티클 가져오기 실패');
-  return res.json();
-}
-
-async function getStyleArticles(): Promise<Article[]> {
-  const res = await fetch('http://localhost:9090/articles/style');
-  if (!res.ok) throw new Error('Style 아티클 가져오기 실패');
-  return res.json();
-}
-
-async function getBeautyArticles(): Promise<Article[]> {
-  const res = await fetch('http://localhost:9090/articles/beauty');
-  if (!res.ok) throw new Error('뷰티 아티클 가져오기 실패');
-  return res.json();
-}
-
-async function getLifestyleArticles(): Promise<Article[]> {
-  const res = await fetch('http://localhost:9090/articles/lifestyle');
-  if (!res.ok) throw new Error('라이프스타일 아티클 가져오기 실패');
-  return res.json();
-}
-
-async function getResearchArticles(): Promise<Article[]> {
-  const res = await fetch('http://localhost:9090/articles/research');
-  if (!res.ok) throw new Error('리서치 아티클 가져오기 실패');
-  return res.json();
-}
-
-async function getLoveArticles(): Promise<Article[]> {
-  const res = await fetch('http://localhost:9090/articles/love');
-  if (!res.ok) throw new Error('러브 아티클 가져오기 실패');
-  return res.json();
-}
-
-// ✅ 서버 컴포넌트로 async 정의
 export default async function Home() {
   const [
     latestData,
@@ -67,13 +30,13 @@ export default async function Home() {
     researchData,
     loveData,
   ] = await Promise.all([
-    getArticles(),
-    getAllArticles(),
-    getStyleArticles(),
-    getBeautyArticles(),
-    getLifestyleArticles(),
-    getResearchArticles(),
-    getLoveArticles(),
+    fetchArticles('latest'),
+    fetchArticles(''),
+    fetchArticles('style'),
+    fetchArticles('beauty'),
+    fetchArticles('lifestyle'),
+    fetchArticles('research'),
+    fetchArticles('love'),
   ]);
 
   return (
