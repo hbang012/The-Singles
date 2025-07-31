@@ -4,7 +4,6 @@ import { Article } from '@/app/_lib/types';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { use } from 'react';
 
 export default function Love({ data }: { data: Article[] }) {
   const articles = data ?? [];
