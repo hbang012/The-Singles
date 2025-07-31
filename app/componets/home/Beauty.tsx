@@ -2,12 +2,11 @@
 
 import Image from 'next/image';
 import { Article } from '@/app/_lib/types';
-import { use } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 
-export default function Beauty({ data }: { data: Promise<Article[]> }) {
-  const articles = use(data);
+export default function Beauty({ data }: { data: Article[] }) {
+  const articles = data ?? [];
   const router = useRouter();
 
   return (

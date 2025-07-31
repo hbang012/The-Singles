@@ -4,10 +4,10 @@ import { Article } from '@/app/_lib/types';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { use, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
-export default function Research({ data }: { data: Promise<Article[]> }) {
-  const article = use(data) ?? [];
+export default function Research({ data }: { data: Article[] }) {
+  const article = data ?? [];
   const router = useRouter();
 
   // 최신 'Do&DON-t' 아티클

@@ -4,10 +4,9 @@ import { Article } from '@/app/_lib/types';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { use } from 'react';
 
-export default function Lifestyle({ data }: { data: Promise<Article[]> }) {
-  const articles = use(data);
+export default function Lifestyle({ data }: { data: Article[] }) {
+  const articles = data ?? [];
   const router = useRouter();
 
   return (

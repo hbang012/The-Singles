@@ -6,12 +6,11 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import Image from 'next/image';
 import styles from './MainSlider.module.css';
-import { use } from 'react';
 import type { Article } from '@/app/_lib/types';
 import { useRouter } from 'next/navigation';
 
-export default function MainSlider({ data }: { data: Promise<Article[]> }) {
-  const articles = use(data);
+export default function MainSlider({ data }: { data: Article[] }) {
+  const articles = data ?? [];
   const router = useRouter();
 
   return (

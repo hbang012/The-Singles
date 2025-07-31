@@ -4,10 +4,9 @@ import { Article } from '@/app/_lib/types';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { use } from 'react';
 
-export default function Today({ data }: { data: Promise<Article[]> }) {
-  const articles = use(data);
+export default function Today({ data }: { data: Article[] }) {
+  const articles = data ?? [];
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const router = useRouter();
 
