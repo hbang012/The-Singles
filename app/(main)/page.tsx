@@ -14,10 +14,26 @@ import Submail from '@/app/componets/home/Submail';
 
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
 
+// 💡 개발 환경인지 확인
+const isDev = process.env.NODE_ENV === 'development';
+
+// 🧪 mock 데이터 (API 없을 경우 사용)
+const fallbackData: Article[] = [];
+
 async function fetchArticles(endpoint: string): Promise<Article[]> {
-  const res = await fetch(`${API_BASE_URL}/articles/${endpoint}`);
-  if (!res.ok) throw new Error(`${endpoint} 데이터 가져오기 실패`);
-  return res.json();
+  if (!API_BASE_URL || !isDev) {
+    // 배포 환경에서는 fetch 피하고 mock 반환
+    return fallbackData;
+  }
+
+  try {
+    const res = await fetch(`${API_BASE_URL}/articles/${endpoint}`);
+    if (!res.ok) throw new Error(`${endpoint} 가져오기 실패`);
+    return res.json();
+  } catch (err) {
+    console.error(`Fetch 오류 (${endpoint}):`, err);
+    return fallbackData;
+  }
 }
 
 export default async function Home() {
