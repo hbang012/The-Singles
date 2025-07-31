@@ -10,11 +10,12 @@ const links = [
   { href: '/forgot-password', label: '비밀번호 찾기' },
 ];
 
-export default function Login({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+// {
+//   children,
+// }: Readonly<{
+//   children: React.ReactNode;
+// }>
+export default function Login() {
   const [input, setInput] = useState('');
   const pathname = usePathname();
   return (
@@ -71,7 +72,7 @@ export default function Login({
           />
           <p className="text-black">카카오로 시작하기</p>
         </button>
-        {children}
+        {/* {children} */}
         <h2 className="text-[15px] mt-[50px] mb-[10px]">
           싱글즈 회원가입하고 내 일상의 솔루션을 찾아보세요
         </h2>
