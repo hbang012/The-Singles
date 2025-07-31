@@ -101,7 +101,7 @@ export default function Research({ data }: { data: Promise<Article[]> }) {
                     {latestArticle.dont} %
                   </p>
                   <p className="text-[#999] text-[16px] mt-[40px] ml-[60%]">
-                    DON'T
+                    DON&apos;T
                   </p>
                 </div>
               </div>
