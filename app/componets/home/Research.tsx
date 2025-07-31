@@ -6,18 +6,14 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
-export default function Research({ data }: { data: Article[] }) {
-  const article = data ?? [];
+export default function Research({ data }: { data?: Article[] }) {
+  // data가 배열인지 확인, 아니면 빈 배열로
+  const articles = Array.isArray(data) ? data : [];
   const router = useRouter();
 
-  // 최신 'Do&DON-t' 아티클 (subcategory 존재 여부 체크)
-  const latestArticle = article
-    .filter(
-      (item) =>
-        item &&
-        typeof item.subcategory === 'string' &&
-        item.subcategory === 'Do&DON-t'
-    )
+  // 최신 'Do&DON-t' 아티클 (undefined 방지)
+  const latestArticle = articles
+    .filter((item) => item?.subcategory === 'Do&DON-t')
     .sort(
       (a, b) =>
         new Date(b.closeDate).getTime() - new Date(a.closeDate).getTime()
@@ -27,11 +23,12 @@ export default function Research({ data }: { data: Article[] }) {
   const [doWidth, setDoWidth] = useState('0%');
   const [dontWidth, setDontWidth] = useState('0%');
 
+  // 클라이언트에서만 % 계산
   useEffect(() => {
-    if (latestArticle?.do !== undefined) {
+    if (typeof latestArticle?.do === 'number') {
       setDoWidth(`${latestArticle.do}%`);
     }
-    if (latestArticle?.dont !== undefined) {
+    if (typeof latestArticle?.dont === 'number') {
       setDontWidth(`${latestArticle.dont}%`);
     }
   }, [latestArticle]);
@@ -54,7 +51,12 @@ export default function Research({ data }: { data: Article[] }) {
         </Link>
       </div>
 
-      {latestArticle && (
+      {/* latestArticle이 없으면 메시지 노출 */}
+      {!latestArticle ? (
+        <p className="text-center text-[#666] mt-[40px]">
+          진행중인 투표가 없습니다.
+        </p>
+      ) : (
         <div className="flex flex-row max-sm:flex-col cursor-pointer">
           <div
             className="w-[100%] h-[580px] max-sm:mb-[0px] max-sm:w-full max-sm:h-[372px]"
@@ -65,7 +67,7 @@ export default function Research({ data }: { data: Article[] }) {
               alt={latestArticle.title}
               width={620}
               height={400}
-              priority={true}
+              priority
               className="h-[100%] w-[100%] object-cover mb-[20px] max-sm:mb-[0px] bg-amber-300"
               onClick={() => router.push(`/research?subcategory=canDo`)}
             />
@@ -89,10 +91,10 @@ export default function Research({ data }: { data: Article[] }) {
               {/* 투표 그래프 */}
               <div className="relative flex justify-between mb-[60px] max-sm:mb-[50px]">
                 <div
-                  className=" bg-[#b3935c] text-[16px] text-[#fff] rounded-tl-[5px] rounded-bl-[5px] h-[35px] max-sm:h-[24px]"
+                  className="bg-[#b3935c] text-[16px] text-[#fff] rounded-tl-[5px] rounded-bl-[5px] h-[35px] max-sm:h-[24px]"
                   style={{ width: doWidth }}
                 >
-                  <p className="absolute top-[5px] left-[10px] max-sm:top-[1px] max-sm:text-[12px] max-sm:mt-[3px] ">
+                  <p className="absolute top-[5px] left-[10px] max-sm:top-[1px] max-sm:text-[12px] max-sm:mt-[3px]">
                     {latestArticle.do} %
                   </p>
                   <p className="text-[#b3935c] text-[16px] mt-[40px]">DO</p>
@@ -102,7 +104,7 @@ export default function Research({ data }: { data: Article[] }) {
                   className="bg-[#999] text-[16px] text-[#fff] rounded-tr-[5px] rounded-br-[5px] h-[35px] max-sm:h-[24px]"
                   style={{ width: dontWidth }}
                 >
-                  <p className="absolute top-[5px] right-[10px] max-sm:top-[1px]  max-sm:text-[12px] max-sm:mt-[3px]">
+                  <p className="absolute top-[5px] right-[10px] max-sm:top-[1px] max-sm:text-[12px] max-sm:mt-[3px]">
                     {latestArticle.dont} %
                   </p>
                   <p className="text-[#999] text-[16px] mt-[40px] ml-[60%]">
