@@ -10,9 +10,14 @@ export default function Research({ data }: { data: Article[] }) {
   const article = data ?? [];
   const router = useRouter();
 
-  // 최신 'Do&DON-t' 아티클
+  // 최신 'Do&DON-t' 아티클 (subcategory 존재 여부 체크)
   const latestArticle = article
-    .filter((item) => item.subcategory === 'Do&DON-t')
+    .filter(
+      (item) =>
+        item &&
+        typeof item.subcategory === 'string' &&
+        item.subcategory === 'Do&DON-t'
+    )
     .sort(
       (a, b) =>
         new Date(b.closeDate).getTime() - new Date(a.closeDate).getTime()
@@ -23,10 +28,10 @@ export default function Research({ data }: { data: Article[] }) {
   const [dontWidth, setDontWidth] = useState('0%');
 
   useEffect(() => {
-    if (latestArticle?.do) {
+    if (latestArticle?.do !== undefined) {
       setDoWidth(`${latestArticle.do}%`);
     }
-    if (latestArticle?.dont) {
+    if (latestArticle?.dont !== undefined) {
       setDontWidth(`${latestArticle.dont}%`);
     }
   }, [latestArticle]);
